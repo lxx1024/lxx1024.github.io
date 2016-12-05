@@ -1,0 +1,89 @@
+/*  --------------------------- 公共样式 Begin */
+ .icon-arrow {
+     width: 12px;
+     height: 6px;
+     overflow: hidden;
+     position: absolute;
+     top: 18px;
+     right: -15px;
+ }
+.icon-arrow s {
+    width: 12px;
+    height: 6px;
+    line-height: 16px;
+    position: absolute;
+    top: -6px;
+}
+.dropdown {
+    margin-right: 10px;
+    position: relative;
+}
+/* 公共样式 End */
+
+/*  ------------------------------- 通栏 Begin */
+.dm-shortcut {
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    background: rgba(165, 165, 165, 0.4);
+    position: relative;
+}
+.dm-shortcut ul {
+    padding-right: 10px;
+}
+.dm-shortcut li {
+    color: #646464;
+    float: left;
+}
+.dm-shortcut .spacer{
+    width: 1px;
+    height: 12px;
+    padding: 0;
+    margin: 14px 10px 0;
+    background: #ff24d2;
+    overflow: hidden;
+}
+/* 通栏 End */
+
+/*  -------------------------------  logo/搜索栏/购物车Begin */
+.dm-header {
+    height: 100px;
+    line-height: 100px;
+    /*background: #b96afa;*/
+}
+/* -------logo */
+.dm-header .logo{
+    /*height: 100px;*/
+    width: 300px;
+    background: #ff24d2;
+    margin-right: 80px;
+}
+.dm-header .logo h1 {
+    /*height: 100px;*/
+    /*line-height: 100px;*/
+    text-align: center;
+    font-size: 36px;
+    color: #fff;
+}
+/* --------search*/
+.dm-header .search {
+    /*如何消除空格的缝隙? */
+    font-size: 0;
+}
+.dm-header .search .search-txt{
+    width: 500px;
+    height: 37px;  /* 和按钮有一个像素误差 */
+    border: 3px solid #ff24d2;
+}
+.dm-header .search .search-btn {
+    width: 60px;
+    height: 42px;
+    line-height: 42px;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff24d2;
+}
+/* --------cart*/
+
+/*  logo/搜索栏/购物车 End */
