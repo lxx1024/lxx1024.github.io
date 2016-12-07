@@ -54,7 +54,7 @@
 .dm-header .logo{
     /*height: 100px;*/
     width: 300px;
-    background: #ff24d2;
+    /*background: #ff24d2;*/
     margin-right: 80px;
 }
 .dm-header .logo h1 {
@@ -62,7 +62,7 @@
     /*line-height: 100px;*/
     text-align: center;
     font-size: 36px;
-    color: #fff;
+    color: #ff24d2;
 }
 /* --------search*/
 .dm-header .search {
@@ -71,8 +71,10 @@
 }
 .dm-header .search .search-txt{
     width: 500px;
-    height: 37px;  /* 和按钮有一个像素误差 */
+    height: 42px;
     border: 3px solid #ff24d2;
+    box-sizing: border-box;
+    padding: 0 10px;
 }
 .dm-header .search .search-btn {
     width: 60px;
@@ -85,15 +87,17 @@
 }
 /* --------cart*/
 .dm-header .cart {
-    width: 200px;
+    width: 140px;
     height: 38px;
     line-height: 42px;
     font-size: 16px;
-    text-align: center;
-    border:1px solid #ccc;
-    background: rgba(165, 165, 165, 0.3);
+    text-align: right;
+    padding-right: 20px;
+    border:1px solid #ff24d2;
+    background: rgba(165, 165, 165, 0.2);
     margin-top: 30px;
     position: relative;
+    right: 20px;
 }
 .cart .fa {
     font-size: 24px;
