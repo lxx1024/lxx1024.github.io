@@ -25,7 +25,7 @@
     width: 100%;
     height: 42px;
     line-height: 42px;
-    background: rgba(165, 165, 165, 0.4);
+    background: rgba(165, 165, 165, 0.3);
     position: relative;
 }
 .dm-shortcut ul {
@@ -49,7 +49,6 @@
 .dm-header {
     height: 100px;
     line-height: 100px;
-    /*background: #b96afa;*/
 }
 /* -------logo */
 .dm-header .logo{
@@ -67,7 +66,7 @@
 }
 /* --------search*/
 .dm-header .search {
-    /*如何消除空格的缝隙? */
+    /*如何消除标签间的空格的缝隙? */
     font-size: 0;
 }
 .dm-header .search .search-txt{
@@ -85,5 +84,27 @@
     background: #ff24d2;
 }
 /* --------cart*/
-
+.dm-header .cart {
+    width: 200px;
+    height: 38px;
+    line-height: 42px;
+    font-size: 16px;
+    text-align: center;
+    border:1px solid #ccc;
+    background: rgba(165, 165, 165, 0.3);
+    margin-top: 30px;
+    position: relative;
+}
+.cart .fa {
+    font-size: 24px;
+    color: #ff24d2;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -12px;
+}
+.cart .arrow-right {
+    font-weight: bold;
+    font-family: "SimSun", "宋体";
+}
 /*  logo/搜索栏/购物车 End */
