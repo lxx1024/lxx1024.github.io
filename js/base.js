@@ -2,14 +2,19 @@
  * 扩展js功能
  * Created by 20161024 on 2016/12/8.
  */
-$.extend({
+$.fn.extend({
     /**
-     * tab栏 内容 切换
-     * @param  this  触发的Dom元素
-     * @param target   切换的目标元素
+     * @param targets  切换的dom元素
+     * @returns {*}
      */
-    changeTab:function(target){
-        $(target).siblings().removeClass('current');
-        $(target).addClass('current');
+    getTab: function (targets) {
+        return this.each(function (index,element) {
+            //this——>DOM元素
+            this.index = index;
+            $(this).mouseenter(function () {
+                $(targets).siblings().hide();
+                $(targets[this.index]).show();
+            })
+        });
     }
-});
+})
