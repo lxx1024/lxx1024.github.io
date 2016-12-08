@@ -52,15 +52,14 @@
 }
 /* -------logo */
 .dm-header .logo{
-    /*height: 100px;*/
+    height: 100px;
     width: 300px;
-    /*background: #ff24d2;*/
-    margin-right: 80px;
+    background: url("../images/logo.fw.png");
+    margin-right: 50px;
 }
 .dm-header .logo h1 {
-    /*height: 100px;*/
-    /*line-height: 100px;*/
     text-align: center;
+    text-indent: -1000px;
     font-size: 36px;
     color: #ff24d2;
 }
@@ -72,6 +71,7 @@
 .dm-header .search .search-txt{
     width: 500px;
     height: 42px;
+    font-size: 16px;
     border: 3px solid #ff24d2;
     box-sizing: border-box;
     padding: 0 10px;
@@ -112,3 +112,32 @@
     font-family: "SimSun", "宋体";
 }
 /*  logo/搜索栏/购物车 End */
+/* ----------------------------------  导航栏 Begin*/
+.dm-nav {
+    position: relative;
+}
+.dm-nav .nav{
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid #ff24d2;
+}
+.dm-nav li {
+    float: left;
+    width: 242px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.dm-nav .nav-content li{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    position: absolute;
+    display: none;
+    background: rgba(255,255,255,0.6);
+}
+.dm-nav .nav-content li.current{
+    display: block;
+}
+/* 导航栏 End */

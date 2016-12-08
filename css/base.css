@@ -50,7 +50,7 @@ table {
 body {
     font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
     color: #666; /*150%基于当前字体尺寸的百分比行间距*/
-    background: #fff;
+    background: #fefefe;
 }
 
 .clearfix:before, .clearfix:after {
@@ -100,7 +100,7 @@ s, i, em {
 }
 
 /*公共类*/
-.col-red {
+.col-main {
     color: #ff24d2 !important;/*哆咪主色调*/
 }
 
