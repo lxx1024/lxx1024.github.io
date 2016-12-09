@@ -26,6 +26,7 @@ $(function () {
     var picNum = 0;
     var timeId = 0;
     clearInterval(timeId);
+    $(lbts).css('opacity',1)
     timeId = setInterval(function () {
         //if(picNum < 4){
         //    picNum ++ ;
