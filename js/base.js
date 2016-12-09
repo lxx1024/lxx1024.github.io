@@ -18,16 +18,22 @@ $.fn.extend({
             })
         });
     }
+    //,
+    //getNum: function (targets,className,picNum) {
+    //    return this.each(function (index, element) {
+    //        //this——>DOM元素
+    //        this.index = index;
+    //        $(this).mouseenter(function () {
+    //            $(this).siblings().removeClass(className);
+    //            $(this).addClass(className);
+    //            $(targets).siblings().hide();
+    //            $(targets[this.index]).show().css('opacity', 1);
+    //            return picNum = this.index;
+    //        })
+    //    });
+    //}
+
 });
 $.extend({
-    playlbt: (function () {
-        return function (imgs, index, num, ms) {
-            index < num ? index++ : index = 0;
-            for (var i = 0; i < imgs.length; i++) {
-                var img = imgs[i];
-                $(img).hide();
-            }
-            $(imgs[index]).fadeIn(ms);
-        }
-    })()
+
 })
