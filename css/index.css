@@ -138,6 +138,7 @@
     background: rgba(255,255,255,0.6);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 导航栏 End */
 /* --------------------------------------- 轮播图 Begin */
 .dm-lbt {
@@ -164,6 +165,10 @@
 /* --------------------------------------- 底部footer Begin */
 .footer{
     height: 100px;
+=======
+.dm-nav .nav-content li.current{
+    display: block;
+>>>>>>> parent of 97bfc4e... index.html 轮播图   添加自动轮播功能
 =======
 .dm-nav .nav-content li.current{
     display: block;

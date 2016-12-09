@@ -21,7 +21,6 @@ $(function(){
     });
 });
 // 导航栏 End
-<<<<<<< HEAD
 // ------------------------------------- 轮播图 Begin
 $(function () {
     var lbts = $('.dm-lbt li');
@@ -57,6 +56,4 @@ $(function () {
     })
 })
 // 轮播图 End
-=======
->>>>>>> parent of 97bfc4e... index.html 轮播图   添加自动轮播功能
 
