@@ -59,7 +59,7 @@
 }
 .dm-header .logo h1 {
     text-align: center;
-    text-indent: -10000px;
+    text-indent: -1000px;
     font-size: 36px;
     color: #ff24d2;
 }
@@ -134,10 +134,10 @@
     height: 100px;
     line-height: 100px;
     position: absolute;
-    opacity: 0;
-    z-index: 999;
+    display: none;
     background: rgba(255,255,255,0.6);
 }
+<<<<<<< HEAD
 /* 导航栏 End */
 /* --------------------------------------- 轮播图 Begin */
 .dm-lbt {
@@ -164,5 +164,9 @@
 /* --------------------------------------- 底部footer Begin */
 .footer{
     height: 100px;
+=======
+.dm-nav .nav-content li.current{
+    display: block;
+>>>>>>> parent of 97bfc4e... index.html 轮播图   添加自动轮播功能
 }
-/*底部 footer End*/
+/* 导航栏 End */
