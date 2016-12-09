@@ -59,7 +59,7 @@
 }
 .dm-header .logo h1 {
     text-align: center;
-    text-indent: -1000px;
+    text-indent: -10000px;
     font-size: 36px;
     color: #ff24d2;
 }
@@ -134,7 +134,8 @@
     height: 100px;
     line-height: 100px;
     position: absolute;
-    display: none;
+    opacity: 0;
+    z-index: 999;
     background: rgba(255,255,255,0.6);
 }
 /* 导航栏 End */
@@ -164,4 +165,4 @@
 .footer{
     height: 100px;
 }
-/* 导航栏 End */
+/*底部 footer End*/

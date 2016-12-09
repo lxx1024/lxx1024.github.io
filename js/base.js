@@ -4,16 +4,17 @@
  */
 $.fn.extend({
     /**
-     * @param targets  切换的dom元素
+     * table栏切换
+     * @param targets  切换的目标元素
      * @returns {*}
      */
-    getTab: function (targets) {
+    getOnly: function (targets) {
         return this.each(function (index,element) {
             //this——>DOM元素
             this.index = index;
             $(this).mouseenter(function () {
                 $(targets).siblings().hide();
-                $(targets[this.index]).show();
+                $(targets[this.index]).show().css('opacity',1);
             })
         });
     }
