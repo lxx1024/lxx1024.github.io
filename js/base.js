@@ -9,13 +9,25 @@ $.fn.extend({
      * @returns {*}
      */
     getOnly: function (targets) {
-        return this.each(function (index,element) {
+        return this.each(function (index, element) {
             //this——>DOM元素
             this.index = index;
             $(this).mouseenter(function () {
                 $(targets).siblings().hide();
-                $(targets[this.index]).show().css('opacity',1);
+                $(targets[this.index]).show().css('opacity', 1);
             })
         });
     }
+});
+$.extend({
+    playlbt: (function () {
+        return function (imgs, index, num, ms) {
+            index < num ? index++ : index = 0;
+            for (var i = 0; i < imgs.length; i++) {
+                var img = imgs[i];
+                $(img).hide();
+            }
+            $(imgs[index]).fadeIn(ms);
+        }
+    })()
 })

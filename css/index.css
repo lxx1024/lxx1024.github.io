@@ -145,15 +145,39 @@
     overflow: hidden;
     position: relative;
 }
+/* ---------- 轮播图片*/
 .dm-lbt li {
     opacity: 0;
     position: absolute;
     z-index: 0;
 }
 .dm-lbt li.first{
-    opacity: 1; /*------------------------- 有问题----------- */
+    opacity: 1;
     z-index: 1;
 }
+/* ------------ 左右按钮 */
+.dm-lbt .lbt-arrow {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+}
+.dm-lbt .lbt-arrow span {
+    width: 42px;
+    text-align: center;
+    font-family: "SimSun", "宋体";
+    font-size: 36px;
+    font-weight:bold;
+    color: white;
+    background: rgba(0,0,0,0.3);
+}
+/* ---------- 自动切换小图标 */
+
 /*轮播图 End */
 /* --------------------------------------- content Begin */
 .dm-content{
