@@ -4,8 +4,8 @@
 
 // ------------------------------------------------------------ 导航栏 Begin
 $(function(){
-    var navs = $('.nav li a');   // 导航DOM元素
-    var navsContent = $('.nav-content li');   // 切换导航内容标签
+    var $navs = $('.nav li a');   // 导航DOM元素
+    var $navsContent = $('.nav-content li');   // 切换导航内容标签
     //for (var i = 0; i < navs.length; i++) {
     //    var nav = navs[i];
     //    nav.index = i ;
@@ -14,13 +14,13 @@ $(function(){
     //        $(navsContent[this.index]).show();
     //    })
     //};  // --------这里封装成函数--> getOnly()
-    navs.getOnly(navsContent);  // 调用方法
+    $navs.getOnly($navsContent);  // 调用方法
     $('.dm-nav').mouseleave(function () {
-        $(navsContent).hide();  //鼠标移开, 隐藏导航内容
+        $($navsContent).hide();  //鼠标移开, 隐藏导航内容
     });
 });
 // 导航栏 End
-// -------------------------------------------------------   轮播图 Begin
+// ------------------------------------------------------------ 轮播图 Begin
 $(function () {
     var $lbts = $('.dm-lbt .lbt-img li');   // 轮播图片
     var $arrows = $('.dm-lbt .lbt-arrow');   // 左右箭头 div
@@ -76,7 +76,7 @@ $(function () {
             $(this).siblings().removeClass('current');
             $(this).addClass('current');
             $($lbts).siblings().hide();
-            $($lbts[this.index]).show().css('opacity', 1);
+            $($lbts[this.index]).fadeIn(800).css('opacity', 1);
             picNum = this.index;
         })
     };
@@ -107,4 +107,14 @@ $(function () {
     }
 })
 // 轮播图 End
-
+// ------------------------------------------------------------ 今日热门 Begin
+$(function(){
+    var $titles = $('.dm-today .today-title li');   // 今日热门DOM元素
+    var $contents = $('.dm-today .today-content li');   // 切换今日热门内容标签
+    $titles.getOnly($contents);  // 切换内容   调用getOnly方法
+    $titles.mouseover(function () {
+        $titles.css('color','white');
+        $(this).css('color','yellow');
+    })
+});
+// 今日热门 End
