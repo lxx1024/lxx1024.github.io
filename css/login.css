@@ -1,0 +1,27 @@
+.login-top {
+    padding: 20px;
+    position: relative;
+}
+.login-top h1 {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    color: #ff24d2;
+    position: absolute;
+    bottom: 40px;
+    left: 300px;
+}
+.login-main {
+    background: #572fdc;
+}
+.login-main .w {
+    position: relative;
+}
+.login-message {
+    width: 400px;
+    height: 350px;
+    background: #f3eeff;
+    position: absolute;
+    top: 50px;
+    right: 230px;
+}

@@ -9,10 +9,10 @@
  }
 .icon-arrow s {
     width: 12px;
-    height: 6px;
+    height: 7px;
     line-height: 16px;
     position: absolute;
-    top: -6px;
+    top: -8px;
 }
 .dropdown {
     margin-right: 10px;
