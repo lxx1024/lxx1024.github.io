@@ -204,7 +204,7 @@
 /* --------------------------------------- 今日热门 Begin*/
 .dm-today {
     height: 300px;
-    margin: 10px auto;
+    margin-top: 12px;
 }
 /* --------------今日热门标题*/
 .dm-today .today-title{
@@ -234,9 +234,10 @@
 }
 .dm-today .today-content li{
     width: 100%;
+    height: 100%;
     position: absolute;
     opacity: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  /*放置在设置边框的元素里面*/
 }
 .dm-today .today-content li.new{
     opacity: 1;
@@ -256,20 +257,99 @@
 }
 /*---------边框颜色 b*/
 .b-pink {
-    border: 1px solid rgb(251, 128, 88);
+    border: 2px solid rgb(251, 128, 88);
 }
 .b-orange {
-    border: 1px solid rgb(242, 187, 108);
+    border: 2px solid rgb(242, 187, 108);
 }
 .b-green {
-    border: 1px solid rgb(126, 207, 119);
+    border: 2px solid rgb(126, 207, 119);
 }
 .b-blue {
-    border: 1px solid rgb(117, 168, 228);
+    border: 2px solid rgb(117, 168, 228);
 }
 /*今日热门End*/
 
+/*---------------------------------------------品牌汇 Begin */
+.dm-pinpaihui {
+    margin-top: 20px;
+    height: 100px;
+    line-height: 100px;
+}
+.dm-pinpaihui .title {
+    width: 200px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: '黑体';
+    color: #572fdc;
+    text-align: center;
+    border-bottom: 1px solid #2989f0;
+}
+.dm-pinpaihui ul li {
+    float: left;
+}
+.dm-pinpaihui ul li a{
+    display: block;
+    box-sizing: border-box;      /* c3属性  宽高大小以什么为准*/
+    width: 200px;
+    height: 100px;
+    font-size: 20px;
+    text-align: center;
+    color: #f8f8f8;
+    background: #75A8E4;
+    border: 1px solid #2989f0;
+    position: relative;
+}
+.dm-pinpaihui ul li a span {
+    position: relative;
+    z-index: 2;
+}
+.dm-pinpaihui ul li a::before {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    z-index: 1;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(255, 36, 210, 1);
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;      /* css3属性 ------ 过渡效果*/
+    -webkit-transform: scale(.5);  /* css3属性 ------ 缩放比例*/
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+}
+.dm-pinpaihui ul li:hover a::before{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+    opacity: 1;
+    visibility: visible;
+}
 
+/* 品牌汇 End  */
+/* ---------------------------------------------广告1 Begi*/
+
+
+/* 广告1 End */
+
+
+/*------------------这是分割线---------------------------------------------------*/
 
 /* --------------------------------------- content Begin */
 .dm-content{
