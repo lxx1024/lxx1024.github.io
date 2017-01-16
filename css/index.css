@@ -278,15 +278,17 @@
 }
 .dm-pinpaihui .title {
     width: 200px;
+    height: 100px;
     font-size: 28px;
     font-weight: bold;
     font-family: '黑体';
     color: #572fdc;
     text-align: center;
+    box-sizing: border-box;
     border-bottom: 1px solid #2989f0;
 }
 .dm-pinpaihui ul li {
-    float: left;
+    float: left;         /*品牌汇里的列表li都会左浮动*/
 }
 .dm-pinpaihui ul li a{
     display: block;
@@ -310,30 +312,28 @@
     height: 100px;
     z-index: 1;
     content: "";
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: -1px;
+    left: -1px;
     opacity: 0;
     visibility: hidden;
     background-color: rgba(255, 36, 210, 1);
-    -webkit-transition: all .4s ease;
+    -webkit-transition: all .4s ease;    /* css3属性 ------ 过渡效果*/
     -moz-transition: all .4s ease;
     -ms-transition: all .4s ease;
     -o-transition: all .4s ease;
-    transition: all .4s ease;      /* css3属性 ------ 过渡效果*/
-    -webkit-transform: scale(.5);  /* css3属性 ------ 缩放比例*/
+    transition: all .4s ease;
+    -webkit-transform: scale(.5);  /* css3属性 ------ scale 缩放比例*/
     -moz-transform: scale(.5);
     -ms-transform: scale(.5);
     -o-transform: scale(.5);
     transform: scale(.5);
 }
 .dm-pinpaihui ul li:hover a::before{
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
+    -webkit-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -ms-transform: scale(0.99);
+    -o-transform: scale(0.99);
+    transform: scale(0.99);
     -webkit-transition-delay: 0s;
     -moz-transition-delay: 0s;
     -o-transition-delay: 0s;
@@ -341,7 +341,17 @@
     opacity: 1;
     visibility: visible;
 }
-
+/*-------------------品牌汇内容pinpai-content   Begin */
+.dm-pinpaihui .pinpai-content {
+    height: 400px;
+    border: 2px solid #2989f0;
+}
+.dm-pinpaihui .pinpai-content li{
+    opacity: 0;
+}
+.dm-pinpaihui .pinpai-content .oppo{
+    opacity: 1;
+}
 /* 品牌汇 End  */
 /* ---------------------------------------------广告1 Begi*/
 

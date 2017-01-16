@@ -118,3 +118,14 @@ $(function(){
     })
 });
 // 今日热门 End
+// ------------------------------------------------------------ 品牌汇 Begin
+$(function(){
+    var $titles = $('.dm-pinpaihui .classes li');   // 品牌汇导航DOM元素
+    var $contents = $('.dm-pinpaihui .pinpai-content li');   // 切换品牌汇内容标签
+    $titles.getOnly($contents);  // 切换内容   调用getOnly方法
+    $titles.click(function () {
+        $titles.css('background','white');
+        $(this).css('background','yellow');
+    })
+});
+//品牌汇 End
