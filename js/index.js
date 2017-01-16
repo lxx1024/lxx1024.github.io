@@ -118,14 +118,20 @@ $(function(){
     })
 });
 // 今日热门 End
-// ------------------------------------------------------------ 品牌汇 Begin
+// ------------------------------------------------------------- 品牌汇 Begin
 $(function(){
-    var $titles = $('.dm-pinpaihui .classes li');   // 品牌汇导航DOM元素
+    var $titles = $('.dm-pinpaihui .classes li a');   // 品牌汇导航DOM元素
     var $contents = $('.dm-pinpaihui .pinpai-content li');   // 切换品牌汇内容标签
     $titles.getOnly($contents);  // 切换内容   调用getOnly方法
-    $titles.click(function () {
-        $titles.css('background','white');
-        $(this).css('background','yellow');
+    var timerId = 0;   //记录定时器，方便清除定时器
+    $titles.mouseenter(function () {
+        clearTimeout(timerId);
+        var _this =this;   //this指代当前触发的dom元素
+        $titles.css('background-color','#75A8E4');   //所有的导航背景色恢复原来的
+        timerId = setTimeout(function () {
+            //定时器里面的this指代的是window
+            $(_this).css('background-color','rgba(255, 36, 210, 1)');   // 当前选中的导航颜色设置
+        },300)   // 延迟该事件，让其本身的效果结束再执行。
     })
 });
 //品牌汇 End
