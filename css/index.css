@@ -1,144 +1,4 @@
-/*  --------------------------- 公共样式 Begin */
- .icon-arrow {
-     width: 12px;
-     height: 6px;
-     overflow: hidden;
-     position: absolute;
-     top: 18px;
-     right: -15px;
- }
-.icon-arrow s {
-    width: 12px;
-    height: 7px;
-    line-height: 16px;
-    position: absolute;
-    top: -8px;
-}
-.dropdown {
-    margin-right: 10px;
-    position: relative;
-}
-/* 公共样式 End */
 
-/*  ------------------------------- 通栏 Begin */
-.dm-shortcut {
-    width: 100%;
-    height: 42px;
-    line-height: 42px;
-    background: rgba(165, 165, 165, 0.3);
-    position: relative;
-}
-.dm-shortcut ul {
-    padding-right: 10px;
-}
-.dm-shortcut li {
-    color: #646464;
-    float: left;
-}
-.dm-shortcut .spacer{
-    width: 1px;
-    height: 12px;
-    padding: 0;
-    margin: 14px 10px 0;
-    background: #ff24d2;
-    overflow: hidden;
-}
-/* 通栏 End */
-
-/*  -------------------------------  logo/搜索栏/购物车Begin */
-.dm-header {
-    height: 100px;
-    line-height: 100px;
-}
-/* -------logo */
-.dm-header .logo{
-    height: 100px;
-    width: 300px;
-    background: url("../images/domi.png");
-    margin-right: 50px;
-}
-.dm-header .logo h1 {
-    text-align: center;
-    text-indent: -10000px;
-    font-size: 36px;
-    color: #ff24d2;
-}
-/* --------search*/
-.dm-header .search {
-    /*如何消除标签间的空格的缝隙? */
-    font-size: 0;
-}
-.dm-header .search .search-txt{
-    width: 500px;
-    height: 42px;
-    font-size: 16px;
-    border: 3px solid #ff24d2;
-    box-sizing: border-box;
-    padding: 0 10px;
-}
-.dm-header .search .search-btn {
-    width: 60px;
-    height: 42px;
-    line-height: 42px;
-    color:white;
-    font-size: 16px;
-    font-weight: bold;
-    background: #ff24d2;
-}
-/* --------cart*/
-.dm-header .cart {
-    width: 140px;
-    height: 38px;
-    line-height: 42px;
-    font-size: 16px;
-    text-align: right;
-    padding-right: 20px;
-    border:1px solid #ff24d2;
-    background: rgba(165, 165, 165, 0.2);
-    margin-top: 30px;
-    position: relative;
-    right: 20px;
-}
-.cart .fa {
-    font-size: 24px;
-    color: #ff24d2;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    margin-top: -12px;
-}
-.cart .arrow-right {
-    font-weight: bold;
-    font-family: "SimSun", "宋体";
-}
-/*  logo/搜索栏/购物车 End */
-/* ----------------------------------  导航栏 Begin*/
-.dm-nav {
-    position: relative;
-}
-.dm-nav .nav{
-    height: 50px;
-    line-height: 50px;
-    font-size: 22px;
-    font-weight: bold;
-    border-bottom: 2px solid #ff24d2;
-}
-.dm-nav li {
-    float: left;
-    width: 242px;
-    box-sizing: border-box;
-    text-align: center;
-}
-.dm-nav .nav-content li{
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    position: absolute;
-    opacity: 0;
-    z-index: 999;
-    background: rgba(255,255,255,0.6);
-}
-/* 导航栏 End */
 /* --------------------------------------- 轮播图 Begin */
 .dm-lbt {
     height: 450px;
@@ -257,16 +117,16 @@
 }
 /*---------边框颜色 b*/
 .b-pink {
-    border: 2px solid rgb(251, 128, 88);
+    border: 1px solid rgb(251, 128, 88);
 }
 .b-orange {
-    border: 2px solid rgb(242, 187, 108);
+    border: 1px solid rgb(242, 187, 108);
 }
 .b-green {
-    border: 2px solid rgb(126, 207, 119);
+    border: 1px solid rgb(126, 207, 119);
 }
 .b-blue {
-    border: 2px solid rgb(117, 168, 228);
+    border: 1px solid rgb(117, 168, 228);
 }
 /*今日热门End*/
 
@@ -277,7 +137,7 @@
     /*高度随内容变化*/
 }
 .dm-pinpaihui .title {
-    width: 200px;
+    width: 210px;
     height: 80px;
     font-size: 28px;
     font-weight: bold;
@@ -320,26 +180,11 @@
     opacity: 0;
     visibility: hidden;
     background-color: rgba(255, 36, 210, 1);
-    -webkit-transition: all .4s ease;    /* css3属性 ------ 过渡效果*/
-    -moz-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    -o-transition: all .4s ease;
     transition: all .4s ease;
-    -webkit-transform: scale(.5);  /* css3属性 ------ scale 缩放比例*/
-    -moz-transform: scale(.5);
-    -ms-transform: scale(.5);
-    -o-transform: scale(.5);
-    transform: scale(.5);
+    transform: scale(.5); /* css3属性 ------ scale 缩放比例*/
 }
 .dm-pinpaihui ul li:hover a::before{
-    -webkit-transform: scale(0.99);
-    -moz-transform: scale(0.99);
-    -ms-transform: scale(0.99);
-    -o-transform: scale(0.99);
     transform: scale(0.99);
-    -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    -o-transition-delay: 0s;
     transition-delay: 0s;
     opacity: 1;
     visibility: visible;
@@ -347,7 +192,7 @@
 /*-------------------品牌汇内容pinpai-content   Begin */
 .dm-pinpaihui .pinpai-content {
     height: 350px;
-    border: 1px solid #2989f0;
+    border: 1px solid #70c2fe;
 }
 .dm-pinpaihui .pinpai-content li{
     opacity: 0;
@@ -362,20 +207,99 @@
     float: left;
     margin-top: 20px;
 }
-
+.dm-advertise ul li img {
+    cursor: pointer;
+}
 /* 广告1 End */
+/* ---------------------------------------------精选配件dm-peijian  Begin */
+.dm-peijian {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.dm-peijian .title {
+    width: 230px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: '黑体';
+    color: #572fdc;
+    text-align: center;
+    box-sizing: border-box;
+}
+.dm-peijian .content {
+    box-sizing: border-box;
+    height: 607px;
+    border: 1px solid #70c2fe;
+}
+/*------------------------- 配件左边内容 */
+.dm-peijian .content-left {
+    width: 371px;
+    height: 100%;
+    position: relative;
+}
+.dm-peijian .content-left .lbt-img {
+    height: 605px;
+    overflow: hidden;
+    position: relative;
+}
+/* ---------- 轮播图片*/
+.dm-peijian .content-left .lbt-img li {
+    opacity: 0;
+    position: absolute;
+    z-index: 0;
+}
+.dm-peijian .content-left .lbt-img li.first{
+    opacity: 1;
+    z-index: 1;
+}
+/* ---------- 自动切换小图标 */
+.dm-peijian .content-left .lbt-num {
+    width: 90px;
+    height: 20px;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 50%;
+    margin-left: -45px;
+}
+.dm-peijian .content-left .lbt-num li{
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    float: left;
+    margin: 0 10px;
+}
+.dm-peijian .content-left .lbt-num li.current {
+    background: rgb(78, 204, 255);
+}
+/*------------------------- 配件右边内容 */
+.dm-peijian .content-right {
+    width: 830px;
+    height: 100%;
+    box-sizing: border-box;
+    background: #fde3ec;
+}
 
+
+/* 精选配件dm-peijian End  */
 
 /*------------------这是分割线---------------------------------------------------*/
 
 /* --------------------------------------- content Begin */
-.dm-content{
-    width: 100%;
-    height: 500px;
-}
+/*.dm-content{*/
+    /*width: 100%;*/
+    /*height: 500px;*/
+/*}*/
 /*content End*/
 /* --------------------------------------- 底部footer Begin */
 .footer{
-    height: 100px;
+    height: 400px;
+    background: rgba(165, 165, 165, 0.3);
+    padding: 20px;
 }
 /*底部 footer End*/

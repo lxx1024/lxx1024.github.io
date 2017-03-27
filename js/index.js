@@ -103,7 +103,7 @@ $(function () {
     /**自动播放 函数*/
     function play(){
         picNum < $lbts.length-1? picNum ++ : picNum = 0;
-        showImg($lbts,picNum,800);
+        showImg($lbts,picNum,1000);
     }
 })
 // 轮播图 End
@@ -135,3 +135,65 @@ $(function(){
     })
 });
 //品牌汇 End
+// -------------------------------------------------------------- 配件下的轮播图  Begin
+$(function () {
+    var $lbts = $('.dm-peijian .lbt-img li');   // 轮播图片
+    var $lbtNums = $('.dm-peijian .lbt-num li');   // 小图标
+    var picNum = 0;    // 图片轮播标记变量
+    var timeId = 0;
+    $($lbts).css('opacity',1);
+    clearInterval(timeId);
+    timeId = setInterval(function () {
+        play();
+        showNum($lbtNums,picNum);
+    },2000)
+    // --------------------------------------------------- 鼠标移入移出事件
+    $('.content-left').mouseenter(function () {
+        clearInterval(timeId);
+
+    }).mouseleave(function () {
+        timeId = setInterval(function () {
+            play();
+            showNum($lbtNums,picNum);
+        },2000)
+    });
+    // --------------------------------------------------  小图标自动切换
+    for (var i = 0; i < $lbtNums.length; i++) {
+        var lbtNum = $lbtNums[i];
+        lbtNum.index = i;
+        $(lbtNum).mouseenter(function () {
+            // this指代当前的小图标
+            $(this).siblings().removeClass('current');
+            $(this).addClass('current');
+            $($lbts).siblings().hide();
+            $($lbts[this.index]).fadeIn(800).css('opacity', 1);
+            picNum = this.index;
+        })
+    };
+// ------------------------------------------------------   封装的函数
+    /**
+     * 轮播图当前图片显示，其他图片隐藏
+     * @param doms  操作的元素
+     * @param index   索引
+     * @param ms  速度 毫秒
+     */
+    function showImg(doms,index,ms){
+        $(doms).hide();
+        $(doms).eq(index).fadeIn(ms);
+    }
+    /**
+     * 轮播图当前小图标高亮显示
+     * @param doms  操作的元素
+     * @param index   索引
+     */
+    function showNum(doms,index){
+        $(doms).removeClass('current');
+        $(doms).eq(index).addClass('current');
+    }
+    /**自动播放 函数*/
+    function play(){
+        picNum < $lbts.length-1? picNum ++ : picNum = 0;
+        showImg($lbts,picNum,1000);
+    }
+})
+// 配件下的轮播图

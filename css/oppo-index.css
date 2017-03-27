@@ -1,0 +1,114 @@
+body{
+    background-color: #ffe8ea;
+}
+/* ----------------------------------  导航栏 Begin*/
+.dm-nav .nav-content li{
+    height: 60px;
+    line-height: 60px;
+}
+/* 导航栏 End */
+/* ----------------------------------- oppo-logo Begin*/
+.oppo-logo {
+    font-size: 24px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #ff24d2;
+}
+.oppo-logo i{
+    color: #009a72;
+    font-size: 26px;
+}
+/* oppo-logo End*/
+/* ------------------------------------oppo-main-content Begin*/
+.oppo-main-content {
+    height: 738px;
+    overflow: hidden;
+}
+.oppo-main-content a{
+    overflow: hidden;
+}
+.oppo-main-content .oppo-main-left a{
+    display: block;
+    height: 365px;
+    width: 770px;
+    position: relative;
+    margin-bottom: 8px;
+}
+.oppo-main-content .oppo-main-left img{
+    height: 365px;   /*控制图片大小*/
+}
+.oppo-main-content .oppo-main-left .photo{
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+}
+.oppo-main-content .oppo-main-left .content{
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+}
+/* -------- oppo-main-right */
+.oppo-main-content .oppo-main-right a{
+    display: block;
+    width: 396px;
+    height: 738px;
+    position: relative;
+}
+.oppo-main-content .oppo-main-right img{
+    height: 738px;
+}
+.oppo-main-content .oppo-main-right .photo{
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    top: 0px;
+}
+.oppo-main-content .oppo-main-right .content {
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 0px;
+}
+.oppo-main-content img {
+    transition: all 1.2s ease;   /* css3属性--- 动画变化的速度等属性*/
+}
+.oppo-main-content a:hover img.photo {
+    transform: scale(1.05);      /* css3属性---鼠标悬停时放大 */
+    transition-delay: 0s;
+}
+/* oppo-main-content End*/
+
+/* -----------------------------------------------------------------------oppo-goods Begin */
+.oppo-goods {
+    height: 300px;
+}
+.oppo-goods .oppo-goods-title {
+    height: 100px;
+    line-height: 100px;
+    font-size: 26px;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.oppo-goods .oppo-goods-title .left {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.oppo-goods .oppo-goods-title .right {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+.oppo-goods .goods-content {
+    height: 500px;
+    background: #f8f8f8;
+}
+/* oppo-goodsEnd*/

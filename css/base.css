@@ -135,3 +135,148 @@ s, i, em {
 }
 
 /*css初始化完成*/
+
+
+
+/*  --------------------------- 公共样式 Begin */
+.icon-arrow {
+    width: 12px;
+    height: 6px;
+    overflow: hidden;
+    position: absolute;
+    top: 18px;
+    right: -15px;
+}
+.icon-arrow s {
+    width: 12px;
+    height: 7px;
+    line-height: 16px;
+    position: absolute;
+    top: -8px;
+}
+.dropdown {
+    margin-right: 10px;
+    position: relative;
+}
+/* 公共样式 End */
+
+/*  ------------------------------- 通栏 Begin */
+.dm-shortcut {
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    background: rgba(165, 165, 165, 0.3);
+    position: relative;
+}
+.dm-shortcut ul {
+    padding-right: 10px;
+}
+.dm-shortcut li {
+    color: #646464;
+    float: left;
+}
+.dm-shortcut .spacer{
+    width: 1px;
+    height: 12px;
+    padding: 0;
+    margin: 14px 10px 0;
+    background: #ff24d2;
+    overflow: hidden;
+}
+/* 通栏 End */
+/*头部--------------------------------------------------------------------------Begin*/
+/*  -------------------------------  logo/搜索栏/购物车Begin */
+.dm-header {
+    height: 100px;
+    line-height: 100px;
+}
+/* -------logo */
+.dm-header .logo{
+    height: 100px;
+    width: 300px;
+    background: url("../images/domi.png");
+    margin-right: 50px;
+}
+.dm-header .logo h1 {
+    text-align: center;
+    text-indent: -10000px;
+    font-size: 36px;
+    color: #ff24d2;
+}
+/* --------search*/
+.dm-header .search {
+    /*如何消除标签间的空格的缝隙? */
+    font-size: 0;
+}
+.dm-header .search .search-txt{
+    width: 500px;
+    height: 42px;
+    font-size: 16px;
+    border: 3px solid #ff24d2;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.dm-header .search .search-btn {
+    width: 60px;
+    height: 42px;
+    line-height: 42px;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff24d2;
+}
+/* --------cart*/
+.dm-header .cart {
+    width: 140px;
+    height: 38px;
+    line-height: 42px;
+    font-size: 16px;
+    text-align: right;
+    padding-right: 20px;
+    border:1px solid #ff24d2;
+    background: rgba(165, 165, 165, 0.2);
+    margin-top: 30px;
+    position: relative;
+    right: 20px;
+}
+.cart .fa {
+    font-size: 24px;
+    color: #ff24d2;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -12px;
+}
+.cart .arrow-right {
+    font-weight: bold;
+    font-family: "SimSun", "宋体";
+}
+/*  logo/搜索栏/购物车 End */
+/* ----------------------------------  导航栏 Begin*/
+.dm-nav {
+    position: relative;
+}
+.dm-nav .nav{
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid #ff24d2;
+}
+.dm-nav li {
+    float: left;
+    width: 242px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.dm-nav .nav-content li{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    position: absolute;
+    opacity: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0);   /*改变导航栏透明度*/
+}
+/* 导航栏 End */
+/*头部---------------------------------------------------------------------------------End*/

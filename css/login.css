@@ -6,7 +6,7 @@
     font-size: 32px;
     font-weight: bold;
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-    color: #ff24d2;
+    color: #572fdc;
     position: absolute;
     bottom: 40px;
     left: 300px;
@@ -18,10 +18,12 @@
     position: relative;
 }
 .login-message {
-    width: 400px;
+    width: 460px;
     height: 350px;
     background: #f3eeff;
     position: absolute;
+    box-sizing: border-box;
+    padding: 20px;
     top: 50px;
-    right: 230px;
+    right: 170px;
 }
