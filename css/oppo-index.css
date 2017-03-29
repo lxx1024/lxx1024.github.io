@@ -1,5 +1,5 @@
 body{
-    background-color: #ffe8ea;
+    background-color: #f3dddf;
 }
 /* ----------------------------------  导航栏 Begin*/
 .dm-nav .nav-content li{
@@ -82,9 +82,7 @@ body{
 /* oppo-main-content End*/
 
 /* -----------------------------------------------------------------------oppo-goods Begin */
-.oppo-goods {
-    height: 300px;
-}
+/*-----------产品系列标题--------------*/
 .oppo-goods .oppo-goods-title {
     height: 100px;
     line-height: 100px;
@@ -108,7 +106,123 @@ body{
     right: 0;
 }
 .oppo-goods .goods-content {
-    height: 500px;
-    background: #f8f8f8;
+    /*height: 500px;*/
+    /*background: #ffffff;*/
+    overflow: hidden;
+}
+/*---------产品内容-------*/
+.oppo-goods .goods-content li{
+    float: left;
+    width: 295px;
+    height: 350px;
+    background: pink;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 45px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.oppo-goods .goods-content li:nth-child(4n){   /*选中4倍数的元素*/
+    margin-right: 0px;
+}
+/*图片*/
+.oppo-goods .goods-content li .picture{
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+}
+.oppo-goods .goods-content .picture img {
+    width: 160px;
+}
+/*内容,包括标题,价格,简介*/
+.oppo-goods .goods-content .content {
+    display: inline-block;
+    margin-top: 35px;
+}
+.oppo-goods .goods-content .goods-title{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SimSun", "宋体";
+    color: black;
+}
+.oppo-goods .goods-content .goods-title i{
+    color: red;
+}
+.oppo-goods .goods-content .goods-desc{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
 }
 /* oppo-goodsEnd*/
+/*--------------------------------------------------------------------oppo-features Begin */
+.oppo-features {
+    margin-bottom: 50px;
+}
+.oppo-features .oppo-features-title {
+    height: 100px;
+    line-height: 100px;
+    font-size: 26px;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.oppo-features .oppo-features-title .left {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.oppo-features .oppo-features-title .right {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+/* oppo-features End */
+
+/*底部Begin---------------------------------------------------------------------------------底部Begin*/
+.footer {
+    background: linear-gradient(to bottom,#f3dddf, #ea83c7);
+}
+.footer .footer-logo {
+    color: #009a72;
+}
+/*-------------底部分享链接---------*/
+.footer .footer-share a{
+    background: #8a8a8a;
+}
+
+.footer .footer-share a .fa {
+    color: #ffe8ea;
+}
+.footer .footer-share .line {
+    background: #666;
+}
+.footer .footer-share a:last-of-type {
+    color: #ffe8ea;
+}
+.footer .footer-share a:hover {
+    background: #009a72;
+}
+/*--------------底部相关网站链接 ---------*/
+.footer .footer-siteLinks a {
+    color: #000;
+}
+.footer .footer-siteLinks a:hover {
+    color: #009a72;
+}
+/*-------底部版权--------*/
+.footer .footer-copyright {
+    color: #000;
+}
+.footer .footer-copyright a {
+    color: inherit;
+}
+/*底部End----------------------------------------------------------------------------------底部End*/

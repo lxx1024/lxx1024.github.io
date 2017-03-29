@@ -184,7 +184,7 @@ s, i, em {
     overflow: hidden;
 }
 /* 通栏 End */
-/*头部--------------------------------------------------------------------------Begin*/
+/*头部Begin--------------------------------------------------------------------------Begin*/
 /*  -------------------------------  logo/搜索栏/购物车Begin */
 .dm-header {
     height: 100px;
@@ -279,4 +279,101 @@ s, i, em {
     background: rgba(255,255,255,0);   /*改变导航栏透明度*/
 }
 /* 导航栏 End */
-/*头部---------------------------------------------------------------------------------End*/
+/*头部End---------------------------------------------------------------------------------头部End*/
+/*底部Begin---------------------------------------------------------------------------------底部Begin*/
+.footer {
+    height: 350px;
+    background: #333;
+}
+.footer .footer-logo {
+    font-size: 24px;
+    height: 120px;
+    line-height: 110px;
+    color: #888888;
+    font-weight: bold;
+    text-align: center;
+}
+/*-------------底部分享链接---------*/
+.footer .footer-share {
+    height: 45px;
+    text-align: center;
+}
+.footer .footer-share a{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    background: #808080;
+    text-align: center;
+    margin: -18px 10px;
+    position: relative;
+}
+
+.footer .footer-share a .fa {
+    display: inline-block;
+    color: #c6c6c6;
+    font: normal normal normal 22px/1 FontAwesome;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.footer .footer-share a .fa.fa-github {
+    font: normal normal normal 24px/1 FontAwesome;
+    left: 11px;
+}
+.footer .footer-share a .fa.fa-android {
+    font: normal normal normal 24px/1 FontAwesome;
+    left: 12px;
+}
+.footer .footer-share .line {
+    display: inline-block;
+    height: 45px;
+    width: 1px;
+    background: #666;
+    margin: -18px 10px;
+}
+.footer .footer-share a:last-of-type {
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    color: #c6c6c6;
+    font-size: 16px;
+    border-radius: 18px;
+    text-align: right;
+    padding-right: 13px;
+}
+.footer .footer-share a .fa.fa-whatsapp {
+    font: normal normal normal 24px/1 FontAwesome;
+    left: 15px;
+    top: 9px;
+}
+.footer .footer-share a:hover {
+    background: #ff24d2;
+}
+/*--------------底部相关网站链接 ---------*/
+.footer .footer-siteLinks {
+    margin-top: 40px;
+    text-align: center;
+}
+.footer .footer-siteLinks a {
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #797979;
+    margin: 0 10px;
+}
+.footer .footer-siteLinks a:hover {
+    color: #ff24d2;
+}
+/*-------底部版权--------*/
+.footer .footer-copyright {
+    text-align: center;
+    color: #797979;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.footer .footer-copyright a {
+    color: inherit;
+}
+/*底部End----------------------------------------------------------------------------------底部End*/
