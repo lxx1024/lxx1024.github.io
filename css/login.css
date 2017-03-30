@@ -6,7 +6,7 @@
     font-size: 32px;
     font-weight: bold;
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-    color: #572fdc;
+    color: #ff24d2;
     position: absolute;
     bottom: 40px;
     left: 300px;
@@ -23,7 +23,116 @@
     background: #f3eeff;
     position: absolute;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 10px 30px 0px;
     top: 50px;
     right: 170px;
+}
+.login-message div {
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    font-size: 20px;
+    border: solid 1px #cccccc;
+    position: relative;
+    margin: 25px 0;
+}
+.login-message div input {
+    width: 280px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    box-sizing: border-box;
+    padding: 7px;
+    right: 20px;
+    background: #f3eeff;
+}
+.login-message .login-submit {
+    display: block;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: #ff24d2;
+    margin-top: 10px;
+}
+.login-message .forget-password {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+.login-message .others {
+    margin-top: 40px;
+    position: relative;
+}
+.login-message .others a.qq-icon,.login-message .others a.weixin-icon{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    color: #e7e7e7;
+    background: #5398c9;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 50px;
+}
+.login-message .others a i {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+.login-message .others a.weixin-icon {
+    background: #00c900;
+}
+.login-message .others a.qq,.login-message .others a.weixin{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 40px;
+}
+.login-message .others a.weixin {
+    left: 120px;
+}
+.login-message .others .toRegister {
+    display: inline-block;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    position: relative;
+}
+.login-message .others .toRegister .fa {
+    position: absolute;
+    font-size: 16px;
+    color: red;
+    left: -18px;
+    top: 5px;
+}
+/*------------------------底部--------------------*/
+.footer {
+    height: 100px;
+    background: white;
+    color: #545454;
+}
+.footer a {
+    color: inherit;
+}
+.footer .footer-siteLinks a:hover {
+    color: #572fdc;
+}
+.footer .footer-copyright {
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
 }

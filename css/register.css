@@ -1,0 +1,93 @@
+.register-top {
+    padding: 20px;
+    position: relative;
+}
+.register-top h1 {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    color: #ff24d2;
+    position: absolute;
+    bottom: 40px;
+    left: 300px;
+}
+.register-top a.toLogin{
+    display: inline-block;
+    float: right;
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+.register-main {
+    background: #572fdc;
+}
+.register-main .w {
+    position: relative;
+}
+.register-message {
+    width: 460px;
+    height: 350px;
+    background: #f3eeff;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px 30px 0px;
+    top: 50px;
+    right: 170px;
+}
+.register-message div {
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    font-size: 20px;
+    border: solid 1px #cccccc;
+    position: relative;
+    margin: 18px 0;
+}
+.register-message div input {
+    width: 280px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    box-sizing: border-box;
+    padding: 7px;
+    right: 20px;
+    background: #f3eeff;
+}
+.register-message .form-agree a{
+    color: #ff24d2;
+}
+.register-message .register-submit {
+    display: block;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: #ff24d2;
+    margin-top: 10px;
+}
+
+
+.footer {
+    height: 100px;
+    background: white;
+    color: #545454;
+}
+.footer a {
+    color: inherit;
+}
+.footer .footer-siteLinks a:hover {
+    color: #572fdc;
+}
+.footer .footer-copyright {
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+}
