@@ -1,4 +1,6 @@
-
+.main {
+    background: white;
+}
 /* --------------------------------------- 轮播图 Begin */
 .dm-lbt {
     height: 450px;
@@ -214,7 +216,6 @@
 /* ---------------------------------------------精选配件dm-peijian  Begin */
 .dm-peijian {
     margin-top: 20px;
-    margin-bottom: 30px;
 }
 .dm-peijian .title {
     width: 230px;
@@ -286,20 +287,18 @@
 }
 
 
-/* 精选配件dm-peijian End  */
+ /*精选配件dm-peijian End  */
 
 /*------------------这是分割线---------------------------------------------------*/
 
-/* --------------------------------------- content Begin */
-/*.dm-content{*/
-    /*width: 100%;*/
-    /*height: 500px;*/
-/*}*/
-/*content End*/
 /* --------------------------------------- 底部footer Begin */
-/*.footer{*/
-    /*height: 400px;*/
-    /*background: rgba(165, 165, 165, 0.3);*/
-    /*padding: 20px;*/
-/*}*/
+.footer-before{
+    height: 380px;
+}
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    z-index: -99;
+}
 /*底部 footer End*/
