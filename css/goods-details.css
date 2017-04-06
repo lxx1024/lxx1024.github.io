@@ -1,1 +1,268 @@
 /*商品详情样式*/
+.dm-header .goods-nav {
+    font-size: 22px;
+    font-weight: bold;
+}
+.dm-header .goods-nav li{
+    float: left;
+    height: 100px;
+    line-height: 155px;
+    margin:0px 25px;
+
+}
+.dm-header .cart {
+    margin-top: 55px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    background: none;
+}
+.dm-header .cart a {
+    color: #ff24d2;
+}
+.dm-header .cart .fa {
+    color: #ff24d2;
+    font-size: 30px;
+    left: 25px;
+    top: 40%;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+    padding-left: 120px;
+}
+.wrapper .breadcrumb li{
+    float: left;
+    margin: 0px 5px;
+}
+.wrapper .breadcrumb a {
+    color: inherit;
+}
+/*面包屑导航 wrapper End*/
+/* -------------------------------------------- 商品选购内容 Begin*/
+.buying-details {
+
+}
+/*----------------------商品图片信息 ----------------*/
+.buying-details .buying-preview {
+    width: 580px;
+    height: 600px;
+    box-sizing: border-box;
+    padding: 10px 65px;
+}
+.buying-details .main-img li {
+    float: left;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(215, 207, 207, 0.97);
+    display: none;
+}
+.buying-details .main-img li:first-of-type {
+    display: block;
+}
+
+/* -----商品小图列表------*/
+.buying-details .spec-items {
+
+}
+.buying-details .spec-items li {
+    float: left;
+    border: 1px solid white;
+    margin: 20px 16px;
+}
+.buying-details .spec-items li:first-of-type{
+    border: 1px solid red;
+}
+
+/* --------商品图片底部信息 ------*/
+.preview-info a {
+    display: inline-block;
+    padding:  0 5px;
+    font-size: 14px;
+    color: #525252;
+}
+.preview-info .fa {
+    color: #E3393C;
+}
+.preview-info a:hover {
+    color: #E3393C;
+}
+/*----------------------商品内容信息-----------------------*/
+.buying-details .buying-itemInfo {
+    width: 620px;
+    height: 600px;
+    box-sizing: border-box;
+    padding: 20px 0px;
+}
+.buying-details .buying-itemInfo .product-title {
+    font-size: 24px;
+    color: #393939;
+    margin:0px 0px 10px;
+}
+.buying-itemInfo .product-summary {
+    color: #878787;
+    font-size: 13px;
+}
+.buying-itemInfo .product-price {
+    padding:20px 0;
+    color: #f30;
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 8px;
+}
+/*----表单内部----商品选购属性_颜色,网络,容量------*/
+.add-cart-form {
+
+}
+.add-cart-form .product-attribute {
+    border-bottom: 1px dashed #d2d2d2;
+    padding-bottom: 20px;
+}
+.add-cart-form .product-attribute .attribute {
+    width: 588px;
+    height: 50px;
+    line-height: 50px;
+    color: #393939;
+}
+.add-cart-form .product-attribute p,.add-cart-form .product-service p {
+    width: 76px;
+    font-size: 14px;
+}
+.add-cart-form .product-attribute li,.add-cart-form .product-service li  {
+    float: left;
+    padding-right: 10px;
+}
+.add-cart-form .product-attribute li:last-of-type{
+      padding-right: 0px;
+  }
+.add-cart-form .product-attribute li a {
+    display: inline-block;
+    width: 160px;
+    height: 32px;
+    line-height: 32px;
+    color: #646464;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+}
+/*----表单内部----商品选购服务信息----*/
+.add-cart-form .product-service {
+    width: 620px;
+    height: 100px;
+    line-height: 50px;
+    color: #393939;
+    padding:20px 0px;
+    border-bottom: 1px dashed #d2d2d2;
+}
+.add-cart-form .product-service .service-list {
+    width: 512px;
+}
+.add-cart-form .product-service li a {
+    display: inline-block;
+    width: 200px;
+    height: 32px;
+    line-height: 32px;
+    color: #646464;
+    font-size: 14px;
+    text-align: left;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+.add-cart-form .product-service li i{
+    display: inline-block;
+    width: 32px;
+    height: 31px;
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    position: absolute;
+    left: 0px;
+}
+/*-------表单内部-------修改数量,提交到购物车或立即购买------*/
+.add-cart-form .buying-actions {
+    width: 588px;
+    height: 90px;
+    box-sizing: border-box;
+    padding:30px 20px;
+}
+.add-cart-form .buying-actions .counter-box {
+    width: 147px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 3px;
+    position: relative;
+}
+.add-cart-form .buying-actions a {
+    color: #7b7b7b;
+    position: absolute;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.add-cart-form .buying-actions .btn-minus {
+    left: 0px;
+}
+.add-cart-form .buying-actions .number {
+    width: 140px;
+    font-size: 17px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 8px 28px;
+}
+.add-cart-form .buying-actions .btn-plus {
+    right: 0;
+}
+.add-cart-form .buying-actions .button-container {
+    width: 360px;
+
+
+}
+.add-cart-form .buying-actions .button-container button {
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 20px;
+    border-radius: 6px;
+}
+.add-cart-form .buying-actions .button-light {
+    color: green;
+    font-size: 18px;
+    background: #89e09c;
+}
+.add-cart-form .buying-actions .button-primary {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background: #fb5e5e;
+}
+/* --------配送信息提示 -----*/
+.buying-details .buying-itemInfo .delivery-specs {
+    padding:  0 5px;
+    font-size: 14px;
+    margin-top: 34px;
+}
+/*商品选购内容 End*/
+
+/*--------------------------------------------- 商品详情信息 Begin*/
+.product-details {
+    width: 100%;
+    height: 500px;
+    border-top: 1px solid red;
+}
+
+/*商品详情信息 End*/
+
