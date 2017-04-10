@@ -1,0 +1,230 @@
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/*去掉原样式中的小黑点*/
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+/*输入字居中显示*/
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+/**/
+textarea {
+    resize: none;
+}
+
+/*防止拖动*/
+img {
+    border: 0;
+    vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+}
+
+table {
+    border-collapse: collapse; /*合并外连线*/
+}
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
+    color: #dcddf1; /*150%基于当前字体尺寸的百分比行间距*/
+    background: #3475e0;
+}
+
+.clearfix:before, .clearfix:after {
+    /*清除浮动，最好最标准的写法*/
+    content: "";
+    display: table;
+    /*bfc  块级格式化上下文*/
+    /* display: inline-block talbe-cel */
+    /*display: table-cell;*/
+}
+
+/*.clearfix:after {*/
+/*content: "";*/
+/*height: 0;*/
+/*line-height: 0;*/
+/*display: block;*/
+/*visibility: hidden;*/
+/*clear: both;*/
+/*}*/
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/  /*兼容IE6下的写法*/
+}
+
+a {
+    color: #dcddf1;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #dcddf1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+/*公共类*/
+.col-main {
+    color: #ff24d2 !important;/*哆咪主色调*/
+}
+
+.w {
+    /*版心 提取 */
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.al {
+    text-align: left;
+}
+
+.ac {
+    text-align: center;
+}
+
+.ar {
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
+/*css初始化完成*/
+
+
+/*-----------------------------------------------------------后台通用头部和侧边栏 Begin*/
+
+/*----------------头部top Begin*/
+.top {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #4085e8, #6fcaff);
+    border-bottom: 1px solid #2d65c1;
+    overflow: hidden;
+    position: fixed;
+}
+.top .logo {
+    width: 50%;
+    height: 100px;
+    background: url("../images/domi.png") no-repeat;
+}
+.top .logo a h1 {
+    font-size: 36px;
+    line-height: 140px;
+    text-indent: 300px;
+}
+.top .login-massage {
+    width: 22%;
+    font-size: 20px;
+    line-height: 140px;
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+.top .login-massage .admin-name {
+    color: #dddd00;
+    font-size: 24px;
+    font-weight: bold;
+}
+.top .login-massage .quit {
+    cursor: pointer;
+    color: #ff745b;
+    font-weight: bold;
+}
+.top .datetime {
+    font-size: 20px;
+    padding: 60px 60px 0 0;
+}
+/*头部top End*/
+
+/*---------------------------左边侧边栏left-nav Begin*/
+.left-nav {
+    position: fixed;
+    top: 120px;
+    width: 30%;
+    line-height: 80px;
+    box-sizing: border-box;
+    padding:10px 88px 0px 88px;
+    border-right: 2px solid #2d65c1;
+}
+.left-nav li {
+    position: relative;
+    border-bottom: 1px dashed #30a0f8;
+}
+.left-nav li:last-of-type {
+    border-bottom: none;
+}
+.left-nav li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 28px;
+}
+.left-nav li a .fa {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    color: #dcddf1;
+    top: 30%;
+    right: 10px;
+}
+
+/*左边侧边栏left-nav End*/
+
+.main-content {
+    width: 70%;
+    margin-top: 120px;
+    height: 1000px;
+}
+
+
+
+
+
+
+
+
+/*后台通用头部和侧边栏  End*/
