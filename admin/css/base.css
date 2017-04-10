@@ -214,17 +214,15 @@ s, i, em {
 
 /*左边侧边栏left-nav End*/
 
+
+/*后台通用头部和侧边栏  End*/
+/* -------------------------------主要内容部分 Begin */
 .main-content {
     width: 70%;
     margin-top: 120px;
     height: 1000px;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-
-
-
-
-
-
-
-/*后台通用头部和侧边栏  End*/
+/*主要内容主体 End*/
