@@ -293,7 +293,9 @@
 
 /* --------------------------------------- 底部footer Begin */
 .footer-before{
+    width: 1px;
     height: 380px;
+    display: inline-block;
 }
 .footer{
     width: 100%;

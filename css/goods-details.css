@@ -243,11 +243,17 @@
     font-size: 18px;
     background: #89e09c;
 }
+.add-cart-form .buying-actions .button-light:hover{
+    background: #7cd07a;
+}
 .add-cart-form .buying-actions .button-primary {
     color: white;
     font-size: 18px;
     font-weight: bold;
     background: #fb5e5e;
+}
+.add-cart-form .buying-actions .button-light a {
+    position: relative;
 }
 /* --------配送信息提示 -----*/
 .buying-details .buying-itemInfo .delivery-specs {
