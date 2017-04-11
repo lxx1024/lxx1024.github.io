@@ -1,0 +1,33 @@
+/* -------------------------------index主要内容部分 Begin */
+.main-content {
+    height: 500px;
+    line-height: 50px;
+}
+/*主要内容主体 End*/
+.main-content h3 {
+    font-size: 26px;
+}
+.main-content h3 span {
+    color: #eaea00;
+    font-weight: bold;
+}
+.main-content .super-admin,.main-content .general-admin {
+    width: 50%;
+
+}
+.main-content .super-admin h5,.main-content .general-admin h5{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 60px;
+}
+.main-content .super-admin h5 {
+    color: #eaea00;
+
+}
+.main-content .general-admin h5 {
+    color: #befffa;
+}
+.main-content .super-admin p,.main-content .general-admin p{
+    font-size: 22px;
+    text-indent: 2px;
+}

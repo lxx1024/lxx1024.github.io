@@ -1,0 +1,8 @@
+.left-nav .admin a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .admin a .fa {
+    color:yellow;
+}
+

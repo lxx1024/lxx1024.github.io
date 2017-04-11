@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
-    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/admin.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -19,14 +19,14 @@
         <span class="quit fr">退出</span>
     </div>
     <div class="datetime fr">
-        日期 : 2017-04-10
+        日期 : 2017-04-11
     </div>
 </div>
 <!-- 头部top End-->
 <!---------------------------------------侧边栏left-nav Begin-->
 <div class="left-nav fl">
     <ul>
-        <li><a href="#">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
+        <li class="admin"><a href="#">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="#">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
         <li><a href="#">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
         <li><a href="#">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
@@ -34,17 +34,134 @@
         <li><a href="#">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
         <li><a href="#">报表统计分析 <i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
     </ul>
-
 </div>
-
-
-
 <!-- 侧边栏left-nav End-->
 
 <!--后台通用头部和侧边栏 End-->
+<!---------------------------------------管理员信息管理主体部分 Begin-->
 <div class="main-content fr">
-主要内容
-</div>
+    <div class="current-admin">
+        <p>您当前的账号信息:</p>
+        <form action="#" method="post">
+            <label for="admin-name"> 用户名: </label><input type="text" value="admin" maxlength="20" name="admin-name" id="admin-name"/>
+            <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="admin" name="admin-psd" id="admin-psd"/>
+            <input type="submit" name="submit" value="保存"/>
+        </form>
+    </div>
+    <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
+    <div class="admins">
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <th>序号</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                    </td>
+                </tr>
 
+            </table>
+        </form>
+    </div>
+</div>
+<!--管理员信息管理主体部分 End-->
 </body>
 </html>

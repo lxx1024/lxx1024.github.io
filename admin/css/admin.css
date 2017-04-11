@@ -1,0 +1,78 @@
+.main-content {
+    height: auto;
+    padding-bottom: 0px;
+}
+.left-nav .admin a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .admin a .fa {
+    color:yellow;
+}
+/*---------------------------管理员信息管理主体部分 Begin*/
+.main-content .current-admin{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+.main-content .current-admin input {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    text-indent: 5px;
+    color: #201010;
+    border-radius: 2px;
+}
+.main-content .current-admin input:last-of-type {
+    width: 60px;
+    margin-left: 20px;
+    cursor: pointer;
+    text-indent: 0px;
+    border-radius: 5px;
+    background: #45ff8e;
+}
+/*------------------管理员信息表*/
+.main-content .admins {
+    width: 80%;
+    min-height: 400px;  /*最小高度*/
+    padding: 20px;
+    background: #f9f9f9;
+}
+.main-content .admins table {
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    color: #201010;
+}
+.main-content .admins table th {
+    border: 1px solid #696969;
+}
+.main-content .admins table td a {
+    color: inherit;
+}
+.main-content .admins table tr:first-of-type{
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #c2c2c2;
+}
+.main-content .admins table td {
+    width: 200px;
+    border: 1px solid #ccc;
+}
+.main-content .admins table td:first-of-type {
+    width: 80px;
+}
+.main-content .admins .admin-edit {
+    display: inline-block;
+    margin-right: 20px;
+    color: #30a0f8;
+}
+.main-content .admins .admin-del {
+    color: #ff4b43;
+}
+
+/*管理员信息管理主体部分  End*/
