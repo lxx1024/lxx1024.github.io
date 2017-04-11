@@ -16,7 +16,7 @@
     line-height: 50px;
     margin-bottom: 10px;
 }
-.main-content .current-admin input {
+.main-content .current-admin input{
     width: 200px;
     height: 30px;
     line-height: 30px;
@@ -25,7 +25,7 @@
     color: #201010;
     border-radius: 2px;
 }
-.main-content .current-admin input:last-of-type {
+.main-content .current-admin input:last-of-type{
     width: 60px;
     margin-left: 20px;
     cursor: pointer;
@@ -33,15 +33,19 @@
     border-radius: 5px;
     background: #45ff8e;
 }
-/*------------------管理员信息表*/
-.main-content .admins {
-    width: 80%;
-    min-height: 400px;  /*最小高度*/
-    padding: 20px;
-    background: #f9f9f9;
+/*------------------------添加管理员*/
+.main-content .admin-add-form {
+     width: 80%;
     position: relative;
 }
-.main-content .admins .admin-add {
+.main-content .admin-add-form  form{
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    margin-bottom: 10px;
+}
+.main-content .admin-add-form .admin-add{
     position: absolute;
     width: 120px;
     height: 30px;
@@ -54,10 +58,19 @@
     top: -47px;
     right: 20px;
 }
-.main-content .admins .admin-add a {
+.main-content .admin-add-form .admin-add a {
     color: black;
-
 }
+/*添加管理员*/
+/*------------------管理员信息表*/
+.main-content .admins {
+    width: 80%;
+    min-height: 400px;  /*最小高度*/
+    padding: 20px;
+    background: #f9f9f9;
+    position: relative;
+}
+
 .main-content .admins table {
     width: 100%;
     text-align: center;

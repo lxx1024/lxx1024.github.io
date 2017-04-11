@@ -1,15 +1,17 @@
 <?php
 session_start();   //session开始
-$adminname=$_REQUEST["adminname"];  //接收login.html提交的数据
-$adminpsd=$_REQUEST["adminpsd"];
+$adminname=trim($_REQUEST["adminname"]);  //接收login.html提交的数据
+$adminpsd=trim($_REQUEST["adminpsd"]);
 include "conn/conn.php";       //导入连接数据库php代码
 $dbadminname=null;    //自定义的变量
 $dbadminpsd=null;
+$dbadminid=null;
 $result=mysql_query("select * from admin where adminName='".$adminname."';");  //从数据库调取登录名为...的数据
 mysql_query("SET NAMES UTF8");           //设置统一的字符格式utf-8
 while($row=mysql_fetch_array($result)){
- $dbadminname=$row["adminName"];
- $dbadminpsd=$row["adminPsd"];    //将数据库获取的字段赋值给自定义的变量
+ $dbadminname=trim($row["adminName"]);
+ $dbadminpsd=trim($row["adminPsd"]);    //将数据库获取的字段赋值给自定义的变量
+ $dbadminid=trim($row["adminId"]);
 }
 if(is_null($dbadminname)){
 ?>
@@ -30,6 +32,8 @@ window.location.href="login.html";
  }
  else{
  $_SESSION["adminname"]=$dbadminname;
+  $_SESSION["adminpsd"]=$dbadminpsd;
+  $_SESSION["adminid"]=$dbadminid;
  $_SESSION["code"]=mt_rand(0,100000);    //给session附一个随机值，防止用户直接通过调用界面访问welcome.php
 ?>
 <script>

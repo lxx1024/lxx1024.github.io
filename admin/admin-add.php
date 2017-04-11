@@ -5,6 +5,8 @@
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
+    <link rel="stylesheet" href="css/admin-add.css"/>
+
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -72,19 +74,26 @@ window.location.href="exit.php";
 <div class="main-content fr">
     <div class="current-admin">
         <p>您当前的账号信息:</p>
-        <form action="admin-current-edit.php" method="post">
+        <form action="#" method="post">
             <label for="admin-name"> 用户名: </label><input type="text" value="<?php
         echo "${_SESSION["adminname"]}";
         ?>" maxlength="20" name="admin-name" id="admin-name"/>
             <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="<?php
         echo "${_SESSION["adminpsd"]}";?>" name="admin-psd" id="admin-psd"/>
-            <input type="submit" name="submit" value="保存"/>
+            <input type="submit" name="submit" value="保存" disabled  style="background:#ccc" />
         </form>
     </div>
     <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
+    <!-- ---------------------添加新管理员------------------- -->
     <div class="admin-add-form">
-        <div class="admin-add"><a href="admin-add.php">添加管理员</a></div>
-    </div>
+        <div class="admin-cancel"><a href="admin.php">取消添加</a></div>
+                <form action="admin-add1.php" method="post">
+                        <label for="admin-name"> 用户名: </label><input type="text" placeholder="新管理员账号" maxlength="20" name="admin-name" id="admin-name"/>
+                        <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" placeholder="新管理员密码" name="admin-psd" id="admin-psd"/>
+                       <input type="submit" name="submit" value="添加"/>
+                </form>
+        </div>
+        <!-- -----------------展示所有管理员信息------------- -->
     <div class="admins">
         <form action="#" method="post">
             <table>
@@ -110,8 +119,8 @@ window.location.href="exit.php";
                         <?php echo "$row[2]" ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
-                        <a href="admin-del.php" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="#" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束
