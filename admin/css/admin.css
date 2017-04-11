@@ -14,7 +14,7 @@
     font-size: 20px;
     font-weight: bold;
     line-height: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .main-content .current-admin input {
     width: 200px;
@@ -39,6 +39,24 @@
     min-height: 400px;  /*最小高度*/
     padding: 20px;
     background: #f9f9f9;
+    position: relative;
+}
+.main-content .admins .admin-add {
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    background: #e6e600;
+    top: -47px;
+    right: 20px;
+}
+.main-content .admins .admin-add a {
+    color: black;
+
 }
 .main-content .admins table {
     width: 100%;
