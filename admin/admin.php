@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
-<!-----------------------连接数据库PHP代码--------------------------->
-<?php
+<?php       //---------连接数据库PHP代码
 include "conn/conn.php";       //导入连接数据库php代码
 $q = "SELECT * FROM admin";                   //SQL查询语句 -----在此处改表名
 mysql_query("SET NAMES UTF8");           //设置统一的字符格式utf-8
@@ -17,20 +16,43 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
 //$row = mysql_fetch_row($result);    //  获取数据集  ------ 后面在while循环里面获取
 ?>
 <!-----------------------------------------------------------后台通用头部和侧边栏 Begin -->
+
+<?php        // --------登录后台系统-php代码------
+    session_start();
+    if(isset($_SESSION["code"])){
+?>
+
 <!-- ------------------------------------头部top Begin-->
 <div class="top clearfix">
     <div class="logo fl">
         <a href="index.html"><h1>哆咪手机商城后台管理系统</h1></a>
     </div>
     <div class="login-massage fl">
-        欢迎登录!&nbsp;<span class="admin-name">admin</span>
-        <span class="quit fr">退出</span>
+        欢迎登录!&nbsp;<span class="admin-name">
+        <?php
+        echo "${_SESSION["adminname"]}";
+        ?>
+        </span>
+        <a href="exit.php" class="quit fr">退出</span>
     </div>
     <div class="datetime fr">
         日期 : 2017-04-11
     </div>
 </div>
 <!-- 头部top End-->
+
+<?php                // ---------登录后台系统php代码------
+}
+else{
+?>
+<script>
+alert("后台系统仅系统管理员可进,请登录！");  //进入后台系统提示
+window.location.href="exit.php";
+</script>
+<?php
+}
+?>
+
 <!---------------------------------------侧边栏left-nav Begin-->
 <div class="left-nav fl">
     <ul>
@@ -67,8 +89,8 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
                     <th>密码</th>
                     <th>操作</th>
                 </tr>
-                <!-- 循环显示数据库admin表的内容 PHP代码开始-->
-                <?php
+
+                <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
                     mysql_data_seek($result, 0);  // 循环取出记录
                     while ($row=mysql_fetch_row($result)){
                 ?>
@@ -87,10 +109,10 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
                         <a href="#" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
-                <?php
+                <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束
                     }
                 ?>
-                <!-- 循环显示数据库admin表的内容 PHP代码结束-->
+
             </table>
         </form>
     </div>

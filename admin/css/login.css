@@ -1,0 +1,43 @@
+body {
+    width: 100%;
+    height: 100%;
+    background: url("../images/login-bg.jpg") no-repeat;
+    /*background-position:center top;*/
+}
+.admin-login {
+    width: 500px;
+    height: 250px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #ff24d2;
+    background: rgba(43, 97, 186, 0.5);
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -250px;
+}
+.admin-login h1 {
+    font-size: 30px;
+    line-height: 25px;
+}
+.admin-login input {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    text-indent: 10px;
+}
+.admin-login input:last-of-type {
+    width: 100px;
+    height: 32px;
+    line-height: 30px;
+    text-indent: 0px;
+    background: #45ff8e;
+    margin-top: 15px;
+    border-radius: 5px;
+}
