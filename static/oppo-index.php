@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
+<?php
+    session_start();     //登录系统开启一个session内容
+?>
 <!-- ------------------------------------通栏dm-shortcut  Begin -->
 <div class="dm-shortcut">
     <div class="w">
@@ -19,9 +22,30 @@
         </ul>
         <ul class="fr">
             <li class="fore1">
-                <a href="login.html" class="col-main">你好，请登录</a>
+            <!-- 判断会员是否登录 php代码 -->
+             <?php
+                if( isset($_SESSION["userName"])){     //判断是否存在session对象
+            ?>
+                     <a href="javascript:;" class="col-main">你好，
+            <?php
+                    echo "${_SESSION["userName"]}";
+             ?>
+                </a>
+                &nbsp;&nbsp;
+                <a href="exit.php">退出</a>
+                <?php
+            }else{
+            ?>
+                     <a href="login.html" class="col-main">你好，
+            <?php
+                    echo "请登录";
+            ?>
+                </a>
                 &nbsp;&nbsp;
                 <a href="register.html">免费注册</a>
+                <?php
+                  }
+                  ?>
             </li>
             <li class="spacer"></li>
             <li class="fore2">
@@ -50,7 +74,7 @@
 <!-- -------------------------------------logo\搜索栏\购物车 dm-header  Begin -->
 <div class="dm-header w">
     <div class="logo fl">
-        <a href="../index.html"><h1>哆咪手机商城</h1></a>
+        <a href="../index.php"><h1>哆咪手机商城</h1></a>
     </div>
     <div class="search fl">
         <input type="text" class="search-txt" placeholder="请输入搜索关键字"/>
@@ -65,8 +89,8 @@
 <!-- -------------------------------------导航栏dm-nav Begin-->
 <div class="dm-nav w">
     <ul class="nav">
-        <li><a href="#">首页</a></li>
-        <li><a href="#" class="col-main">品牌汇</a></li>
+        <li><a href="../index.php">首页</a></li>
+        <li><a href="oppo-index.php" class="col-main">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">以旧换新</a></li>
         <li><a href="#">手机社区</a></li>
@@ -92,10 +116,10 @@
 <!---------------------------主要产品oppo-main-content Begin -->
 <div class="oppo-main-content w clearfix">
     <div class="oppo-main-left fl">
-        <a href="goods-details.html" class="oppo-left-top">
+        <a href="goods-details.php" class="oppo-left-top">
             <img src="../images/oppo-rqs1.png" alt="" class="photo"/>
             <img src="../images/oppo-rqs.png" alt="" class="content"/>
-            
+
         </a>
         <a href="#" class="oppo-left-bottom">
             <img src="../images/oppo-rqplus1.jpg" alt="" class="photo"/>

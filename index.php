@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
+<?php
+    session_start();     //登录系统开启一个session内容
+?>
 <!-- ------------------------------------通栏dm-shortcut  Begin -->
 <div class="dm-shortcut">
     <div class="w">
@@ -19,9 +22,30 @@
         </ul>
         <ul class="fr">
             <li class="fore1">
-                <a href="static/login.html" class="col-main">你好，请登录</a>
+            <!-- 判断会员是否登录 php代码 -->
+             <?php
+                if( isset($_SESSION["userName"])){     //判断是否存在session对象
+            ?>
+                     <a href="javascript:;" class="col-main">你好，
+            <?php
+                    echo "${_SESSION["userName"]}";
+             ?>
+                </a>
+                &nbsp;&nbsp;
+                <a href="static/exit.php">退出</a>
+                <?php
+            }else{
+            ?>
+                     <a href="static/login.html" class="col-main">你好，
+            <?php
+                    echo "请登录";
+            ?>
+                </a>
                 &nbsp;&nbsp;
                 <a href="static/register.html">免费注册</a>
+                <?php
+                  }
+                  ?>
             </li>
             <li class="spacer"></li>
             <li class="fore2">
@@ -60,7 +84,7 @@
     </div>
     <div class="cart fr">
         <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
-        <a href="static/buying-car.html">我的购物车  <span class="arrow-right"> > </span></a>
+        <a href="static/buying-car.php">我的购物车  <span class="arrow-right"> > </span></a>
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->
@@ -68,7 +92,7 @@
 <div class="dm-nav w">
     <ul class="nav">
         <li><a href="#" class="col-main">首页</a></li>
-        <li><a href="static/oppo-index.html">品牌汇</a></li>
+        <li><a href="static/oppo-index.php">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">以旧换新</a></li>
         <li><a href="#">手机社区</a></li>

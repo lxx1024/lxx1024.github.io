@@ -10,7 +10,7 @@
 <body>
 <div class="register-top w">
     <div class="logo">
-        <a href="../index.html"><img src="../images/domi.png" alt=""/></a>
+        <a href="../index.php"><img src="../images/domi.png" alt=""/></a>
         <h1>会员注册 * 哆咪手机商城</h1>
     </div>
     <a href="login.html" class="toLogin">已有账号,点这里登录</a>
@@ -18,7 +18,7 @@
 <div class="register-main">
     <div class="w">
         <img src="../images/lbt7.jpg" alt=""/>
-        <form class="register-message">
+        <form class="register-message" action="register.php" method="post">
             <div class="user-name">
                 &nbsp;&nbsp;用&nbsp;&nbsp;户&nbsp;&nbsp;名:
                 <input type="text" name="userName" placeholder="请输入您的用户名"/>
@@ -31,9 +31,9 @@
                 &nbsp;&nbsp;确认密码:
                 <input type="password" name="password-confirm" placeholder="请再次输入密码"/>
             </div>
-            <div class="user-email">
+            <div class="user-phone">
                 &nbsp;&nbsp;手机号码:
-                <input type="text" name="email" placeholder="请输入手机号码"/>
+                <input type="text" name="phone" placeholder="请输入手机号码"/>
             </div>
             <i class="form-agree">
                 <input type="checkbox" name="agreen">

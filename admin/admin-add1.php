@@ -10,6 +10,13 @@ if(empty($_POST['admin-psd'])){
 $name=$_POST['admin-name'];
 $psd=$_POST['admin-psd'];        //获取表单提交过来的数据
 include "conn/conn.php";
+
+$dbadminname=null;
+$result=mysql_query("select * from admin where adminName='".$name."';");  //从数据库调取登录名为...的数据
+while($row=mysql_fetch_array($result)){
+ $dbadminname=trim($row["adminName"]);
+}
+if(is_null($dbadminname)){
 $sql = "insert into admin (adminName,adminPsd)  values('$name','$psd')";
  if (!mysql_query($sql,$conn))    //--------------------这里的判断语句的作用是什么???删了之后就不能添加新记录
  {
@@ -20,6 +27,16 @@ $sql = "insert into admin (adminName,adminPsd)  values('$name','$psd')";
 alert ("添加成功");
 window.location.href="admin.php";
 </script>
+<?php
+}else{
+?>
+<script>
+alert("已存在改用户！请重新输入");
+window.location.href="admin-add.php";
+</script>
+<?php
+}
+?>
 <?php
   //关闭连接
  mysql_close($conn);

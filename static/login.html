@@ -11,14 +11,14 @@
 <body>
 <div class="login-top w">
     <div class="logo">
-        <a href="../index.html"><img src="../images/domi.png" alt=""/></a>
+        <a href="../index.php"><img src="../images/domi.png" alt=""/></a>
         <h1>欢迎登录 * 哆咪手机商城</h1>
     </div>
 </div>
 <div class="login-main">
     <div class="w">
         <img src="../images/lbt7.jpg" alt=""/>
-        <form class="login-message">
+        <form class="login-message" action="login.php" method="post">
             <div class="user-name">
                 &nbsp;&nbsp;用&nbsp;&nbsp;户&nbsp;&nbsp;名:
                 <input type="text" name="userName" placeholder="请输入您的用户名"/>
@@ -28,7 +28,7 @@
                 <input type="password" name="userPsw" placeholder="请输入您的密码"/>
             </div>
             <a href="#" class="forget-password">忘记密码</a>
-            <input type="submit" name="submit" class="login-submit" value="立即注册"/>
+            <input type="submit" name="submit" class="login-submit" value="立即登录"/>
             <p class="others">
                 <a href="#" class="qq-icon"><i class="fa fa-qq" aria-hidden="true"></i></a>
                 <a href="#" class="qq">QQ</a>

@@ -34,7 +34,7 @@ window.location.href="login.html";
  $_SESSION["adminname"]=$dbadminname;
   $_SESSION["adminpsd"]=$dbadminpsd;
   $_SESSION["adminid"]=$dbadminid;
- $_SESSION["code"]=mt_rand(0,100000);    //给session附一个随机值，防止用户直接通过调用界面访问welcome.php
+ $_SESSION["code"]=mt_rand(0,100000);    //给session附一个随机值，防止用户直接通过调用界面访问后台系统
 ?>
 <script>
 window.location.href="index.php";

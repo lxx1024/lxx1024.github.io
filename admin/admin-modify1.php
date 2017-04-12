@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "conn/conn.php";       //导入连接数据库php代码
 if(empty($_POST['admin-name'])){
     echo "<a href='admin.php'>返回</a>";
