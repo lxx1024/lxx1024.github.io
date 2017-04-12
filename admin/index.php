@@ -18,7 +18,7 @@
 <!-- ------------------------------------头部top Begin-->
 <div class="top clearfix">
     <div class="logo fl">
-        <a href="index.html"><h1>哆咪手机商城后台管理系统</h1></a>
+        <a href="index.php"><h1>哆咪手机商城后台管理系统</h1></a>
     </div>
      <div class="login-massage fl">
             欢迎登录!&nbsp;<span class="admin-name">
@@ -29,7 +29,7 @@
             <a href="exit.php" class="quit fr">退出</span>
         </div>
         <div class="datetime fr">
-            日期 : 2017-04-11
+            日期 :20<?php echo date("y-m-d",time()); ?>
         </div>
 </div>
 <!-- 头部top End-->
@@ -40,7 +40,7 @@ else{
 ?>
 <script>
 alert("后台系统仅系统管理员可进,请登录！");  //进入后台系统提示
-window.location.href="exit.php";
+window.location.href="login.html";
 </script>
 <?php
 }

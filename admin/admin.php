@@ -25,7 +25,7 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
 <!-- ------------------------------------头部top Begin-->
 <div class="top clearfix">
     <div class="logo fl">
-        <a href="index.html"><h1>哆咪手机商城后台管理系统</h1></a>
+        <a href="index.php"><h1>哆咪手机商城后台管理系统</h1></a>
     </div>
     <div class="login-massage fl">
         欢迎登录!&nbsp;<span class="admin-name">
@@ -36,7 +36,7 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
         <a href="exit.php" class="quit fr">退出</span>
     </div>
     <div class="datetime fr">
-        日期 : 2017-04-11
+         日期 :20<?php echo date("y-m-d",time()); ?>
     </div>
 </div>
 <!-- 头部top End-->
@@ -47,7 +47,7 @@ else{
 ?>
 <script>
 alert("后台系统仅系统管理员可进,请登录！");  //进入后台系统提示
-window.location.href="exit.php";
+window.location.href="login.html";
 </script>
 <?php
 }
@@ -78,7 +78,7 @@ window.location.href="exit.php";
         ?>" maxlength="20" name="admin-name" id="admin-name"/>
             <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="<?php
         echo "${_SESSION["adminpsd"]}";?>" name="admin-psd" id="admin-psd"/>
-            <input type="submit" name="submit" value="保存"/>
+            <input type="submit" name="submit" value="保存" onclick="return confirm('确定修改当前登录账号信息');"/>
         </form>
     </div>
     <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
@@ -110,8 +110,8 @@ window.location.href="exit.php";
                         <?php echo "$row[2]" ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
-                        <a href="admin-del.php" class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="admin-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束
