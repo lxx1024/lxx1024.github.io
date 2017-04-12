@@ -95,7 +95,7 @@
         <li><a href="static/oppo-index.php">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">以旧换新</a></li>
-        <li><a href="#">手机社区</a></li>
+        <li><a href="static/community.php">手机社区</a></li>
     </ul>
     <ul class="nav-content">
         <li>

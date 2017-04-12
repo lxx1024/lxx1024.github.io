@@ -1,0 +1,210 @@
+/*手机社区样式*/
+body {
+  background-color:#cdf6a8;
+}
+.dm-header .goods-nav {
+    font-size: 22px;
+    font-weight: bold;
+}
+.dm-header .goods-nav li{
+    float: left;
+    height: 100px;
+    line-height: 155px;
+    margin:0px 25px;
+
+}
+.dm-header .cart {
+    margin-top: 55px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    background: none;
+}
+.dm-header .cart a {
+    color: #ff24d2;
+}
+.dm-header .cart .fa {
+    color: #ff24d2;
+    font-size: 30px;
+    left: 25px;
+    top: 40%;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+    padding-left: 100px;
+}
+.wrapper .breadcrumb li{
+    float: left;
+    margin: 0px 5px;
+}
+.wrapper .breadcrumb a {
+    color: inherit;
+}
+
+/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
+/* -----------------------------------------------手机社区topic   Begin*/
+.topic {
+
+}
+/*--------------------------------左边话题内容topic-left Begin*/
+.topic .topic-left {
+    width: 850px;
+}
+/*topic-tab栏*/
+.topic-left .topic-tabs {
+    width: 850px;
+    height: 55px;
+    line-height: 55px;
+    overflow: hidden;
+    background: white;
+    box-sizing:border-box;
+    padding:  0px 50px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #D5D5D5;
+}
+.topic-left .topic-tabs li {
+    float: left;
+    margin-right: 50px;
+}
+.topic-left .topic-tabs li a {
+    color: #666;
+    font-size: 20px;
+    font-weight: bold;
+}
+.topic-left .topic-tabs li a:hover {
+    color: #3fcab8;
+}
+.topic-left .topic-tabs li:first-of-type a{
+    color: #3fcab8;
+}
+/*topics内容*/
+.topic-left  .topics {
+    margin-top: 20px;
+    width: 850px;
+    height: 800px;
+    background: white;
+
+}
+.topic-left  .topics li{
+    display: none;
+}
+.topic-left  .topics li:first-of-type {
+    display: block;
+}
+.topic-left  .topics .topic-content {
+    height: 170px;
+    box-sizing:border-box;
+    padding: 25px;
+}
+.topic-left  .topics .topic-content img{
+    width: 120px;
+    height: 120px;
+}
+.topic-left  .topics .topic-content h2{
+    font-size: 22px;
+    font-family: "黑体";
+    margin-top: 8px;
+    margin-left: 150px;
+}
+.topic-left  .topics .topic-content h2 a {
+    color: #333;
+}
+.topic-left  .topics .topic-content h2 a:hover{
+    color: #3fcab8;
+}
+.topic-left  .topics .topic-content .desc {
+   height: 24px;
+   line-height: 24px;
+   font-size: 18px;
+    font-family: "黑体";
+    color: black;
+    margin-top: 8px;
+    margin-left: 150px;
+    margin-bottom: 25px;
+}
+.topic-left  .topics .topic-content .message {
+   height: 24px;
+   font-size: 16px;
+    color: #333;
+    margin-top: 8px;
+    margin-left: 150px;
+}
+
+
+
+
+
+
+
+
+ /*左边话题内容topic-leftEnd*/
+/*--------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin*/
+.topic .topic-right {
+    width: 350px;
+    height: 500px;
+    background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*右边发表话题及个人信息展示部分 topic-right  End*/
+/*手机社区topic End
+/*底部Begin---------------------------------------------------------------------------------底部Begin*/
+.footer {
+      background: linear-gradient(to bottom,#cdf6a8, #a4e16c);
+}
+.footer .footer-logo {
+    color: #8a8a8a;
+}
+/*-------------底部分享链接---------*/
+.footer .footer-share a{
+    background: #8a8a8a;
+}
+
+.footer .footer-share a .fa {
+    color: #ffe8ea;
+}
+.footer .footer-share .line {
+    background: #666;
+}
+.footer .footer-share a:last-of-type {
+    color: #ffe8ea;
+}
+.footer .footer-share a:hover {
+    background: #009a72;
+}
+/*--------------底部相关网站链接 ---------*/
+.footer .footer-siteLinks a {
+    color: #000;
+}
+.footer .footer-siteLinks a:hover {
+    color: #009a72;
+}
+/*-------底部版权--------*/
+.footer .footer-copyright {
+    color: #000;
+}
+.footer .footer-copyright a {
+    color: inherit;
+}
+/*底部End----------------------------------------------------------------------------------底部End*/

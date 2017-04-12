@@ -93,7 +93,7 @@
         <li><a href="oppo-index.php" class="col-main">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">以旧换新</a></li>
-        <li><a href="#">手机社区</a></li>
+        <li><a href="community.php">手机社区</a></li>
     </ul>
     <ul class="nav-content">
         <li>
