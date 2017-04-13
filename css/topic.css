@@ -50,7 +50,6 @@ body {
 /*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
 /* -----------------------------------------------手机社区topic   Begin*/
 .topic {
-
 }
 /*--------------------------------左边话题内容topic-left Begin*/
 .topic .topic-left {
@@ -87,20 +86,25 @@ body {
 .topic-left  .topics {
     margin-top: 20px;
     width: 850px;
-    height: 800px;
     background: white;
-
 }
 .topic-left  .topics li{
+    opacity: 0;
     display: none;
 }
 .topic-left  .topics li:first-of-type {
+    opacity: 1;
     display: block;
 }
 .topic-left  .topics .topic-content {
+    width: 850px;
     height: 170px;
+    background: white;
     box-sizing:border-box;
     padding: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 2px;
+    box-shadow: 0 1px 0 #D5D5D5;
 }
 .topic-left  .topics .topic-content img{
     width: 120px;
@@ -126,17 +130,24 @@ body {
     color: black;
     margin-top: 8px;
     margin-left: 150px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 .topic-left  .topics .topic-content .message {
    height: 24px;
    font-size: 16px;
-    color: #333;
-    margin-top: 8px;
+    color: #aaa;
     margin-left: 150px;
 }
-
-
+.topic-left  .topics .topic-content .message .fa {
+    /*icon样式*/
+}
+.topic-left  .topics .topic-content .message span b{
+    display: inline-block;
+    margin:0px 10px 0px 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+}
 
 
 
@@ -146,13 +157,141 @@ body {
  /*左边话题内容topic-leftEnd*/
 /*--------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin*/
 .topic .topic-right {
-    width: 350px;
-    height: 500px;
+    width: 320px;
+}
+/*------------发布帖子*/
+.topic-right .publish {
+    padding: 25px 50px;
     background: white;
 }
+.topic-right .publish a {
+    position: relative;
+    height: 60px;
+}
+.topic-right .publish a:hover {
+    color: #3fcab8;
+}
+.topic-right .publish a span{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #3fcab8;
+    margin-right: 50px;
+    position: relative;
+}
+.topic-right .publish span i.fa {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 18px;
+}
+.topic-right .publish a b{
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+}
+/*------------------签到*/
+.topic-right .sign {
+    padding: 25px 50px;
+    margin-top: 30px;
+    background: white;
+}
+.topic-right .sign a {
+    position: relative;
+    height: 60px;
+}
+.topic-right .sign a:hover {
+    color: #3fcab8;
+}
+.topic-right .sign a span{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #1aacf5;
+    margin-right: 50px;
+    position: relative;
+}
+.topic-right .sign span i.fa {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 16px;
+}
+.topic-right .sign a .signW{
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    line-height: 50px;
+    font-size: 24px;
+}
+.topic-right .sign a .number{
+    color: #aaa;
+}
+.topic-right .sign a .number b{
+    color: #666;
+}
+/*------------------个人话题*/
+.topic-right .person {
+    padding: 25px 50px;
+    margin-top: 30px;
+    background: white;
+}
+.topic-right .person a {
+    position: relative;
+    height: 60px;
+}
+.topic-right .person a:hover {
+    color: #3fcab8;
+}
+.topic-right .person a span{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #a5f242;
+    margin-right: 50px;
+    position: relative;
+}
+.topic-right .person span i.fa {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 18px;
+}
+.topic-right .person a .signW{
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    line-height: 50px;
+    font-size: 24px;
+}
+.topic-right .person a .number{
+    color: #aaa;
+}
+.topic-right .person a .login-go{
+    color: red;
+}
+.topic-right .person a .number b{
+    color: #666;
+}
 
-
-
+.topic-right .person .topics {
+    margin-top: 30px;
+}
+.topic-right .person .topics li {
+    line-height: 20px;
+    margin-top: 20px;
+}
+.topic-right .person .topics li h5{
+    font-size:  16px;
+}
 
 
 
@@ -171,6 +310,7 @@ body {
 /*手机社区topic End
 /*底部Begin---------------------------------------------------------------------------------底部Begin*/
 .footer {
+     margin-top: 50px;
       background: linear-gradient(to bottom,#cdf6a8, #a4e16c);
 }
 .footer .footer-logo {

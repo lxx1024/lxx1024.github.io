@@ -111,8 +111,8 @@ $(function () {
 $(function(){
     var $titles = $('.dm-today .today-title li');   // 今日热门DOM元素
     var $contents = $('.dm-today .today-content li');   // 切换今日热门内容标签
-    $titles.getOnly($contents);  // 切换内容   调用getOnly方法
-    $titles.mouseover(function () {
+    $titles.getOnlyclick($contents);  // 切换内容   调用getOnlyclick方法
+    $titles.click(function () {
         $titles.css('color','white');
         $(this).css('color','yellow');
     })

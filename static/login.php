@@ -31,9 +31,9 @@ window.location.href="login.html";
 <?php
  }
  else{
- $_SESSION["userName"]=$dbuserName;
-  $_SESSION["userPsw"]=$dbuserPsw;
-  $_SESSION["userId"]=$dbuserId;
+$_SESSION["userName"]=$dbuserName;
+$_SESSION["userPsw"]=$dbuserPsw;
+$_SESSION["userId"]=$dbuserId;
  // $_SESSION["code"]=mt_rand(0,100000);
 ?>
 <script>

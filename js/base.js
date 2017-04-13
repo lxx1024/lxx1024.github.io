@@ -17,23 +17,15 @@ $.fn.extend({
                 $(targets[this.index]).show().css('opacity', 1);
             })
         });
+    },
+     getOnlyclick: function (targets) {
+        return this.each(function (index, element) {
+            //this——>DOM元素
+            this.index = index;
+            $(this).click(function () {
+                $(targets).siblings().hide();
+                $(targets[this.index]).show().css('opacity', 1);
+            })
+        });
     }
-    //,
-    //getNum: function (targets,className,picNum) {
-    //    return this.each(function (index, element) {
-    //        //this——>DOM元素
-    //        this.index = index;
-    //        $(this).mouseenter(function () {
-    //            $(this).siblings().removeClass(className);
-    //            $(this).addClass(className);
-    //            $(targets).siblings().hide();
-    //            $(targets[this.index]).show().css('opacity', 1);
-    //            return picNum = this.index;
-    //        })
-    //    });
-    //}
-
 });
-$.extend({
-
-})

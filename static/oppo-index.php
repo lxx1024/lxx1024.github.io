@@ -82,7 +82,7 @@
     </div>
     <div class="cart fr">
         <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
-        <a href="#">我的购物车  <span class="arrow-right"> > </span></a>
+        <a href="buying-car.php">我的购物车  <span class="arrow-right"> > </span></a>
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->
@@ -93,7 +93,7 @@
         <li><a href="oppo-index.php" class="col-main">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">以旧换新</a></li>
-        <li><a href="community.php">手机社区</a></li>
+        <li><a href="topic.php">手机社区</a></li>
     </ul>
     <ul class="nav-content">
         <li>
