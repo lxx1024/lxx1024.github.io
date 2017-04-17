@@ -49,6 +49,35 @@ body {
 
 /*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
 /* -----------------------------------------------手机社区topic   Begin*/
+.topic-top {
+    height: 450px;
+    background: url(../images/topic-person-bg.jpg)  no-repeat;
+    background-size: 1210px 430px;
+    position: relative;
+}
+.topic-top .center {
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    left: 50% ;
+    top:25%;
+    margin-left: -60px;
+}
+.topic-top img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border:1px solid #3fcab8;
+}
+.topic-top .author {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #eeeced;
+}
+.topic-top .amount {
+    margin-top: 10px;
+    color: #ddd;
+}
 .topic {
 }
 /*--------------------------------左边话题内容topic-left Begin*/
@@ -72,16 +101,19 @@ body {
     margin-right: 50px;
 }
 .topic-left .topic-tabs li a {
+    display: inline-block;
     color: #666;
     font-size: 20px;
     font-weight: bold;
-}
-.topic-left .topic-tabs li a:hover {
     color: #3fcab8;
 }
-.topic-left .topic-tabs li:first-of-type a{
-    color: #3fcab8;
+.topic-left .topic-tabs li p {
+    color: #ccc;
+    font-size:14px;
+    margin-left: 10px;
+    margin-top: 3px;
 }
+
 /*topics内容*/
 .topic-left  .topics {
     margin-top: 20px;

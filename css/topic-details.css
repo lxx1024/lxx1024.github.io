@@ -55,99 +55,159 @@ body {
 .topic .topic-left {
     width: 850px;
 }
-/*topic-tab栏*/
-.topic-left .topic-tabs {
-    width: 850px;
-    height: 55px;
-    line-height: 55px;
-    overflow: hidden;
-    background: white;
-    box-sizing:border-box;
-    padding:  0px 50px;
-    border-radius: 2px;
-    box-shadow: 0 1px 0 #D5D5D5;
-}
-.topic-left .topic-tabs li {
-    float: left;
-    margin-right: 50px;
-}
-.topic-left .topic-tabs li a {
-    color: #666;
-    font-size: 20px;
-    font-weight: bold;
-}
-.topic-left .topic-tabs li a:hover {
-    color: #3fcab8;
-}
-.topic-left .topic-tabs li:first-of-type a{
-    color: #3fcab8;
-}
-/*topics内容*/
-.topic-left  .topics {
-    margin-top: 20px;
-    width: 850px;
-    background: white;
-}
-.topic-left  .topics li{
-    opacity: 0;
-    display: none;
-}
-.topic-left  .topics li:first-of-type {
-    opacity: 1;
+.topic-left .author {
     display: block;
-}
-.topic-left  .topics .topic-content {
     width: 850px;
-    height: 170px;
+    height: 120px;
     background: white;
     box-sizing:border-box;
-    padding: 25px;
-    padding-bottom: 0px;
-    margin-bottom: 2px;
-    box-shadow: 0 1px 0 #D5D5D5;
-}
-.topic-left  .topics .topic-content img{
-    width: 120px;
-    height: 120px;
-}
-.topic-left  .topics .topic-content h2{
-    font-size: 22px;
-    font-family: "黑体";
-    margin-top: 8px;
-    margin-left: 150px;
-}
-.topic-left  .topics .topic-content h2 a {
-    color: #333;
-}
-.topic-left  .topics .topic-content h2 a:hover{
-    color: #3fcab8;
-}
-.topic-left  .topics .topic-content .desc {
-   height: 24px;
-   line-height: 24px;
-   font-size: 18px;
-    font-family: "黑体";
-    color: black;
-    margin-top: 8px;
-    margin-left: 150px;
+    padding: 30px 30px;
     margin-bottom: 30px;
 }
-.topic-left  .topics .topic-content .message {
-   height: 24px;
-   font-size: 16px;
-    color: #aaa;
-    margin-left: 150px;
+.topic-left a:hover{
+    color: #3fcab8;
 }
-.topic-left  .topics .topic-content .message .fa {
-    /*icon样式*/
+.topic-left .author img {
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     margin-right: 35px;
 }
-.topic-left  .topics .topic-content .message span b{
+.topic-left .author  .name {
     display: inline-block;
-    margin:0px 10px 0px 5px;
+    font-size: 18px;
+    font-family: "黑体";
+    line-height: 30px;
+    margin-top: 5px;
+}
+.topic-left .author  p{
+    font-size: 16px;
+    color:#aaa;
+}
+.topic-left .author  p span {
+    display: inline-block;
+    margin: 0px 5px;
+    line-height: 20px;
     color: #333;
+}
+/*-------帖子内容-------*/
+.topic-left .topic-details {
+    width: 100%;
+    background: white;
+    box-sizing:border-box;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+.topic-left .topic-details h5 {
+    line-height: 50px;
+    font-size: 24px;
+    color:#3fcab8;
+}
+.topic-left .topic-details .publish-time {
+    margin-top: 18px;
+    margin-left: 50px;
+    color: #aaa;
+}
+.topic-left .topic-details .content {
+    font-size: 16px;
+    line-height: 30px;
+}
+.topic-left .topic-details p {
+    font-size: 18px;
+    color: #333;
+}
+/*------------帖子回复-输入内容*/
+.topic-left  form {
+    display: block;
+    width: 100%;
+    background: white;
+    box-sizing:border-box;
+    padding: 30px;
+    position: relative;
+}
+.topic-left  form textarea{
+    width: 80%;
+    height: 150px;
+    font-size: 20px;
+    color: #666;
+    box-sizing:border-box;
+    padding: 10px;
+}
+.topic-left  form  span{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top:50px;
+    right:60px;
+    background: #3fcab8;
+}
+.topic-left  form  .fa {
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    top:17px;
+    left: 17px;
+}
+.topic-left  form  input {
+    position: absolute;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    background:#3fcab8;
+    bottom: 40px;
+    right: 50px;
+}
+/*--------------该帖子下的所有评论*/
+.topic-left .replys-top {
+    margin-top: 20px;
+    height: 36px;
+    line-height: 36px;
+    text-indent: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: #e5e5e5;
+}
+.topic-left .replys-top span {
+    display: inline-block;
     font-size: 16px;
     font-weight: normal;
+    color: #999;
 }
+.topic-left .replys {
+    background: white;
+    box-sizing:border-box;
+    padding: 30px 30px 20px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.topic-left .replys img {
+    width: 60px;
+    height: 60px;
+   border-radius: 50%;
+}
+.topic-left .replys .reply-right {
+    width: 710px;
+}
+.topic-left .replys .name {
+    line-height: 30px;
+    font-size:18px;
+}
+.topic-left .replys .reply-right .reply-content {
+    line-height: 24px;
+}
+.topic-left .replys .replys-time {
+    line-height: 30px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+
 
  /*左边话题内容topic-leftEnd*/
 /*--------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin*/
@@ -287,19 +347,6 @@ body {
 .topic-right .person .topics li h5{
     font-size:  16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*右边发表话题及个人信息展示部分 topic-right  End*/
 /*手机社区topic End

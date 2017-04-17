@@ -18,7 +18,7 @@ while($row=mysql_fetch_array($result)){
 }
 if(is_null($dbadminname)){
 $sql = "insert into admin (adminName,adminPsd)  values('$name','$psd')";
- if (!mysql_query($sql,$conn))    //--------------------这里的判断语句的作用是什么???删了之后就不能添加新记录
+ if (!mysql_query($sql,$conn))
  {
    die('Error: ' . mysql_error());
  }

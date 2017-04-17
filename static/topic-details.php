@@ -5,7 +5,7 @@
     <title>哆咪-手机社区</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/topic.css"/>
+    <link rel="stylesheet" href="../css/topic-details.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -93,121 +93,97 @@
     <ul class="breadcrumb">
         <li><a href="../index.php">首 页 </a></li>
         <li> / </li>
-        <li>手机社区</li>
+        <li><a href="topic.php">手机社区</a></li>
+        <li> / </li>
+        <li>帖子title</li>
     </ul>
 </div>
 <!-- 面包屑导航 wrapper End-->
 <!-----------------------------------------------------------------------------手机社区topic Begin-->
+<?php
+      // 获取传过来的id
+      $topicId=intval($_GET['id']);     //获取的是对应的帖子的id
+      include "../conn/conn.php";       //导入连接数据库php代码
+      $q = "SELECT * FROM topic where topicId='".$topicId."'order by publicTime DESC";            //SQL查询语句 -----在此处改表名
+       $result = mysql_query($q, $conn);                     //执行sql查询,
+       $row=mysql_fetch_row($result);     //------------------------帖子内容相关信息
+
+       $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //
+       $nameRs = mysql_query($qname, $conn);                     //执行sql查询
+       $name=mysql_fetch_row($nameRs);       //---------------------帖子对应作者相关信息
+
+      $nums = "SELECT * FROM topic where userId='".$row[1]."'";            //SQL查询语句 -----在此处改表名
+       $numsRs= mysql_query($nums, $conn);                     //执行sql查询,
+       $num=mysql_num_rows($numsRs);                    //-----------------------帖子对应作者下的所有帖子数量
+
+?>
+
 <div class="topic w clearfix">
     <!-- --------------------------------左边话题内容topic-left Begin -->
     <div class="topic-left fl">
-            <!-- 话题tab栏切换 -->
-            <ul class="topic-tabs">
-                <li><a href="javascript:;">热点话题</a></li>
-                <li><a href="javascript:;">最新话题</a></li>
-                <li><a href="javascript:;">全部话题</a></li>
-            </ul>
-            <!-- 话题对应的内容 -->
-            <ul class="topics">
-                <li class="topic-hot">
-                 <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-                            <?php
-                                include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic where type=0 order by publicTime DESC";                   //SQL查询语句 -----在此处改表名
-                                // type 为0 代表是热点话题
-                                $result = mysql_query($q, $conn);                     //执行sql查询,
-                                  while ($row=mysql_fetch_row($result)){
-                           ?>
+    <!-- 版主信息 -->
+          <div class="author">
+                 <a href="topic-person.php?id=<?php echo "$row[1]"?>"><img src="../images/user1.jpg" alt="" class="fl"></a>
+                  <a href="topic-person.php?id=<?php echo "$row[1]"?>" class="name"><?php   echo "$name[1]"?></a>
+                  <p class="topic-number">已发布帖子<span> <?php echo " $num"?> </span>条</p>
+          </div>
+          <div class="topic-details">
+                <div class="topic-title clearfix">
+                       <h5 class="fl"><?php   echo "$row[3]"?></h5>
+                       <p class="publish-time fl"><?php   echo "$row[6]" ?></p>
+                </div>
+       <!-- 帖子内容 -->
+                <div class="content">
+                      <p><?php   echo "$row[4]" ?></p>
+                      <?php   echo "$row[5]" ?>
+                </div>
+          </div>
+          <!-- 发表评论表单 -->
+          <form action="topic-reply.php?id=<?php echo $topicId ?>" method="post" >
+                    <textarea name="content" id="" cols="30" rows="10" >#我也说一句#</textarea>
+                    <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                    <input type="submit" name="submit" value="评论">
+           </form>
+          <!-- 该帖子下的所有评论 -->
+          <?php
+             $qreply = "SELECT * FROM topic_reply where topicId='".$topicId."' order by replyTime DESC";            //SQL查询语句 -----在此处改表名
+             $replyRs = mysql_query($qreply, $conn);                     //执行sql查询,
+              $replyNums=mysql_num_rows($replyRs);     //------------------------帖子评论数量
+          ?>
 
-                        <div class="topic-content clearfix">
-                            <a href="topic-details.php?id=<?php   echo $row[0] ?>" class="fl"><img src="../images/user1.jpg" alt=""></a>
-                            <h2><a href="topic-details.php?id=<?php   echo $row[0] ?>"><?php   echo $row[3] ?></a></h2>
-                            <p class="desc"><?php   echo $row[4] ?></p>
-                            <p class="message">
-                            <?php
-                                 $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //SQL查询语句 -----在此处改表名
-                                  $nameRs = mysql_query($qname, $conn);                     //执行sql查询
-                                 while ($name=mysql_fetch_row($nameRs)){
-                            ?>
-                                    <span><i class="fa fa-user" aria-hidden="true"></i> 作者 <b><?php echo "$name[1]" ?></b></span>
-                             <?php
-                                }
-                          ?>
-                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> 发表时间 <b><?php   echo $row[6] ?></b></span>
-                                      <span><i class="fa fa-comments-o" aria-hidden="true"></i>评论<b>9999</b></span>
-                            </p>
-                        </div>
-                          <?php
-                                }
-                                mysql_close($conn);    //关闭数据库
-                            ?>
-                </li>
-                <li class="topic-new">
-                  <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-                            <?php
-                                include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic order by publicTime DESC limit 0,5";                   //SQL查询语句 -----在此处改表名
-                                //   按时间最新排序并提取前5条记录
-                                $result = mysql_query($q, $conn);                     //执行sql查询,
-                                  while ($row=mysql_fetch_row($result)){
-                           ?>
 
-                        <div class="topic-content clearfix">
-                            <a href="topic-details.php?id=<?php   echo $row[0] ?>" class="fl"><img src="../images/user1.jpg" alt=""></a>
-                            <h2><a href="topic-details.php?id=<?php   echo $row[0] ?>"><?php   echo $row[3] ?></a></h2>
-                            <p class="desc"><?php   echo $row[4] ?></p>
-                            <p class="message">
-                            <?php
-                                 $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //SQL查询语句 -----在此处改表名
-                                  $nameRs = mysql_query($qname, $conn);                     //执行sql查询
-                                 while ($name=mysql_fetch_row($nameRs)){
-                            ?>
-                                    <span><i class="fa fa-user" aria-hidden="true"></i> 作者 <b><?php echo "$name[1]" ?></b></span>
-                             <?php
-                                }
-                          ?>
-                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> 发表时间 <b><?php   echo $row[6] ?></b></span>
-                                      <span><i class="fa fa-comments-o" aria-hidden="true"></i>评论 <b>9999</b></span>
-                            </p>
-                        </div>
-                          <?php
-                                }
-                                mysql_close($conn);    //关闭数据库
-                            ?>
-                </li>
-                <li class="topic-whole">
-                   <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-                            <?php
-                                include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic order by publicTime DESC";                   //SQL查询语句 -----在此处改表名
-                                $result = mysql_query($q, $conn);                     //执行sql查询,
-                                  while ($row=mysql_fetch_row($result)){
-                           ?>
+          <div class="replys-top">全部评论<span>共<?php echo "$replyNums"?>条</span></div>
+  <?php
+        while($replyRows=mysql_fetch_row($replyRs)){
+       $qname1 = "SELECT * FROM user where userId='".$replyRows[2]."';";
+       $nameRs1 = mysql_query($qname1, $conn);                     //执行sql查询
+       $name1=mysql_fetch_row($nameRs1);       //---------------------帖子对应作者相关信息
 
-                        <div class="topic-content clearfix">
-                            <a href="topic-details.php?id=<?php   echo $row[0] ?>" class="fl"><img src="../images/user1.jpg" alt=""></a>
-                            <h2><a href="topic-details.php?id=<?php   echo $row[0] ?>"><?php   echo $row[3] ?></a></h2>
-                            <p class="desc"><?php   echo $row[4] ?></p>
-                            <p class="message">
-                            <?php
-                                 $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //SQL查询语句 -----在此处改表名
-                                  $nameRs = mysql_query($qname, $conn);                     //执行sql查询
-                                 while ($name=mysql_fetch_row($nameRs)){
-                            ?>
-                                    <span><i class="fa fa-user" aria-hidden="true"></i> 作者 <b><?php echo "$name[1]" ?></b></span>
-                             <?php
-                                }
-                          ?>
-                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> 发表时间 <b><?php   echo $row[6] ?></b></span>
-                                      <span><i class="fa fa-comments-o" aria-hidden="true"></i>评论 <b>9999</b></span>
-                            </p>
-                        </div>
-                          <?php
-                                }
-                                mysql_close($conn);    //关闭数据库
-                            ?>
-                </li>
-            </ul>
+    ?>
+          <div class="replys clearfix">
+                   <div class="reply-left fl">
+                         <a href="#"><img src="../images/user1.jpg" alt="" class="fl"></a>
+                   </div>
+                  <div class="reply-right fr">
+                        <a href="" class="name">
+                         <?php
+                              echo "$name1[1]";
+                        ?>
+                        </a>
+                        <p class="reply-content">
+                        <?php
+                              echo "$replyRows[3];"
+                        ?>
+                        </p>
+                        <p class="replys-time">
+                        <?php
+                              echo "$replyRows[4];"
+                        ?></p>
+                  </div>
+          </div>
+   <?php
+        }
+   ?>
     </div>
     <!-- 左边话题内容topic-left End -->
     <!----------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin-->
@@ -254,8 +230,7 @@
                                       echo "${_SESSION["userName"]}";
                              ?>
                     </b>
-                        <i class="number">已发布 <b> <?php
-                                      echo "$num" ?> </b> 条帖子</i>
+                        <i class="number">已发布 <b>  <?php  echo "$num" ?>  </b> 条帖子</i>
                     </a>
                     <ul class="topics">
                     <?php

@@ -54,102 +54,51 @@ body {
 /*--------------------------------左边话题内容topic-left Begin*/
 .topic .topic-left {
     width: 850px;
-}
-/*topic-tab栏*/
-.topic-left .topic-tabs {
-    width: 850px;
-    height: 55px;
-    line-height: 55px;
-    overflow: hidden;
+    height: 500px;
+    line-height: 50px;
     background: white;
     box-sizing:border-box;
-    padding:  0px 50px;
-    border-radius: 2px;
-    box-shadow: 0 1px 0 #D5D5D5;
+    padding: 30px;
 }
-.topic-left .topic-tabs li {
-    float: left;
-    margin-right: 50px;
-}
-.topic-left .topic-tabs li a {
-    color: #666;
+.topic-left label {
     font-size: 20px;
-    font-weight: bold;
+    margin-right: 10px;
 }
-.topic-left .topic-tabs li a:hover {
-    color: #3fcab8;
+.topic-left input {
+    width: 500px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    border:1px solid #3fcab8;
+    padding: 0px 10px;
 }
-.topic-left .topic-tabs li:first-of-type a{
-    color: #3fcab8;
+.topic-left textarea {
+    font-size: 18px;
+    border:1px solid #3fcab8;
+    padding: 20px;
 }
-/*topics内容*/
-.topic-left  .topics {
-    margin-top: 20px;
-    width: 850px;
-    background: white;
+.topic-left .publish {
+    position: relative;
 }
-.topic-left  .topics li{
-    opacity: 0;
-    display: none;
-}
-.topic-left  .topics li:first-of-type {
-    opacity: 1;
-    display: block;
-}
-.topic-left  .topics .topic-content {
-    width: 850px;
-    height: 170px;
-    background: white;
-    box-sizing:border-box;
-    padding: 25px;
-    padding-bottom: 0px;
-    margin-bottom: 2px;
-    box-shadow: 0 1px 0 #D5D5D5;
-}
-.topic-left  .topics .topic-content img{
+.topic-left .publish input {
     width: 120px;
-    height: 120px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    border:1px solid #3fcab8;
+    border-radius: 5px;
+    background: #3fcab8;
+    position: absolute;
+    right: 5px;
+    top: -5px;
 }
-.topic-left  .topics .topic-content h2{
-    font-size: 22px;
-    font-family: "黑体";
-    margin-top: 8px;
-    margin-left: 150px;
-}
-.topic-left  .topics .topic-content h2 a {
-    color: #333;
-}
-.topic-left  .topics .topic-content h2 a:hover{
-    color: #3fcab8;
-}
-.topic-left  .topics .topic-content .desc {
-   height: 24px;
-   line-height: 24px;
-   font-size: 18px;
-    font-family: "黑体";
-    color: black;
-    margin-top: 8px;
-    margin-left: 150px;
-    margin-bottom: 30px;
-}
-.topic-left  .topics .topic-content .message {
-   height: 24px;
-   font-size: 16px;
-    color: #aaa;
-    margin-left: 150px;
-}
-.topic-left  .topics .topic-content .message .fa {
-    /*icon样式*/
-}
-.topic-left  .topics .topic-content .message span b{
-    display: inline-block;
-    margin:0px 10px 0px 5px;
-    color: #333;
-    font-size: 16px;
-    font-weight: normal;
-}
-
+.topic-left .publish input:hover {
+    background: #22c459;
+  }
  /*左边话题内容topic-leftEnd*/
+
 /*--------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin*/
 .topic .topic-right {
     width: 320px;

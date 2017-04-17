@@ -11,7 +11,6 @@
 <?php       //---------连接数据库PHP代码
 include "conn/conn.php";       //导入连接数据库php代码
 $q = "SELECT * FROM admin";                   //SQL查询语句 -----在此处改表名
-// mysql_query("SET NAMES UTF8");           //设置统一的字符格式utf-8
 $result = mysql_query($q, $conn);                     //执行sql查询,
 //$row = mysql_fetch_row($result);    //  获取数据集  ------ 后面在while循环里面获取
 ?>

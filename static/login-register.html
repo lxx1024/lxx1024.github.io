@@ -2,50 +2,43 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>哆咪-会员注册</title>
+    <title>哆咪-欢迎登录</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/register.css"/>
+    <link rel="stylesheet" href="../css/login.css"/>
+    <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
-<div class="register-top w">
+<div class="login-top w">
     <div class="logo">
         <a href="../index.php"><img src="../images/domi.png" alt=""/></a>
-        <h1>会员注册 * 哆咪手机商城</h1>
+        <h1>欢迎登录 * 哆咪手机商城</h1>
     </div>
-    <a href="login-register.html" class="toLogin">已有账号,点这里登录</a>
 </div>
-<div class="register-main">
+<div class="login-main">
     <div class="w">
         <img src="../images/lbt7.jpg" alt=""/>
-        <form class="register-message" action="register.php" method="post">
+        <form class="login-message" action="login-register.php" method="post">
             <div class="user-name">
                 &nbsp;&nbsp;用&nbsp;&nbsp;户&nbsp;&nbsp;名:
                 <input type="text" name="userName" placeholder="请输入您的用户名"/>
             </div>
             <div class="user-password">
-                &nbsp;&nbsp;设置密码:
-                <input type="password" name="userPsw" placeholder="建议至少两种字符组成"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码:
+                <input type="password" name="userPsw" placeholder="请输入您的密码"/>
             </div>
-            <div class="user-password-confirm">
-                &nbsp;&nbsp;确认密码:
-                <input type="password" name="password-confirm" placeholder="请再次输入密码"/>
-            </div>
-            <div class="user-phone">
-                &nbsp;&nbsp;手机号码:
-                <input type="text" name="phone" placeholder="请输入手机号码"/>
-            </div>
-            <i class="form-agree">
-                <input type="checkbox" name="agreen">
-                阅读并同意
-                <a href="javascript:;" id="protocol">《哆咪用户注册协议》</a>
-                <a href="javascript:;" id="privacyProtocolTrigger">《隐私政策》</a>
-            </i>
-            <input type="submit" name="submit" class="register-submit" value="立即注册"/>
+            <a href="#" class="forget-password">忘记密码</a>
+            <input type="submit" name="submit" class="login-submit" value="立即登录"/>
+            <p class="others">
+                <a href="#" class="qq-icon"><i class="fa fa-qq" aria-hidden="true"></i></a>
+                <a href="#" class="qq">QQ</a>
+                <a href="#" class="weixin-icon"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                <a class="weixin">微信</a>
+                <a href="register.html" class="toRegister"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>立即注册</a>
+            </p>
         </form>
     </div>
 </div>
-<!---------------------------底部---------------------->
 <div class="footer">
     <div class="w">
         <div class="footer-siteLinks">

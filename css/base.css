@@ -28,7 +28,7 @@ select, input {
 
 /*输入字居中显示*/
 select, input, textarea {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0;
 }
 
@@ -48,7 +48,7 @@ table {
 }
 
 body {
-    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
+    font: 14px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
     color: #666; /*150%基于当前字体尺寸的百分比行间距*/
     background: #fefefe;
 }
@@ -266,7 +266,7 @@ s, i, em {
 }
 .dm-nav li {
     float: left;
-    width: 242px;
+    width: 180px;
     box-sizing: border-box;
     text-align: center;
 }

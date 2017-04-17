@@ -5,12 +5,20 @@
     <title>哆咪-手机社区</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/topic.css"/>
+    <link rel="stylesheet" href="../css/topic-person.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
 <?php
     session_start();     //登录系统开启一个session内容
+   if(! isset($_SESSION["userName"])){     //判断是否存在session对象
+  ?>
+  <script>
+      alert ("您还没登录!请登录");
+      window.location.href="topic.php";
+  </script>
+  <?php
+   }
 ?>
 <!-- ------------------------------------通栏dm-shortcut  Begin -->
 <div class="dm-shortcut">
@@ -93,93 +101,60 @@
     <ul class="breadcrumb">
         <li><a href="../index.php">首 页 </a></li>
         <li> / </li>
-        <li>手机社区</li>
+        <li><a href="topic.php">手机社区</a></li>
+        <li> / </li>
+        <li>个人中心</li>
     </ul>
 </div>
 <!-- 面包屑导航 wrapper End-->
 <!-----------------------------------------------------------------------------手机社区topic Begin-->
+<?php
+      // 获取传过来的id
+      $id=intval($_GET['id']);
+      include "../conn/conn.php";       //导入连接数据库php代码
+      $q = "SELECT * FROM topic where userId='".$id."' order by publicTime DESC;";                   //SQL查询语句 -----在此处改表名
+       $result = mysql_query($q, $conn);                     //执行sql查询,
+       $num = mysql_num_rows($result);                       // id对应的帖子信息
+
+       $qname = "SELECT * FROM user where userId='".$id."';";                   //
+       $nameRs = mysql_query($qname, $conn);                     //执行sql查询
+       $name=mysql_fetch_row($nameRs);       //---------------------id对应作者相关信息
+?>
+<div class="topic-top w">
+         <div class="center">
+                <img src="../images/user1.jpg" alt="">
+                <p class="author"><?php echo"$name[1]" ?></p>
+                <p class="amount">已发布<?php echo"$num" ?>条动态</p>
+         </div>
+</div>
 <div class="topic w clearfix">
     <!-- --------------------------------左边话题内容topic-left Begin -->
     <div class="topic-left fl">
             <!-- 话题tab栏切换 -->
             <ul class="topic-tabs">
-                <li><a href="javascript:;">热点话题</a></li>
-                <li><a href="javascript:;">最新话题</a></li>
-                <li><a href="javascript:;">全部话题</a></li>
+                <li>
+                      <a href="javascript:;" class="fl">全部动态</a>
+                      <?php
+                          if($num==0){
+                     ?>
+                     <p class="amount fl">你还没发表动态</p>
+                     <?php
+                          }else {
+                      ?>
+                      <p class="amount fl">已发布<?php echo"$num" ?>条动态</p>
+                      <?php
+                          }
+                      ?>
+
+                </li>
             </ul>
             <!-- 话题对应的内容 -->
             <ul class="topics">
-                <li class="topic-hot">
-                 <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-                            <?php
-                                include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic where type=0 order by publicTime DESC";                   //SQL查询语句 -----在此处改表名
-                                // type 为0 代表是热点话题
-                                $result = mysql_query($q, $conn);                     //执行sql查询,
-                                  while ($row=mysql_fetch_row($result)){
-                           ?>
-
-                        <div class="topic-content clearfix">
-                            <a href="topic-details.php?id=<?php   echo $row[0] ?>" class="fl"><img src="../images/user1.jpg" alt=""></a>
-                            <h2><a href="topic-details.php?id=<?php   echo $row[0] ?>"><?php   echo $row[3] ?></a></h2>
-                            <p class="desc"><?php   echo $row[4] ?></p>
-                            <p class="message">
-                            <?php
-                                 $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //SQL查询语句 -----在此处改表名
-                                  $nameRs = mysql_query($qname, $conn);                     //执行sql查询
-                                 while ($name=mysql_fetch_row($nameRs)){
-                            ?>
-                                    <span><i class="fa fa-user" aria-hidden="true"></i> 作者 <b><?php echo "$name[1]" ?></b></span>
-                             <?php
-                                }
-                          ?>
-                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> 发表时间 <b><?php   echo $row[6] ?></b></span>
-                                      <span><i class="fa fa-comments-o" aria-hidden="true"></i>评论<b>9999</b></span>
-                            </p>
-                        </div>
-                          <?php
-                                }
-                                mysql_close($conn);    //关闭数据库
-                            ?>
-                </li>
-                <li class="topic-new">
-                  <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-                            <?php
-                                include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic order by publicTime DESC limit 0,5";                   //SQL查询语句 -----在此处改表名
-                                //   按时间最新排序并提取前5条记录
-                                $result = mysql_query($q, $conn);                     //执行sql查询,
-                                  while ($row=mysql_fetch_row($result)){
-                           ?>
-
-                        <div class="topic-content clearfix">
-                            <a href="topic-details.php?id=<?php   echo $row[0] ?>" class="fl"><img src="../images/user1.jpg" alt=""></a>
-                            <h2><a href="topic-details.php?id=<?php   echo $row[0] ?>"><?php   echo $row[3] ?></a></h2>
-                            <p class="desc"><?php   echo $row[4] ?></p>
-                            <p class="message">
-                            <?php
-                                 $qname = "SELECT * FROM user where userId='".$row[1]."';";                   //SQL查询语句 -----在此处改表名
-                                  $nameRs = mysql_query($qname, $conn);                     //执行sql查询
-                                 while ($name=mysql_fetch_row($nameRs)){
-                            ?>
-                                    <span><i class="fa fa-user" aria-hidden="true"></i> 作者 <b><?php echo "$name[1]" ?></b></span>
-                             <?php
-                                }
-                          ?>
-                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> 发表时间 <b><?php   echo $row[6] ?></b></span>
-                                      <span><i class="fa fa-comments-o" aria-hidden="true"></i>评论 <b>9999</b></span>
-                            </p>
-                        </div>
-                          <?php
-                                }
-                                mysql_close($conn);    //关闭数据库
-                            ?>
-                </li>
                 <li class="topic-whole">
                    <!-- 从数据库提取手机社区对应的数据PHP代码 -->
                             <?php
                                 include "../conn/conn.php";       //导入连接数据库php代码
-                                $q = "SELECT * FROM topic order by publicTime DESC";                   //SQL查询语句 -----在此处改表名
+                                $q = "SELECT * FROM topic where userId='".$id."'order by publicTime DESC ";                   //SQL查询语句 -----在此处改表名
                                 $result = mysql_query($q, $conn);                     //执行sql查询,
                                   while ($row=mysql_fetch_row($result)){
                            ?>
@@ -238,14 +213,13 @@
     ?>
       <?php
               include "../conn/conn.php";       //导入连接数据库php代码
-              $id = $_SESSION["userId"];
-              $q = "SELECT * FROM topic where userId='".$id."' order by publicTime DESC limit 0,8;";                   //SQL查询语句 -----在此处改表名
-              // type 为0 代表是热点话题
+             $currentId = $_SESSION["userId"];
+              $q = "SELECT * FROM topic where userId='".$currentId."' order by publicTime DESC limit 0,8;";                   //SQL查询语句 -----在此处改表名
                $result = mysql_query($q, $conn);                     //执行sql查询,
                $num = mysql_num_rows($result);
        ?>
         <div class="person">
-                    <a href="topic-person.php?id=<?php echo "$id"?>">
+                    <a href="topic-person.php?id=<?php echo "$currentId"?>">
                         <span>
                              <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
@@ -254,8 +228,7 @@
                                       echo "${_SESSION["userName"]}";
                              ?>
                     </b>
-                        <i class="number">已发布 <b> <?php
-                                      echo "$num" ?> </b> 条帖子</i>
+                        <i class="number">已发布 <b>  <?php  echo "$num" ?>   </b> 条帖子</i>
                     </a>
                     <ul class="topics">
                     <?php
@@ -329,8 +302,5 @@
         </div>
     </div>
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/base.js"></script>
-<script src="../js/topic.js"></script>
 </body>
 </html>
