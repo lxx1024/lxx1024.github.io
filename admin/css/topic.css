@@ -1,0 +1,67 @@
+.main-content {
+    height: auto;
+    padding-bottom: 0px;
+}
+.left-nav .topic a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .topic a .fa {
+    color:yellow;
+}
+/*---------------------------留言信息管理主体部分 Begin*/
+.main-content .topics {
+    width: 90%;
+    min-height: 500px;  /*最小高度*/
+    padding: 20px;
+    background: #f9f9f9;
+    position: relative;
+}
+
+.main-content .topics table {
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    color: #201010;
+}
+.main-content .topics table th {
+    border: 1px solid #696969;
+}
+.main-content .topics table td a {
+    color: inherit;
+}
+.main-content .topics table tr:first-of-type{
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #c2c2c2;
+}
+
+.main-content .topics table td {
+    width: 180px;
+    border: 1px solid #ccc;
+}
+.main-content .topics table td:first-of-type {
+    width: 60px;
+}
+.main-content .topics table .title {
+    width: 350px;
+}
+.main-content .topics table .title .hot {
+    color: #ff4b43;
+}
+.main-content .topics .admin-edit {
+    display: inline-block;
+    color: #30a0f8;
+}
+.main-content .topics .topic-hot-y{
+    color: #4377ff;
+}
+.main-content .topics .topic-hot-n{
+    color: #ff4b43;
+}
+.main-content .topics .topic-del{
+    width: 80px;
+}
+/*管理员信息管理主体部分  End*/

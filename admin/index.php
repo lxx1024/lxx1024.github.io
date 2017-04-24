@@ -51,10 +51,10 @@ window.location.href="login.html";
     <ul>
         <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <li><a href="product-type.html">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
-        <li><a href="product.html">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
-        <li><a href="order.html">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
-        <li><a href="community.html">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
+        <li><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
+        <li><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
+        <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+        <li><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
         <li><a href="#">报表统计分析 <i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
     </ul>
 </div>
@@ -66,22 +66,23 @@ window.location.href="login.html";
     <h3>管理员权限说明 - - 您当前的身份是<span>超级管理员</span>!</h3>
     <div class="super-admin fl">
         <h5>超级管理员权限:</h5>
-        <p>维护管理员信息</p>
-        <p>维护会员信息</p>
-        <p>维护管理员信息</p>
-        <p>维护管理员信息</p>
-        <p>维护管理员信息</p>
-        <p>维护管理员信息</p>
-        <p>维护管理员信息</p>
+        <p>管理员信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>会员信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>商品分类管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>商品信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>商品订单管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>留言信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>报表统计分析<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
     </div>
     <div class="general-admin fr">
         <h5>普通管理员权限:</h5>
-        <p>管理商品信息</p>
-        <p>管理商品信息</p>
-        <p>管理商品信息</p>
-        <p>管理商品信息</p>
-        <p>管理商品信息</p>
-        <p>管理商品信息</p>
+        <p>管理员信息管理<i class="fa fa-times-circle-o" aria-hidden="true"></i></p>
+        <p>会员信息管理<i class="fa fa-times-circle-o" aria-hidden="true"></i></p>
+        <p>商品分类管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>商品信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>商品订单管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>留言信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
+        <p>报表统计分析<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
     </div>
 </div>
 <!--主要内容主体 End-->

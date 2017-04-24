@@ -147,6 +147,7 @@ s, i, em {
     border-bottom: 1px solid #2d65c1;
     overflow: hidden;
     position: fixed;
+    z-index: 999;
 }
 .top .logo {
     width: 50%;

@@ -1,0 +1,129 @@
+.main-content {
+    height: auto;
+    padding-bottom: 0px;
+}
+.left-nav .topic a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .topic a .fa {
+    color:yellow;
+}
+/*--------------------------话题详情主体部分 Begin*/
+.wrapper {
+    height: 40px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: yellow;
+    padding-left: 20px;
+    border-bottom: 1px solid blue;
+}
+.main-content .topics .wrapper a {
+  color: #3eb30a;
+}
+.main-content .topics {
+    width: 90%;
+    min-height: 500px;  /*最小高度*/
+    padding: 20px;
+    color: #333;
+    background: #f9f9f9;
+    position: relative;
+}
+.main-content .topics a {
+    color: #333;
+}
+/*-------帖子内容-------*/
+.topics .topic-details {
+    width: 100%;
+    background: white;
+    box-sizing:border-box;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.topics .topic-details h5 {
+    line-height: 50px;
+    font-size: 24px;
+    color:#333;
+}
+.topics .topic-details .publish-time {
+    margin-top: 18px;
+    margin-left: 50px;
+    color: #aaa;
+}
+.topics .topic-details .author {
+    margin-top: 18px;
+    margin-left: 50px;
+    color: #666;
+}
+.topics .topic-details .topic-del {
+    position: absolute;
+    top: 35px;
+    right: 50px;
+    color: red;
+}
+.topics .topic-details .topic-del a {
+    color: inherit;
+}
+.topics .topic-details .content {
+    font-size: 16px;
+    line-height: 30px;
+}
+.topics .topic-details p {
+    font-size: 18px;
+    color: #333;
+}
+
+/*--------------该帖子下的所有评论*/
+.topics .replys-top {
+    margin-top: 20px;
+    height: 36px;
+    line-height: 36px;
+    text-indent: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: #e5e5e5;
+}
+.topics .replys-top span {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+.topics .replys {
+    background: white;
+    box-sizing:border-box;
+    padding: 30px 30px 20px 20px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.topics .replys img {
+    width: 60px;
+    height: 60px;
+   border-radius: 50%;
+}
+.topics .replys .reply-right {
+    width: 710px;
+}
+.topics .replys .name {
+    line-height: 30px;
+    font-size:18px;
+}
+.topics .replys .reply-right .reply-content {
+    line-height: 24px;
+}
+.topics .replys .replys-time {
+    line-height: 30px;
+    font-size: 16px;
+    color: #aaa;
+}
+.topics .replys  .reply-del{
+    position: absolute;
+    font-size: 16px;
+    top: 35px;
+    right: 50px;
+    color: red;
+}
+/*话题详情主体部分 End*/

@@ -96,6 +96,7 @@
         <li><a href="#">手机配件</a></li>
         <li><a href="#">新品发布</a></li>
         <li><a href="static/topic.php">手机社区</a></li>
+        <li><a href="#">哆咪文化</a></li>
     </ul>
     <ul class="nav-content">
         <li> </li>

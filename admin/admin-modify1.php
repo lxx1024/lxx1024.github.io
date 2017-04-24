@@ -15,8 +15,8 @@ $psd=$_POST['admin-psd'];        //获取表单提交过来的数据
 
 //修改指定数据
 mysql_query("UPDATE admin SET adminName='$name',adminPsd='$psd 'WHERE adminId='$id'");
-$_SESSION["adminname"]=$name;
-$_SESSION["adminpsd"]=$psd;   //更新修改后的session
+// $_SESSION["adminname"]=$name;
+// $_SESSION["adminpsd"]=$psd;   //更新修改后的session
 
 //排错并返回
 if(mysql_error()){

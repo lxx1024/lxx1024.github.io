@@ -89,21 +89,17 @@
 <!-- -------------------------------------导航栏dm-nav Begin-->
 <div class="dm-nav w">
     <ul class="nav">
-        <li><a href="../index.php">首页</a></li>
-        <li><a href="oppo-index.php" class="col-main">品牌汇</a></li>
+        <li><a href="#" class="col-main">首页</a></li>
+        <li><a href="static/oppo-index.php">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
-        <li><a href="#">以旧换新</a></li>
+        <li><a href="#">新品发布</a></li>
         <li><a href="topic.php">手机社区</a></li>
+        <li><a href="#">哆咪文化</a></li>
     </ul>
     <ul class="nav-content">
+        <li> </li>
         <li>
-            这是首页下的分类内容
-        </li>
-        <li>
-            这是品牌汇下的分类内容
-        </li>
-        <li>
-            这是手机配件下的分类内容
+             这是品牌汇下的分类内容
         </li>
     </ul>
 </div>

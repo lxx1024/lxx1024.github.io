@@ -155,9 +155,9 @@
           <div class="replys-top">全部评论<span>共<?php echo "$replyNums"?>条</span></div>
   <?php
         while($replyRows=mysql_fetch_row($replyRs)){
-       $qname1 = "SELECT * FROM user where userId='".$replyRows[2]."';";
-       $nameRs1 = mysql_query($qname1, $conn);                     //执行sql查询
-       $name1=mysql_fetch_row($nameRs1);       //---------------------帖子对应作者相关信息
+               $qname1 = "SELECT * FROM user where userId='".$replyRows[2]."';";
+               $nameRs1 = mysql_query($qname1, $conn);                     //执行sql查询
+               $name1=mysql_fetch_row($nameRs1);       //---------------------帖子对应作者相关信息
 
     ?>
           <div class="replys clearfix">

@@ -28,6 +28,17 @@
     color: #befffa;
 }
 .main-content .super-admin p,.main-content .general-admin p{
+    width: 200px;
     font-size: 22px;
     text-indent: 2px;
+    position: relative;
+}
+.main-content .fa {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    color: #11ec11;
+}
+.main-content .fa-times-circle-o {
+    color: red;
 }
