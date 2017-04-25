@@ -109,7 +109,10 @@ window.location.href="login.html";
                         <?php echo "$row[2]" ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?>" class="admin-edit">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                编辑
+                        </a>
                         <a href="admin-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>

@@ -81,7 +81,7 @@ window.location.href="login.html";
 <!---------------------------------------留言信息管理主体部分 Begin-->
 <div class="main-content fr">
     <div class="topics">
-        <div class="wrapper"><a href="topic.php"><i class="fa fa-reply-all" aria-hidden="true"></i>返回留言信息管理</a></div>
+        <div class="wrapper"><a href="topic.php"><i class="fa fa-reply-all" aria-hidden="true"></i>返回</a></div>
          <!-- 帖子内容 -->
         <div class="topic-details">
                 <div class="topic-title clearfix">
@@ -97,7 +97,7 @@ window.location.href="login.html";
           </div>
           <!-- 该帖子下的所有评论 -->
           <?php
-             $qreply = "SELECT * FROM topic_reply where topicId='".$topicId."' order by replyTime DESC";            //SQL查询语句 -----在此处改表名
+             $qreply = "SELECT * FROM topic_reply where topicId='".$topicId."'";            //SQL查询语句 -----在此处改表名
              $replyRs = mysql_query($qreply, $conn);                     //执行sql查询,
               $replyNums=mysql_num_rows($replyRs);     //------------------------帖子评论数量
           ?>
@@ -137,6 +137,6 @@ window.location.href="login.html";
    ?>
     </div>
 </div>
-<!--管理员信息管理主体部分 End-->
+<!--留言信息管理主体部分 End-->
 </body>
 </html>

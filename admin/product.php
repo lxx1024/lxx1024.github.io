@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
-    <link rel="stylesheet" href="css/admin.css"/>
+    <link rel="stylesheet" href="css/product.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -55,74 +55,103 @@ window.location.href="login.html";
 <!---------------------------------------侧边栏left-nav Begin-->
 <div class="left-nav fl">
     <ul>
-        <li class="admin"><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
+        <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <li><a href="product-type.html">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
-        <li><a href="product.html">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
-        <li><a href="order.html">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
-        <li><a href="community.html">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
+        <li><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
+        <li class="product"><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
+        <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+        <li><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
         <li><a href="#">报表统计分析 <i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
     </ul>
 </div>
 <!-- 侧边栏left-nav End-->
-
+<!-- 从数据库提取商品信息对应的数据PHP代码 -->
+        <?php
+            include "../conn/conn.php";       //导入连接数据库php代码
+            $q = "SELECT * FROM product";                   //SQL查询语句 -----在此处改表名
+            // type 为0 代表是热点话题
+            $result = mysql_query($q, $conn);                     //执行sql查询,
+       ?>
 <!--后台通用头部和侧边栏 End-->
-<!---------------------------------------管理员信息管理主体部分 Begin-->
+<!---------------------------------------商品信息管理主体部分 Begin-->
 <div class="main-content fr">
-    <div class="current-admin">
-        <p>您当前的账号信息:</p>
-        <form action="admin-current-edit.php" method="post">
-            <label for="admin-name"> 用户名: </label><input type="text" value="<?php
-        echo "${_SESSION["adminname"]}";
-        ?>" maxlength="20" name="admin-name" id="admin-name"/>
-            <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="<?php
-        echo "${_SESSION["adminpsd"]}";?>" name="admin-psd" id="admin-psd"/>
-            <input type="submit" name="submit" value="保存" onclick="return confirm('确定修改当前登录账号信息');"/>
-        </form>
+    <ul class="prod-type clearfix ">
+              <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
+                    mysql_data_seek($result, 0);  // 循环取出记录
+                    while ($row=mysql_fetch_row($result)){
+                ?>
+            <li><a href="#">
+                 <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
+                     <?php
+                             $qname = "SELECT * FROM prod_type where prodTypeId='".$row[2]."';";                   //SQL查询语句 -----在此处改表名
+                              $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
+                             while ($typename=mysql_fetch_row($prodTypeRs)){
+                                     echo "$typename[1]";
+                            }
+                      ?>
+            </a></li>
+            <li>|</li>
+            <?php
+                }
+            ?>
+    </ul>
+    <div class="prod-top clearfix">
+        <div class="prod-add fl"><a href="admin-add.php">添加商品</a></div>
+        <div class="prod-search fr">
+               <a href="#">搜索</a>
+                <input type="text" name="search" placeholder="请输入搜索关键字">
+        </div>
     </div>
-    <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
-    <div class="admin-add-form">
-        <div class="admin-add"><a href="admin-add.php">添加管理员</a></div>
-    </div>
-    <div class="admins">
+    <div class="product">
         <form action="#" method="post">
             <table>
                 <tr>
-                    <th>序号</th>
-                    <th>用户名</th>
-                    <th>密码</th>
+                    <th>商品ID</th>
+                    <th>商品名称</th>
+                    <th>商品分类</th>
                     <th>操作</th>
                 </tr>
-
                 <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
                     mysql_data_seek($result, 0);  // 循环取出记录
                     while ($row=mysql_fetch_row($result)){
                 ?>
                 <tr>
-                    <td>
+                    <td class="prod-id">
                         <?php echo "$row[0]" ?>
                     </td>
                     <td>
                         <?php echo "$row[1]" ?>
                     </td>
-                    <td>
-                        <?php echo "$row[2]" ?>
+                    <td class="prod-type">
+                    <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
+                     <?php
+                             $qname = "SELECT * FROM prod_type where prodTypeId='".$row[2]."';";                   //SQL查询语句 -----在此处改表名
+                              $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
+                             while ($typename=mysql_fetch_row($prodTypeRs)){
+                                     echo "$typename[1]";
+                            }
+                      ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
-                        <a href="admin-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="prod-details.php?id=<?php echo "$row[0]" ?>" class="admin-edit">
+                                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                查看详情
+                        </a>
+                        <a href="admin-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                                删除
+                        </a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束
                     }
-
                 ?>
 
             </table>
         </form>
     </div>
 </div>
-<!--管理员信息管理主体部分 End-->
+<!--商品信息管理主体部分 End-->
 
 </body>
 </html>
