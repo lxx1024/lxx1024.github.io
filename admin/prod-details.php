@@ -151,7 +151,10 @@ window.location.href="login.html";
                                          $attr = "SELECT * FROM attribute where prodId='".$row[0]."';";                   //SQL查询语句 -----在此处改表名
                                           $attrRs = mysql_query($attr, $conn);                     //执行sql查询
                                          while ($attrName=mysql_fetch_row($attrRs)){
-                                                 echo "<p>$attrName[3]：";
+                                                $attr1 = "SELECT * FROM attrType where attrTypeId='".$attrName[3]."';";                   //SQL查询语句 -----在此处改表名
+                                                $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
+                                                $attrName1=mysql_fetch_row($attrRs1);
+                                                 echo "<p>$attrName1[1]：";
                                                  echo "$attrName[2] </p>";
                                           }
                                  ?>

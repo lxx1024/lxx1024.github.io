@@ -136,7 +136,7 @@ window.location.href="login.html";
                                                商品介绍:
                                         </div>
                                         <div class="content fl">
-                                               <input class="prod-name" type="text" maxlength="20" value="<?php echo $row[6];?>">
+                                               <input class="prod-desc" type="text" maxlength="50" value="<?php echo $row[6];?>">
                                         </div>
                                 </li>
                                 <li clearfix>
@@ -145,13 +145,18 @@ window.location.href="login.html";
                                         </div>
                                         <div class="content fl">
                                                 <?php
-                                                 $attr = "SELECT * FROM attribute where prodId='".$row[0]."';";                   //SQL查询语句 -----在此处改表名
-                                                  $attrRs = mysql_query($attr, $conn);                     //执行sql查询
-                                                 while ($attrName=mysql_fetch_row($attrRs)){
-                                                         echo "<p>$attrName[3]：";
-                                                         echo "$attrName[2] </p>";
-                                                  }
-                                         ?>
+                                                 $attr1 = "SELECT * FROM attrType";                   //SQL查询语句 -----在此处改表名
+                                                 $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
+                                                 while ($attrName1=mysql_fetch_row($attrRs1)){
+                                                         echo "<p>$attrName1[1]：";
+                                                          $attr2 = "SELECT * FROM attribute where attrTypeId='".$attrName1[0]."'and prodId='".$row[0]."';";       //对应属性且对应商品ID的属性值           //SQL查询语句 -----在此处改表名
+                                                          $attrRs2 = mysql_query($attr2, $conn);                     //执行sql查询
+                                                          $attrName2=mysql_fetch_row($attrRs2);
+                                                   ?>
+                                                   <input class="prod-name" name="attr<?php echo $attrName1[0];?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
+                                                   <?php
+                                                        }
+                                                  ?>
                                         </div>
                                 </li>
                                 <li>

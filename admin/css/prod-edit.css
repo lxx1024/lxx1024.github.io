@@ -72,6 +72,12 @@
     height: 32px;
     border: 1px solid #0cff00;
 }
+.product .prod-details .content .prod-desc {
+    width: 100%;
+    height: 32px;
+    font-size: 16px;
+    border: 1px solid #0cff00;
+}
 .product .prod-details .content .prod-pic {
     width: 100%;
     padding: 10px;
