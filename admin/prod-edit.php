@@ -64,7 +64,7 @@ window.location.href="login.html";
       // 获取传过来的id
       $prodId=intval($_GET['id']);     //获取的是对应的帖子的id
       include "../conn/conn.php";       //导入连接数据库php代码
-      $q = "SELECT * FROM product where prodId='".$prodId."'";            //SQL查询语句 -----在此处改表名
+       $q = "SELECT * FROM product where prodId='".$prodId."'";            //SQL查询语句 -----在此处改表名
        $result = mysql_query($q, $conn);                     //执行sql查询,
        $row=mysql_fetch_row($result);     //------------------------帖子内容相关信息
 
@@ -94,14 +94,14 @@ window.location.href="login.html";
                           </div>
                 </div>
                  <!-- 商品详细内容显示 -->
-                <form action="prod-edit1" method="post">
+                <form action="prod-edit-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
                          <ul class="prod-details clearfix">
                                 <li>
                                         <div class="fl">
                                                 商品名称:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" type="text" maxlength="20" value="<?php echo $row[1];?>">
+                                                <input class="prod-name" name="prod-name" type="text" maxlength="20" value="<?php echo $row[1];?>">
                                         </div>
                                 </li>
                                  <li>
@@ -109,7 +109,7 @@ window.location.href="login.html";
                                                 商品单价:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" type="text" value="<?php echo $row[5];?>">
+                                                <input class="prod-name" name="prod-price" type="text" value="<?php echo $row[5];?>">
                                                 <span>0-9999.99,单位RMB</span>
                                         </div>
                                 </li>
@@ -136,7 +136,7 @@ window.location.href="login.html";
                                                商品介绍:
                                         </div>
                                         <div class="content fl">
-                                               <input class="prod-desc" type="text" maxlength="50" value="<?php echo $row[6];?>">
+                                               <input class="prod-desc" name="prod-desc" type="text" maxlength="50" value="<?php echo $row[6];?>">
                                         </div>
                                 </li>
                                 <li clearfix>
@@ -164,7 +164,7 @@ window.location.href="login.html";
                                                 商品库存:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" type="text" maxlength="20" value="<?php echo $row[3];?>">
+                                                <input class="prod-name" name="prod-inventory" type="text" maxlength="20" value="<?php echo $row[3];?>">
                                         </div>
                                 </li>
                                 <li>
@@ -177,13 +177,26 @@ window.location.href="login.html";
                                                 $img=$row[8];
                                                 $imgs=explode(",",$img);
                                                 foreach ($imgs as $key => $value) {
+                                                  $num = $key+1;
+                                                  echo $num;
                                            ?>
                                             <div class="prod-pic">
-                                                  <img src="<?php   echo $value ?>" alt="">
+                                                  <img src="<?php   echo $value ?>" alt=""><br/>
+                                                  重新选择图片:<input type="file" name="file[]" class="file" onchange="preview(this)" />
                                             </div>
                                             <?php
                                                 }
-                                            ?>
+                                                // 接下来判断索引是否小于5,小于5的话则继续增加input添加图片
+                                                $num++;
+                                                for ($num ;$num <=5 ; $num++) {
+                                             ?>
+                                             <div class="prod-pic">
+                                                  <?php echo $num ?>
+                                                  <input type="file" name="file[]" class="file" onchange="preview(this)" />
+                                            </div>
+                                             <?php
+                                                }
+                                            ?>5
                                         </div>
                                 </li>
                                 <li>
@@ -191,9 +204,17 @@ window.location.href="login.html";
                                                商品详情:
                                         </div>
                                         <div class="content fl">
-                                                <?php
-                                                        echo $row[9];
-                                                ?>
+                                            <textarea name="content" id="" cols="80" rows="10">
+                                              <?php echo $row[9]; ?>
+                                              </textarea>
+                                        </div>
+                                </li>
+                                <li>
+                                        <div class="fl">
+                                                提交表单:
+                                        </div>
+                                        <div class="content fl">
+                                                 <input class="submit" type="submit" value="确定修改">
                                         </div>
                                 </li>
                          </ul>
@@ -201,5 +222,21 @@ window.location.href="login.html";
         </div>
 </div>
 <!--商品信息管理主体部分 End-->
+
+<script>
+   function preview(x){
+         var files = document.getElementsByClassName("file");
+         console.log(x.value);   //获取当前触发的input对象对应的值
+          if(!x || !x.value) return;
+          var path = /\.jpg$|\.png$|\.bmp$|\.jpeg$|\.gif$/i;               //检测文件是否为图片格式
+          if(path.test(x.value)){
+                 console.log(x.value);    //为后面获取图片路径--------------实现预览效果
+                 // x.nextElementSibling.src =" file://"+x.value;
+           }else{
+                 alert("只能上传jpg、png、bmp、jpeg、gif格式的图片，请重新选择！");
+                 x.value="";     //不传入非图片文件
+          }
+    }
+</script>
 </body>
 </html>

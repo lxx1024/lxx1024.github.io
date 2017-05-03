@@ -78,22 +78,27 @@ window.location.href="login.html";
     <ul class="prod-type clearfix ">
               <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
                     mysql_data_seek($result, 0);  // 循环取出记录
+                    $array =array();
                     while ($row=mysql_fetch_row($result)){
-                ?>
-            <li><a href="#">
-                 <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
-                     <?php
-                             $qname = "SELECT * FROM prod_type where prodTypeId='".$row[2]."';";                   //SQL查询语句 -----在此处改表名
-                              $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
-                             while ($typename=mysql_fetch_row($prodTypeRs)){
+                            if (!in_array($row[2], $array)) {
+                                    array_push($array, $row[2]);
+                                     $qname = "SELECT * FROM prod_type where prodTypeId='".$row[2]."';";                   //SQL查询语句 -----在此处改表名
+                                      $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
+                                     while ($typename=mysql_fetch_row($prodTypeRs)){
+            ?>
+                      <li><a href="#">
+                       <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
+             <?php
                                      echo "$typename[1]";
-                            }
-                      ?>
-            </a></li>
-            <li>|</li>
+              ?>
+                        </a></li>
+                        <li>|</li>
             <?php
+                                      }
+                         }
                 }
             ?>
+
     </ul>
     <div class="prod-top clearfix">
         <div class="prod-add fl"><a href="admin-add.php">添加商品</a></div>

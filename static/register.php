@@ -32,7 +32,7 @@ if(is_null($dbuserName)){     //----------------判断注册名是否已经被�
 
 <?php
 $sql = "insert into user (userName,userPsw,phone)  values('$name','$psd','$phone')";
- if (!mysql_query($sql,$conn))    //--------------------这里的判断语句的作用是什么???删了之后就不能添加新记录
+ if (!mysql_query($sql,$conn))
  {
    die('Error: ' . mysql_error());
  }

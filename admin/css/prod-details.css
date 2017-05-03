@@ -69,5 +69,6 @@
 }
 .product .prod-details .content img{
     max-height: 300px;
+    max-width: 100%;
 }
 /*商品详情主体部分 End*/

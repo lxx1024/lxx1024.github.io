@@ -89,5 +89,23 @@
 }
 .product .prod-details .content img{
     max-height: 300px;
+    max-width: 100%;
+}
+.product .prod-details .content textarea{
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    text-indent: -400px;
+    padding: 10px;
+}
+.product .prod-details .content  .submit {
+    width: 200px;
+    height: 40px;
+    background: #0cff00;
+    color: white;
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
 }
 /*商品详情主体部分 End*/
