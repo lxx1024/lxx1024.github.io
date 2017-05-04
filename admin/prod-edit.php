@@ -147,13 +147,15 @@ window.location.href="login.html";
                                                 <?php
                                                  $attr1 = "SELECT * FROM attrType";                   //SQL查询语句 -----在此处改表名
                                                  $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
+                                                 $n = 0;
                                                  while ($attrName1=mysql_fetch_row($attrRs1)){
                                                          echo "<p>$attrName1[1]：";
+                                                         $n++;
                                                           $attr2 = "SELECT * FROM attribute where attrTypeId='".$attrName1[0]."'and prodId='".$row[0]."';";       //对应属性且对应商品ID的属性值           //SQL查询语句 -----在此处改表名
                                                           $attrRs2 = mysql_query($attr2, $conn);                     //执行sql查询
                                                           $attrName2=mysql_fetch_row($attrRs2);
                                                    ?>
-                                                   <input class="prod-name" name="attr<?php echo $attrName1[0];?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
+                                                   <input class="prod-name" name="attr<?php echo $n;?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
                                                    <?php
                                                         }
                                                   ?>
@@ -196,7 +198,7 @@ window.location.href="login.html";
                                             </div>
                                              <?php
                                                 }
-                                            ?>5
+                                            ?>
                                         </div>
                                 </li>
                                 <li>
