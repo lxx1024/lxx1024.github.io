@@ -2,7 +2,7 @@
 header("Content-Type: text/html;charset=utf-8");
 $uploaddir = "images/";//设置文件保存目录 注意包含/
 $k = -1;
-print_r("**************".count($_FILES['file']['name']));
+// print_r("**************".count($_FILES['file']['name']));
 foreach ($_FILES['file']['name'] as $key => $value) {
       // 判断有没有上传图片,没有的话则不做一下处理,并且索引减一,要用一个新定义的key来重新写入$uploadfile数组
       if ($value=='') {
