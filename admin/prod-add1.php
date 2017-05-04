@@ -94,7 +94,7 @@ window.location.href="login.html";
                           </div>
                 </div>
                  <!-- 商品详细内容显示 -->
-                <form action="prod-edit-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
+                <form action="prod-add-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
                          <ul class="prod-details clearfix">
                                 <li>
                                         <div class="fl">

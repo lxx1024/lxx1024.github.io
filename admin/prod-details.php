@@ -82,7 +82,7 @@ window.location.href="login.html";
                                   </a>
                           </div>
                           <div class="fr">
-                                    <a href="javascript:;" class="prod-add">
+                                    <a href="prod-add1.php?id=<?php echo $prodId ?>" class="prod-add">
                                          <i class="fa fa-pencil" aria-hidden="true"></i>
                                          追加
                                     </a>
