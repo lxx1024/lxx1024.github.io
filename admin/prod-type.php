@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>管理员信息管理</title>
+    <title>商品信息管理-分类</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/product.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
@@ -67,17 +67,17 @@ window.location.href="login.html";
 <!-- 侧边栏left-nav End-->
 <!-- 从数据库提取商品信息对应的数据PHP代码 -->
         <?php
-            include "../conn/conn.php";       //导入连接数据库php代码
-            $q = "SELECT * FROM product";                   //SQL查询语句 -----在此处改表名
-            // type 为0 代表是热点话题
-            $result = mysql_query($q, $conn);                     //执行sql查询,
+            include "../conn/conn.php";
+           $typeId=intval($_GET['id']);       //获得商品分类id
+            $q = "SELECT * FROM product";
+            $result = mysql_query($q, $conn);
        ?>
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------商品信息管理主体部分 Begin-->
 <div class="main-content fr">
     <ul class="prod-type clearfix ">
               <?php
-                    mysql_data_seek($result, 0);  // 循环取出记录
+                    mysql_data_seek($result, 0);
                     $array =array();
                     while ($row=mysql_fetch_row($result)){
                             if (!in_array($row[2], $array)) {
@@ -89,8 +89,7 @@ window.location.href="login.html";
                       <li><a href="prod-type.php?id=<?php echo "$typename[0]"; ?>">
                        <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
              <?php
-                        // echo "$typename[0]";   商品分类id
-                         echo "$typename[1]";
+                                     echo "$typename[1]";
               ?>
                         </a></li>
                         <li>|</li>
@@ -102,8 +101,16 @@ window.location.href="login.html";
 
     </ul>
     <div class="prod-top clearfix">
-        <div class="prod-add fl"><a href="prod-add.php">添加商品</a></div>
+         <div class="prod-back fl">
+                  <a href="product.php">
+                              <i class="fa fa-reply-all" aria-hidden="true"></i>
+                              返回商品管理首页
+                  </a>
+        </div>
+        <div class="prod-add fr"><a href="prod-add.php">添加商品</a></div>
+
     </div>
+
     <div class="product">
         <form action="#" method="post">
             <table>
@@ -113,33 +120,35 @@ window.location.href="login.html";
                     <th>商品分类</th>
                     <th>操作</th>
                 </tr>
-                <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
-                    mysql_data_seek($result, 0);  // 循环取出记录
-                    while ($row=mysql_fetch_row($result)){
-                ?>
+                    <?php
+                              $type = "SELECT * FROM product where prodTypeId='".$typeId."';";                   //SQL查询语句 -----在此处改表名
+                              $typeRs = mysql_query($type, $conn);                     //执行sql查询
+                              while ($types=mysql_fetch_row($typeRs)){
+                    ?>
+
                 <tr>
                     <td class="prod-id">
-                        <?php echo "$row[0]" ?>
+                        <?php echo "$types[0]" ?>
                     </td>
                     <td>
-                        <?php echo "$row[1]" ?>
+                        <?php echo "$types[1]" ?>
                     </td>
                     <td class="prod-type">
                     <!-- 商品分类,传入对应id,到商品分类表提取对应的类名 -->
                      <?php
-                             $qname = "SELECT * FROM prod_type where prodTypeId='".$row[2]."';";                   //SQL查询语句 -----在此处改表名
+                             $qname = "SELECT * FROM prod_type where prodTypeId='".$typeId."';";                   //SQL查询语句 -----在此处改表名
                               $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
-                             while ($typename=mysql_fetch_row($prodTypeRs)){
+                              while ($typename=mysql_fetch_row($prodTypeRs)){
                                      echo "$typename[1]";
                             }
                       ?>
                     </td>
                     <td>
-                        <a href="prod-details.php?id=<?php echo "$row[0]" ?>" class="admin-edit">
+                        <a href="prod-details.php?id=<?php echo "$types[0]" ?>" class="admin-edit">
                                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                 查看详情
                         </a>
-                        <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
+                        <a href="prod-del.php?id=<?php echo "$types[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 删除
                         </a>

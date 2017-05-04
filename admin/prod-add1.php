@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>管理员信息管理</title>
+    <title>商品信息管理-追加</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/prod-edit.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
@@ -94,7 +94,7 @@ window.location.href="login.html";
                           </div>
                 </div>
                  <!-- 商品详细内容显示 -->
-                <form action="prod-add-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
+                <form action="prod-add1-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
                          <ul class="prod-details clearfix">
                                 <li>
                                         <div class="fl">
@@ -144,16 +144,18 @@ window.location.href="login.html";
                                                 商品属性:
                                         </div>
                                         <div class="content fl">
-                                                <?php
+                                                  <?php
                                                  $attr1 = "SELECT * FROM attrType";                   //SQL查询语句 -----在此处改表名
                                                  $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
+                                                 $n = 0;
                                                  while ($attrName1=mysql_fetch_row($attrRs1)){
                                                          echo "<p>$attrName1[1]：";
+                                                         $n++;
                                                           $attr2 = "SELECT * FROM attribute where attrTypeId='".$attrName1[0]."'and prodId='".$row[0]."';";       //对应属性且对应商品ID的属性值           //SQL查询语句 -----在此处改表名
                                                           $attrRs2 = mysql_query($attr2, $conn);                     //执行sql查询
                                                           $attrName2=mysql_fetch_row($attrRs2);
                                                    ?>
-                                                   <input class="prod-name" name="attr<?php echo $attrName1[0];?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
+                                                   <input class="prod-name" name="attr<?php echo $n;?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
                                                    <?php
                                                         }
                                                   ?>
@@ -173,17 +175,34 @@ window.location.href="login.html";
                                         </div>
                                         <div class="content fl">
                                         <!-- 获取图片路径,将多张图片分割,然后循环输出 -->
-                                          <?php
+                                           <?php
                                                 $img=$row[8];
                                                 $imgs=explode(",",$img);
                                                 foreach ($imgs as $key => $value) {
-                                                  $num = $key+1;
-                                                  echo $num;
+                                                        $num = $key+1;
+                                                       if ($value!="") {
                                            ?>
-                                            <div class="prod-pic">
-                                                  <img src="<?php   echo $value ?>" alt=""><br/>
-                                                  重新选择图片:<input type="file" name="file[]" class="file" onchange="preview(this)" />
-                                            </div>
+
+                                             <div class="prod-pic">
+
+                                            <?php
+                                                      echo $num;
+                                             ?>
+
+                                            <img src="<?php   echo $value ?>" alt=""><br/>
+                                           重新选择图片:<input type="file" name="file[]" class="file" onchange="preview(this)" />
+                                              </div>
+
+                                          <?php
+                                                }else{
+                                           ?>
+                                           <div class="prod-pic">
+                                          <?php echo $num ?>
+                                          <input type="file" name="file[]" class="file" onchange="preview(this)" />
+                                          </div>
+                                           <?php
+                                                }
+                                           ?>
                                             <?php
                                                 }
                                                 // 接下来判断索引是否小于5,小于5的话则继续增加input添加图片
@@ -196,7 +215,7 @@ window.location.href="login.html";
                                             </div>
                                              <?php
                                                 }
-                                            ?>5
+                                            ?>
                                         </div>
                                 </li>
                                 <li>
@@ -214,7 +233,7 @@ window.location.href="login.html";
                                                 提交表单:
                                         </div>
                                         <div class="content fl">
-                                                 <input class="submit" type="submit" value="确定修改">
+                                                 <input class="submit" type="submit" value="确定追加">
                                         </div>
                                 </li>
                          </ul>

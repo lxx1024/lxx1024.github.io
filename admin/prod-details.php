@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>管理员信息管理</title>
+    <title>商品信息管理-详情</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/prod-details.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
@@ -90,7 +90,7 @@ window.location.href="login.html";
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             修改
                                     </a>
-                                    <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="prod-del">
+                                    <a href="prod-del.php?id=<?php echo "$prodId" ?>" onclick="return confirm('确定删除该用户吗?');"  class="prod-del">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                             删除
                                     </a>

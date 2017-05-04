@@ -2,6 +2,7 @@
 header("Content-Type: text/html;charset=utf-8");
 include_once('conn/conn.php');
 
+$id=intval($_GET['id']);
 $prodName=$_POST['prod-name'];   //商品名称
 $price=$_POST['prod-price'];   //商品单价
 $prodTypeId=$_POST['prod-type'];   //商品分类id
@@ -10,10 +11,10 @@ $inventory=$_POST['prod-inventory'];   //商品库存
 $content=$_POST['content'];   //商品详情
 
 
-if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == "" || $prodDesc == ""){
+if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == ""){
       echo"<script>window.alert('对不起！你输入的信息不完整!');history.back()</script>";
 }else {
-      include_once('prod-add-upload.php');
+      include_once('prod-edit-upload.php');     //导入处理文件
       if (isset($uploadfile)) {
                $pic=$uploadfile;     //$uploadfile是在uploadfile文件里面定义的 ------是一个存放了多个图片相对路径的字符串(由逗号隔开)
               $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc,prodPic) values('$prodName','$prodTypeId','$inventory','$price','1111111','$pic')";
@@ -66,7 +67,6 @@ echo $newId[0];//新添加的商品的id   ,也就是时间最新的记录
 // 商品属性部分 End
 ?>
 <script>
- alert('添加成功!');
   window.location.href="product.php";
 </script>
 <?php

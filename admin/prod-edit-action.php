@@ -13,9 +13,7 @@ $content=$_POST['content'];   //商品详情
 // 商品属性部分  Begin
  $attr = "SELECT * FROM attrType";
  $attrRs = mysql_query($attr, $conn);
-// $attrName=mysql_fetch_row($attrRs);    //获取记录数组----插在后面循环里面
  $count1 = mysql_num_rows($attrRs);    //获取记录数量
- // echo $count1;
  $i=0;
  while ($attrName=mysql_fetch_row($attrRs)){
     if ($i<$count1+1) {
@@ -34,18 +32,19 @@ $content=$_POST['content'];   //商品详情
 
     if ($count2>0) {                      //该商品存在该属性----修改原来记录
           // echo $attrName2[3]."-----原记录的属性类id-----";
-          //  echo $attr1;
         mysql_query("UPDATE attribute SET attrName='$attr1' WHERE attrTypeId='$attrName2[3]'");
     }else{                                       //该商品不存在该属性-----添加新记录
       echo $attr1;
-      $sql1="insert into attribute (prodId,attrName,attrTypeId) values('$id','$attr1','$attrName[0]')";
-               $result1=mysql_query($sql1,$conn);
-               if ($result1) {
-                 echo "成功";
-               }else{
-                echo "失败";
-               }
-       }
+      if ($attr1!="") {
+            $sql1="insert into attribute (prodId,attrName,attrTypeId) values('$id','$attr1','$attrName[0]')";
+                   $result1=mysql_query($sql1,$conn);
+                   if ($result1) {
+                     echo "成功";
+                   }else{
+                    echo "失败";
+                   }
+           }
+      }
 }
 
 // 商品属性部分 End

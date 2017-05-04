@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>商品信息管理-修改</title>
+    <title>商品信息管理-添加</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/prod-edit.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
@@ -59,16 +59,6 @@ window.location.href="login.html";
     </ul>
 </div>
 <!-- 侧边栏left-nav End-->
- <!-- 从数据库提取手机社区对应的数据PHP代码 -->
-<?php
-      // 获取传过来的id
-      $prodId=intval($_GET['id']);
-      include "../conn/conn.php";       //导入连接数据库php代码
-       $q = "SELECT * FROM product where prodId='".$prodId."'";            //SQL查询语句 -----在此处改表名
-       $result = mysql_query($q, $conn);                     //执行sql查询,
-       $row=mysql_fetch_row($result);     //------------------------帖子内容相关信息
-
-?>
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------商品信息管理主体部分 Begin-->
 <div class="main-content fr">
@@ -80,28 +70,17 @@ window.location.href="login.html";
                                       <i class="fa fa-reply-all" aria-hidden="true"></i>
                                       返回商品管理首页
                                   </a>
-                                    <b>   >&nbsp;</b>
-                                   <a href="prod-details.php?id=<?php echo "$row[0]" ?>">
-
-                                      返回商品详情
-                                  </a>
-                          </div>
-                          <div class="fr">
-                                    <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="prod-del">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                            删除
-                                    </a>
                           </div>
                 </div>
                  <!-- 商品详细内容显示 -->
-                <form action="prod-edit-action.php?id=<?php echo $prodId ?>" method="post" enctype="multipart/form-data">
+                <form action="prod-add-action.php" method="post" enctype="multipart/form-data">
                          <ul class="prod-details clearfix">
                                 <li>
                                         <div class="fl">
                                                 商品名称:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" name="prod-name" type="text" maxlength="20" value="<?php echo $row[1];?>">
+                                                <input class="prod-name" name="prod-name" type="text" maxlength="20">
                                         </div>
                                 </li>
                                  <li>
@@ -109,7 +88,7 @@ window.location.href="login.html";
                                                 商品单价:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" name="prod-price" type="text" value="<?php echo $row[5];?>">
+                                                <input class="prod-name" name="prod-price" type="text">
                                                 <span>0-9999.99,单位RMB</span>
                                         </div>
                                 </li>
@@ -119,12 +98,15 @@ window.location.href="login.html";
                                         </div>
                                         <div class="content fl">
                                                    <?php
+                                                            include 'conn/conn.php';
                                                            $qname = "SELECT * FROM prod_type";                   //SQL查询语句 -----在此处改表名
                                                             $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
+                                                            $num = 0;
                                                            while ($typename=mysql_fetch_row($prodTypeRs)){
+                                                            $num++;
                                                    ?>
 
-                                                   <input type="radio" class="prod-type" name="prod-type" value="<?php echo "$typename[0]";?>" <?php if($row[2]==$typename[0]) echo("checked");?>><?php echo "$typename[1]";?>
+                                                   <input type="radio" class="prod-type" name="prod-type" value="<?php echo "$typename[0]";?>" <?php if($num==1) echo("checked");?>>     <?php echo "$typename[1]";?>
 
                                                     <?php
                                                           }
@@ -136,7 +118,7 @@ window.location.href="login.html";
                                                商品介绍:
                                         </div>
                                         <div class="content fl">
-                                               <input class="prod-desc" name="prod-desc" type="text" maxlength="50" value="<?php echo $row[6];?>">
+                                               <input class="prod-desc" name="prod-desc" type="text" maxlength="50">
                                         </div>
                                 </li>
                                 <li clearfix>
@@ -144,18 +126,15 @@ window.location.href="login.html";
                                                 商品属性:
                                         </div>
                                         <div class="content fl">
-                                                <?php
+                                                  <?php
                                                  $attr1 = "SELECT * FROM attrType";                   //SQL查询语句 -----在此处改表名
                                                  $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
                                                  $n = 0;
                                                  while ($attrName1=mysql_fetch_row($attrRs1)){
                                                          echo "<p>$attrName1[1]：";
                                                          $n++;
-                                                          $attr2 = "SELECT * FROM attribute where attrTypeId='".$attrName1[0]."'and prodId='".$row[0]."';";       //对应属性且对应商品ID的属性值           //SQL查询语句 -----在此处改表名
-                                                          $attrRs2 = mysql_query($attr2, $conn);                     //执行sql查询
-                                                          $attrName2=mysql_fetch_row($attrRs2);
                                                    ?>
-                                                   <input class="prod-name" name="attr<?php echo $n;?>" type="text" maxlength="20" value="<?php echo $attrName2[2];?>">
+                                                   <input class="prod-name" name="attr<?php echo $n;?>" type="text" maxlength="20">
                                                    <?php
                                                         }
                                                   ?>
@@ -166,7 +145,7 @@ window.location.href="login.html";
                                                 商品库存:
                                         </div>
                                         <div class="content fl">
-                                                <input class="prod-name" name="prod-inventory" type="text" maxlength="20" value="<?php echo $row[3];?>">
+                                                <input class="prod-name" name="prod-inventory" type="text" maxlength="20">
                                         </div>
                                 </li>
                                 <li>
@@ -174,39 +153,10 @@ window.location.href="login.html";
                                                商品图片:
                                         </div>
                                         <div class="content fl">
-                                        <!-- 获取图片路径,将多张图片分割,然后循环输出 -->
-                                          <?php
-                                                $img=$row[8];
-                                                $imgs=explode(",",$img);
-                                                foreach ($imgs as $key => $value) {
-                                                        $num = $key+1;
-                                                       if ($value!="") {
-                                           ?>
-
-                                             <div class="prod-pic">
 
                                             <?php
-                                                      echo $num;
-                                             ?>
-
-                                            <img src="<?php   echo $value ?>" alt=""><br/>
-                                           重新选择图片:<input type="file" name="file[]" class="file" onchange="preview(this)" />
-                                              </div>
-
-                                          <?php
-                                                }else{
-                                           ?>
-                                           <div class="prod-pic">
-                                          <?php echo $num ?>
-                                          <input type="file" name="file[]" class="file" onchange="preview(this)" />
-                                          </div>
-                                           <?php
-                                                }
-                                           ?>
-                                            <?php
-                                                }
-                                                // 接下来判断索引是否小于5,小于5的话则继续增加input添加图片
-                                                $num++;
+                                                // 判断索引是否小于5,小于5的话则继续增加input添加图片
+                                                $num=1;
                                                 for ($num ;$num <=5 ; $num++) {
                                              ?>
                                              <div class="prod-pic">
@@ -224,7 +174,7 @@ window.location.href="login.html";
                                         </div>
                                         <div class="content fl">
                                             <textarea name="content" id="" cols="80" rows="10">
-                                              <?php echo $row[9]; ?>
+
                                               </textarea>
                                         </div>
                                 </li>
@@ -233,7 +183,7 @@ window.location.href="login.html";
                                                 提交表单:
                                         </div>
                                         <div class="content fl">
-                                                 <input class="submit" type="submit" value="确定修改">
+                                                 <input class="submit" type="submit" value="确定添加">
                                         </div>
                                 </li>
                          </ul>
