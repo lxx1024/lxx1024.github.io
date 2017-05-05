@@ -70,11 +70,11 @@
 }
 /* --------------今日热门标题*/
 .dm-today .today-title{
-    width: 200px;
+    width: 100px;
     height: 300px;
 }
 .dm-today .today-title li{
-    width: 100px;
+    width: 120px;
     height: 150px;
     line-height: 150px;
     text-align: center;
@@ -89,7 +89,7 @@
 }
     /* ----------- 今日热门内容*/
 .dm-today .today-content {
-    width: 1000px;
+    width: 1080px;
     height: 300px;
     line-height: 300px;
     position: relative;
@@ -100,6 +100,7 @@
     position: absolute;
     opacity: 0;
     box-sizing: border-box;  /*放置在设置边框的元素里面*/
+    padding: 10px;
 }
 .dm-today .today-content li.new{
     opacity: 1;
@@ -108,27 +109,15 @@
 .bg-pink {
     background: rgb(251, 128, 88);
 }
-.bg-orange {
-    background: rgb(242, 187, 108);
-}
 .bg-green {
     background: rgb(126, 207, 119);
-}
-.bg-blue {
-    background: rgb(117, 168, 228);
 }
 /*---------边框颜色 b*/
 .b-pink {
     border: 1px solid rgb(251, 128, 88);
 }
-.b-orange {
-    border: 1px solid rgb(242, 187, 108);
-}
 .b-green {
     border: 1px solid rgb(126, 207, 119);
-}
-.b-blue {
-    border: 1px solid rgb(117, 168, 228);
 }
 /*今日热门End*/
 

@@ -2,9 +2,10 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>商品分类管理</title>
+    <title>商品分类管理-编辑</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/product-type.css"/>
+    <link rel="stylesheet" href="css/admin-modify.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -12,7 +13,6 @@
 include "conn/conn.php";       //导入连接数据库php代码
 $q = "SELECT * FROM admin";                   //SQL查询语句 -----在此处改表名
 $result = mysql_query($q, $conn);                     //执行sql查询,
-//$row = mysql_fetch_row($result);    //  获取数据集  ------ 后面在while循环里面获取
 ?>
 <!-----------------------------------------------------------后台通用头部和侧边栏 Begin -->
 
@@ -57,7 +57,7 @@ window.location.href="login.html";
     <ul>
         <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <li class="prod-type"><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
+        <li class="admin"><a href="product-type.phpl">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
         <li><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
         <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
         <li><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
@@ -69,9 +69,41 @@ window.location.href="login.html";
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------商品分类管理主体部分 Begin-->
 <div class="main-content fr">
-    <div class="admin-add-form">
-        <div class="admin-add"><a href="product-type-add.php">添加商品分类</a></div>
+    <!-- 要修改的商品分类信息原来的信息 -->
+<?php
+if(!empty($_GET['id'])){
+        //连接mysql数据库
+        include "conn/conn.php";
+        //查找id
+        $id=intval($_GET['id']);
+        $result1=mysql_query("SELECT * FROM prod_type where prodTypeId='".$id."';");
+        if(mysql_error()){
+            die('can not connect db');
+        }
+        //获取结果数组
+        $result_arr=mysql_fetch_row($result1);
+    }else{
+        die('id not define');
+    }
+?>
+
+    <div class="current-admin">
+        <form action="#" method="post">
+            <label for="admin-psd"> 原来商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" disabled name="admin-psd" id="admin-psd"/>
+            <input type="submit" name="submit" value="ID:<?php echo $id?>" disabled  style="background:#ccc" />
+        </form>
     </div>
+
+    <!-- ---------------------修改商品分类信息------------------- -->
+    <div class="admin-modify-form">
+        <div class="admin-cancel"><a href="admin.php">取消修改</a></div>
+                <form action="admin-modify1.php?id=<?php echo $id?>" method="post">
+                        <label for="admin-psd"> 修改商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" maxlength="10" name="admin-psd" id="admin-psd"/>
+                       <input type="submit" name="submit" value="修改"  onclick="return confirm('确定修改该商品分类信息?');" />
+                </form>
+        </div>
+
+        <!-- -----------------展示所有管理员信息------------- -->
     <div class="admins">
         <form action="#" method="post">
             <table>
@@ -82,7 +114,7 @@ window.location.href="login.html";
                     <th>删除</th>
                 </tr>
 
-                <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
+                 <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
                     $qname = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
                      $prodTypeRs = mysql_query($qname, $conn);                     //执行sql查询
                      while ($typename=mysql_fetch_row($prodTypeRs)){
@@ -110,7 +142,7 @@ window.location.href="login.html";
         </form>
     </div>
 </div>
-<!--商品分类管理主体部分 End-->
+<!--管理员信息管理主体部分 End-->
 
 </body>
 </html>

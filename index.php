@@ -131,16 +131,12 @@
 <!-- -------------------------------------------- 今日热门dm-today  Begin -->
 <div class="dm-today w">
     <ul class="today-title fl">
-        <li class="bg-pink new">新品</li>
-        <li class="bg-green">特价</li>
-        <li class="bg-orange">热销</li>
-        <li class="bg-blue">好评</li>
+        <li class="bg-pink new">新 品</li>
+        <li class="bg-green">热 销</li>
     </ul>
     <ul class="today-content fr">
         <li class="b-pink new">这是新品内容</li>
-        <li class="b-green">这是特价内容</li>
-        <li class="b-orange">这是热销内容</li>
-        <li class="b-blue">这是好评内容</li>
+        <li class="b-green">这是热销内容</li>
     </ul>
 </div>
 <!-- 今日热门dm-today End-->
@@ -151,7 +147,7 @@
         <ul class="classes fr">
             <li><a href="javascript:;" class="oppo"><span>OPPO</span></a></li>
             <li><a href="javascript:;"><span>小米</span></a></li>
-            <li><a href="javascript:;"><span>魅族</span></a></li>
+            <li><a href="javascript:;"><span>iPhone</span></a></li>
             <li><a href="javascript:;"><span>华为</span></a></li>
             <li><a href="javascript:;"><span>VIVO</span></a></li>
         </ul>

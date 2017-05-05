@@ -102,7 +102,7 @@ window.location.href="login.html";
 
     </ul>
     <div class="prod-top clearfix">
-        <div class="prod-add fl"><a href="prod-add.php">添加商品</a></div>
+        <div class="prod-add fr"><a href="prod-add.php">添加商品</a></div>
     </div>
     <div class="product">
         <form action="#" method="post">

@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>管理员信息管理</title>
+    <title>管理员信息管理-添加</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
     <link rel="stylesheet" href="css/admin-add.css"/>

@@ -2,41 +2,19 @@
     height: auto;
     padding-bottom: 0px;
 }
-.left-nav .admin a{
+.left-nav .prod-type a{
     color: yellow;
     font-weight: bold;
 }
-.left-nav .admin a .fa {
+.left-nav .prod-type a .fa {
     color:yellow;
 }
-/*---------------------------管理员信息管理主体部分 Begin*/
-.main-content .current-admin{
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 50px;
-    margin-bottom: 10px;
-}
-.main-content .current-admin input{
-    width: 200px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 18px;
-    text-indent: 5px;
-    color: #201010;
-    border-radius: 2px;
-}
-.main-content .current-admin input:last-of-type{
-    width: 60px;
-    margin-left: 20px;
-    cursor: pointer;
-    text-indent: 0px;
-    border-radius: 5px;
-    background: #45ff8e;
-}
-/*------------------------添加管理员*/
+/*---------------------------商品分类管理主体部分 Begin*/
+/*------------------------添加商品分类*/
 .main-content .admin-add-form {
      width: 80%;
     position: relative;
+    margin-top: 50px;
 }
 .main-content .admin-add-form  form{
     height: 50px;
@@ -47,7 +25,7 @@
 }
 .main-content .admin-add-form .admin-add{
     position: absolute;
-    width: 120px;
+    width: 180px;
     height: 30px;
     line-height: 30px;
     font-size: 20px;
@@ -56,13 +34,13 @@
     text-align: center;
     background: #e6e600;
     top: -47px;
-    right: 20px;
+    right: -40px;
 }
 .main-content .admin-add-form .admin-add a {
     color: black;
 }
-/*添加管理员*/
-/*------------------管理员信息表*/
+/*添加商品分类*/
+/*------------------商品分类信息表*/
 .main-content .admins {
     width: 80%;
     min-height: 400px;  /*最小高度*/
@@ -97,13 +75,17 @@
 .main-content .admins table td:first-of-type {
     width: 80px;
 }
+.main-content .admins table td.type-name {
+    width: 320px;
+}
 .main-content .admins .admin-edit {
     display: inline-block;
-    margin-right: 20px;
+    /*margin-right: 50px;*/
     color: #30a0f8;
 }
 .main-content .admins .admin-del {
     color: #ff4b43;
 }
 
-/*管理员信息管理主体部分  End*/
+
+/*商品分类管理主体部分  End*/

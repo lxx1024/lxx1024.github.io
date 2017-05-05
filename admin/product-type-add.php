@@ -2,17 +2,20 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>管理员信息管理-修改</title>
+    <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
-    <link rel="stylesheet" href="css/admin-modify.css"/>
+    <link rel="stylesheet" href="css/admin-add.css"/>
+
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
 <?php       //---------连接数据库PHP代码
 include "conn/conn.php";       //导入连接数据库php代码
 $q = "SELECT * FROM admin";                   //SQL查询语句 -----在此处改表名
+mysql_query("SET NAMES UTF8");           //设置统一的字符格式utf-8
 $result = mysql_query($q, $conn);                     //执行sql查询,
+//$row = mysql_fetch_row($result);    //  获取数据集  ------ 后面在while循环里面获取
 ?>
 <!-----------------------------------------------------------后台通用头部和侧边栏 Begin -->
 
@@ -35,7 +38,7 @@ $result = mysql_query($q, $conn);                     //执行sql查询,
         <a href="exit.php" class="quit fr">退出</span>
     </div>
     <div class="datetime fr">
-         日期 :20<?php echo date("y-m-d",time()); ?>
+        日期 :20<?php echo date("y-m-d",time()); ?>
     </div>
 </div>
 <!-- 头部top End-->
@@ -69,43 +72,27 @@ window.location.href="login.html";
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------管理员信息管理主体部分 Begin-->
 <div class="main-content fr">
-    <!-- 要修改的管理员信息原来的账号信息 -->
-<?php
-if(!empty($_GET['id'])){
-        //连接mysql数据库
-        include "conn/conn.php";
-        //查找id
-        $id=intval($_GET['id']);
-        $result1=mysql_query("SELECT * FROM admin WHERE adminId=$id");
-        if(mysql_error()){
-            die('can not connect db');
-        }
-        //获取结果数组
-        $result_arr=mysql_fetch_assoc($result1);
-    }else{
-        die('id not define');
-    }
-?>
-
     <div class="current-admin">
-        <p>待修改的原来的账号信息:</p>
+        <p>您当前的账号信息:</p>
         <form action="#" method="post">
-            <label for="admin-name"> 用户名: </label><input type="text" value="<?php echo $result_arr['adminName']?>" disabled  name="admin-name" id="admin-name"/>
-            <label for="admin-psd"> 密码: </label><input type="text" value="<?php echo $result_arr['adminPsd']?>" disabled name="admin-psd" id="admin-psd"/>
-            <input type="submit" name="submit" value="ID:<?php echo $id?>" disabled  style="background:#ccc" />
+            <label for="admin-name"> 用户名: </label><input type="text" value="<?php
+        echo "${_SESSION["adminname"]}";
+        ?>" maxlength="20" name="admin-name" id="admin-name"/>
+            <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="<?php
+        echo "${_SESSION["adminpsd"]}";?>" name="admin-psd" id="admin-psd"/>
+            <input type="submit" name="submit" value="保存" disabled  style="background:#ccc" />
         </form>
     </div>
-
-    <!-- ---------------------修改管理员信息------------------- -->
-    <div class="admin-modify-form">
-        <div class="admin-cancel"><a href="admin.php">取消修改</a></div>
-                <form action="admin-modify1.php?id=<?php echo $id?>" method="post">
-                        <label for="admin-name"> 用户名: </label><input type="text"  value="<?php echo $result_arr['adminName']?>"  maxlength="20" name="admin-name" id="admin-name"/>
-                        <label for="admin-psd"> 密码: </label><input type="text" value="<?php echo $result_arr['adminPsd']?>" maxlength="20" value="???" name="admin-psd" id="admin-psd"/>
-                       <input type="submit" name="submit" value="修改"  onclick="return confirm('确定修改该用户信息');" />
+    <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
+    <!-- ---------------------添加新管理员------------------- -->
+    <div class="admin-add-form">
+        <div class="admin-cancel"><a href="admin.php">取消添加</a></div>
+                <form action="admin-add1.php" method="post">
+                        <label for="admin-name"> 用户名: </label><input type="text" placeholder="新管理员账号" maxlength="20" name="admin-name" id="admin-name"/>
+                        <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" placeholder="新管理员密码" name="admin-psd" id="admin-psd"/>
+                       <input type="submit" name="submit" value="添加" onclick="return confirm('确定添加新的账号信息');"/>
                 </form>
         </div>
-
         <!-- -----------------展示所有管理员信息------------- -->
     <div class="admins">
         <form action="#" method="post">
@@ -132,7 +119,7 @@ if(!empty($_GET['id'])){
                         <?php echo "$row[2]" ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?> " class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
+                             <a href="admin-modify.php?id=<?php echo "$row[0]" ?> " class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
                         <a href="admin-del.php?id=<?php echo "$row[0]" ?>"  onclick="return confirm('确定删除该用户吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
