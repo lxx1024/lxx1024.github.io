@@ -76,11 +76,39 @@
         </div>
         <ul class="goods-nav fl">
             <li><a href="../index.php">首页</a></li>
-            <li><a href="oppo-index.php">品牌汇</a></li>
+            <li><a href="javascript:;">品牌汇</a></li>
             <li><a href="#">手机配件</a></li>
             <li><a href="#">新品发布</a></li>
             <li><a href="topic.php">手机社区</a></li>
         </ul>
+        <ul class="nav-content">
+            <li> </li>
+            <li>
+             <!-- 这是品牌汇下的分类内容 -->
+
+
+<?php
+        include "../conn/conn.php";       //导入连接数据库php代码
+        $q1 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
+        $rs1= mysql_query($q1, $conn);                     //执行sql查询
+         while ($row1=mysql_fetch_row($rs1)){
+                 $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
+                  $rs2 = mysql_query($q2, $conn);                     //执行sql查询
+                  $count2 = mysql_num_rows($rs2);
+                  if ($count2>0) {
+
+?>
+
+             <a href="prod-index.php?id=<?php echo $row1[0]; ?>"><?php echo  $row1[1]; ?></a>
+
+<?php
+                  }
+    }
+?>
+
+
+        </li>
+    </ul>
         <div class="cart fr">
             <a href="buying-order.php">
                 <i class="fa fa-bell" aria-hidden="true"></i>
@@ -169,5 +197,8 @@
 
 </div>
 <!--购物车内容cart-box End-->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/index.js"></script>
 </body>
 </html>

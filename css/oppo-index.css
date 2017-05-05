@@ -3,6 +3,10 @@ body{
 }
 /* ----------------------------------  导航栏 Begin*/
 .dm-nav .nav-content li{
+    line-height: 60px;
+    padding-left: 200px;
+}
+.dm-nav .nav-content li a {
     height: 60px;
     line-height: 60px;
 }

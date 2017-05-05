@@ -13,6 +13,34 @@ body {
     margin:0px 25px;
 
 }
+/*-----------------------------导航栏效果Begin-----------------*/
+.dm-header .nav-content li{
+  /*  width: 50%;
+    height: 40px;*/
+    line-height: 40px;
+    text-align: left;
+    position: absolute;
+    top: 140px;
+    left: 520px;
+    opacity: 0;
+    z-index: 999;
+    border: 1px solid #f5a7ec;
+    background: rgba(250,230,36,0.1);   /*改变导航栏透明度*/
+}
+
+.dm-header .nav-content li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin:0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.dm-header .nav-content li a:hover {
+    color: #3fcab8;
+}
+/*-----------------------------导航栏效果End-----------------*/
 .dm-header .cart {
     margin-top: 55px;
     border: none;

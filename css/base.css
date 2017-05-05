@@ -272,12 +272,23 @@ s, i, em {
 }
 .dm-nav .nav-content li{
     width: 100%;
-    height: 100px;
-    line-height: 100px;
+    text-align: left;
     position: absolute;
     opacity: 0;
     z-index: 999;
-    background: rgba(255,255,255,0);   /*改变导航栏透明度*/
+    background: rgba(255,255,255,0.5);   /*改变导航栏透明度*/
+}
+.dm-nav .nav-content li a {
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    margin:0px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.dm-nav .nav-content li a:hover {
+    color: blue;
 }
 /* 导航栏 End */
 /*头部End---------------------------------------------------------------------------------头部End*/

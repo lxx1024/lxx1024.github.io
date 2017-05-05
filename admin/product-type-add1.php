@@ -17,7 +17,10 @@
       while($row=mysql_fetch_array($result)){
             $dbtypename=trim($row["prodTypeName"]);
       }
-      if(is_null($dbtypename)){
+      $result1=mysql_query("select * from prod_type");
+      $count1=mysql_num_rows($result1);
+
+      if(is_null($dbtypename) && $count1<10){
               $sql = "insert into prod_type (prodTypeName)  values('$name')";
                if (!mysql_query($sql,$conn)) {
                    die('Error: ' . mysql_error());
@@ -30,13 +33,21 @@
       </script>
 
 <?php
+       }else if (is_null($dbtypename) && $count1 >= 10) {
+
+?>
+      <script>
+              alert("商品分类数量已达上限,不能继续添加");
+              window.location.href="product-type-add.php";
+      </script>
+<?php
        }else{
+
 ?>
       <script>
               alert("已存在该分类名！请重新输入");
               window.location.href="product-type-add.php";
       </script>
-
 <?php
       }
         //关闭连接

@@ -96,7 +96,7 @@
         <li><a href="topic.php">手机社区</a></li>
         <li><a href="#">哆咪文化</a></li>
     </ul>
-    <ul class="nav-content">
+     <ul class="nav-content">
         <li> </li>
         <li>
         <!-- 这是品牌汇下的分类内容 -->

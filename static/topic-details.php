@@ -81,6 +81,35 @@
             <li><a href="#">以旧换新</a></li>
             <li><a href="topic.php">手机社区</a></li>
         </ul>
+          </ul>
+         <ul class="nav-content">
+            <li> </li>
+            <li>
+             <!-- 这是品牌汇下的分类内容 -->
+
+
+<?php
+        include "../conn/conn.php";       //导入连接数据库php代码
+        $q1 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
+        $rs1= mysql_query($q1, $conn);                     //执行sql查询
+         while ($row1=mysql_fetch_row($rs1)){
+                 $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
+                  $rs2 = mysql_query($q2, $conn);                     //执行sql查询
+                  $count2 = mysql_num_rows($rs2);
+                  if ($count2>0) {
+
+?>
+
+             <a href="prod-index.php?id=<?php echo $row1[0]; ?>"><?php echo  $row1[1]; ?></a>
+
+<?php
+                  }
+    }
+?>
+
+
+        </li>
+    </ul>
          <div class="cart fr">
         <a href="buying-car.php"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
         购物车  <span class="arrow-right"> > </span></a>
@@ -307,5 +336,6 @@
 <script src="../js/jquery.min.js"></script>
 <script src="../js/base.js"></script>
 <script src="../js/topic.js"></script>
+<script src="../js/index.js"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@
 <!-- -------------------------------------logo\搜索栏\购物车 dm-header  Begin -->
 <div class="dm-header w">
     <div class="logo fl">
-        <a href="index.html"><h1>哆咪手机商城</h1></a>
+        <a href="index.php"><h1>哆咪手机商城</h1></a>
     </div>
     <div class="search fl">
         <input type="text" class="search-txt" placeholder="请输入搜索关键字"/>
@@ -92,7 +92,7 @@
 <div class="dm-nav w">
     <ul class="nav">
         <li><a href="#" class="col-main">首页</a></li>
-        <li><a href="static/oppo-index.php">品牌汇</a></li>
+        <li><a href="javascript:;">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">新品发布</a></li>
         <li><a href="static/topic.php">手机社区</a></li>
@@ -101,7 +101,29 @@
     <ul class="nav-content">
         <li> </li>
         <li>
-             这是品牌汇下的分类内容
+             <!-- 这是品牌汇下的分类内容 -->
+
+
+<?php
+        include "conn/conn.php";       //导入连接数据库php代码
+        $q1 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
+        $rs1= mysql_query($q1, $conn);                     //执行sql查询
+         while ($row1=mysql_fetch_row($rs1)){
+                 $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
+                  $rs2 = mysql_query($q2, $conn);                     //执行sql查询
+                  $count2 = mysql_num_rows($rs2);
+                  if ($count2>0) {
+
+?>
+
+             <a href="static/prod-index.php?id=<?php echo $row1[0]; ?>"><?php echo  $row1[1]; ?></a>
+
+<?php
+                  }
+    }
+?>
+
+
         </li>
     </ul>
 </div>
