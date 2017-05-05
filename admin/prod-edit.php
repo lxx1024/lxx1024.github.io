@@ -51,10 +51,10 @@ window.location.href="login.html";
     <ul>
         <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <li><a href="product-type.html">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
-        <li  class="product"><a href="product.html">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
-        <li><a href="order.html">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
-        <li class="topic"><a href="community.html">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
+        <li><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
+        <li  class="product"><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
+        <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+        <li class="topic"><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
         <li><a href="#">报表统计分析 <i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
     </ul>
 </div>
@@ -87,7 +87,7 @@ window.location.href="login.html";
                                   </a>
                           </div>
                           <div class="fr">
-                                    <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="prod-del">
+                                    <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该商品吗?');"  class="prod-del">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                             删除
                                     </a>
@@ -233,7 +233,7 @@ window.location.href="login.html";
                                                 提交表单:
                                         </div>
                                         <div class="content fl">
-                                                 <input class="submit" type="submit" value="确定修改">
+                                                 <input class="submit" type="submit" value="确定修改"  onclick="return confirm('确定修改该商品分类信息?');">
                                         </div>
                                 </li>
                          </ul>

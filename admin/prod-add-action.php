@@ -32,10 +32,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == "" || $
                 echo "失败";
                }
       }
-}
-
-
-// 商品属性部分  Begin
+      // 商品属性部分  Begin
 $new = "SELECT * FROM product order by prodAddTime DESC limit 0,1";                   //SQL查询语句 -----在此处改表名
 $newRs = mysql_query($new, $conn);                     //执行sql查询,
 $newId=mysql_fetch_row($newRs);
@@ -66,9 +63,10 @@ echo $newId[0];//新添加的商品的id   ,也就是时间最新的记录
 // 商品属性部分 End
 ?>
 <script>
- alert('添加成功!');
-  window.location.href="product.php";
+        alert('添加成功!');
+        window.location.href="product.php";
 </script>
 <?php
+      }
      mysql_close($conn);
  ?>

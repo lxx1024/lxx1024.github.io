@@ -98,7 +98,7 @@ window.location.href="login.html";
                         <a href="product-type-modify.php?id=<?php echo "$typename[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
                     </td>
                     <td>
-                        <a href="prod-type-del.php?id=<?php echo "$typename[0]" ?>" onclick="return confirm('确定删除该商品分类吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="product-type-del.php?id=<?php echo "$typename[0]" ?>" onclick="return confirm('确定删除该商品分类吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库商品分类表的内容 PHP代码结束

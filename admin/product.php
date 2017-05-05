@@ -139,7 +139,7 @@ window.location.href="login.html";
                                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                 查看详情
                         </a>
-                        <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
+                        <a href="prod-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该商品吗?');"  class="admin-del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 删除
                         </a>

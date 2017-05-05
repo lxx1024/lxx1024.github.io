@@ -57,7 +57,7 @@ window.location.href="login.html";
     <ul>
         <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <li class="admin"><a href="product-type.phpl">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
+        <li class="prod-type"><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
         <li><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
         <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
         <li><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
@@ -89,16 +89,16 @@ if(!empty($_GET['id'])){
 
     <div class="current-admin">
         <form action="#" method="post">
-            <label for="admin-psd"> 原来商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" disabled name="admin-psd" id="admin-psd"/>
+            <label for="type-name"> 原来商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" disabled name="type-name" id="type-name"/>
             <input type="submit" name="submit" value="ID:<?php echo $id?>" disabled  style="background:#ccc" />
         </form>
     </div>
 
     <!-- ---------------------修改商品分类信息------------------- -->
     <div class="admin-modify-form">
-        <div class="admin-cancel"><a href="admin.php">取消修改</a></div>
-                <form action="admin-modify1.php?id=<?php echo $id?>" method="post">
-                        <label for="admin-psd"> 修改商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" maxlength="10" name="admin-psd" id="admin-psd"/>
+        <div class="admin-cancel"><a href="product-type.php">取消修改</a></div>
+                <form action="product-type-modify1.php?id=<?php echo $id?>" method="post">
+                        <label for="type-name"> 修改商品类别名称: </label><input type="text" value="<?php echo $result_arr[1]?>" maxlength="10" name="type-name" id="type-name"/>
                        <input type="submit" name="submit" value="修改"  onclick="return confirm('确定修改该商品分类信息?');" />
                 </form>
         </div>
@@ -130,7 +130,7 @@ if(!empty($_GET['id'])){
                         <a href="product-type-modify.php?id=<?php echo "$typename[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
                     </td>
                     <td>
-                        <a href="prod-type-del.php?id=<?php echo "$typename[0]" ?>" onclick="return confirm('确定删除该商品分类吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="product-type-del.php?id=<?php echo "$typename[0]" ?>" onclick="return confirm('确定删除该商品分类吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库商品分类表的内容 PHP代码结束

@@ -73,6 +73,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == ""){
 }
 ?>
 <script>
+  alert('修改成功!');
   window.location.href="prod-details.php?id=<?php echo $id ?>";
 </script>
 <?php

@@ -2,11 +2,21 @@
 session_start();
 include "conn/conn.php";       //导入连接数据库php代码
 if(empty($_POST['admin-name'])){
-    echo "<a href='admin.php'>返回</a>";
+    ?>
+    <script>
+          alert ("用户名不能为空!");
+          history.go(-1);
+    </script>
+    <?php
     die('用户名不能为空');
 }
 if(empty($_POST['admin-psd'])){
-    echo "<a href='admin.php'>返回</a>";
+     ?>
+    <script>
+          alert ("密码不能为空!");
+          history.go(-1);
+    </script>
+    <?php
     die('密码不能为空');
 }
 $id=intval($_GET['id']);

@@ -1,10 +1,20 @@
 <?php
 if(empty($_POST['admin-name'])){
-    echo "<a href='admin-add.php'>返回</a>";
+    ?>
+    <script>
+          alert ("用户名不能为空!");
+          history.go(-1);
+    </script>
+    <?php
     die('用户名不能为空');
 }
 if(empty($_POST['admin-psd'])){
-    echo "<a href='admin-add.php'>返回</a>";
+     ?>
+    <script>
+          alert ("密码不能为空!");
+          history.go(-1);
+    </script>
+    <?php
     die('密码不能为空');
 }
 $name=$_POST['admin-name'];

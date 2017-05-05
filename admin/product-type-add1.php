@@ -1,44 +1,45 @@
 <?php
-if(empty($_POST['admin-name'])){
-    echo "<a href='admin-add.php'>返回</a>";
-    die('用户名不能为空');
-}
-if(empty($_POST['admin-psd'])){
-    echo "<a href='admin-add.php'>返回</a>";
-    die('密码不能为空');
-}
-$name=$_POST['admin-name'];
-$psd=$_POST['admin-psd'];        //获取表单提交过来的数据
-include "conn/conn.php";
+      include "conn/conn.php";
+      if(empty($_POST['type-name'])){
+          ?>
+          <script>
+                alert ("商品分类名称不能为空!");
+                history.go(-1);
+          </script>
+          <?php
+          die('密码不能为空');
+      }
 
-$dbadminname=null;
-$result=mysql_query("select * from admin where adminName='".$name."';");  //从数据库调取登录名为...的数据
-while($row=mysql_fetch_array($result)){
- $dbadminname=trim($row["adminName"]);
-}
-if(is_null($dbadminname)){
-$sql = "insert into admin (adminName,adminPsd)  values('$name','$psd')";
- if (!mysql_query($sql,$conn))
- {
-   die('Error: ' . mysql_error());
- }
- ?>
-<script>
-alert ("添加成功");
-window.location.href="admin.php";
-</script>
-<?php
-}else{
+      $name=$_POST['type-name'];    //提交的商品分类名称     id会自动递增
+
+      $dbtypename=null;
+      $result=mysql_query("select * from prod_type where prodTypeName='".$name."';");  //从数据库调取分类名为...的数据
+      while($row=mysql_fetch_array($result)){
+            $dbtypename=trim($row["prodTypeName"]);
+      }
+      if(is_null($dbtypename)){
+              $sql = "insert into prod_type (prodTypeName)  values('$name')";
+               if (!mysql_query($sql,$conn)) {
+                   die('Error: ' . mysql_error());
+               }
 ?>
-<script>
-alert("已存在改用户！请重新输入");
-window.location.href="admin-add.php";
-</script>
+
+      <script>
+              alert ("添加成功");
+              window.location.href="product-type.php";
+      </script>
+
 <?php
-}
+       }else{
 ?>
+      <script>
+              alert("已存在该分类名！请重新输入");
+              window.location.href="product-type-add.php";
+      </script>
+
 <?php
-  //关闭连接
- mysql_close($conn);
+      }
+        //关闭连接
+       mysql_close($conn);
 
  ?>
