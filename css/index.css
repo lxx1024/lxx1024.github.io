@@ -97,13 +97,17 @@
 .dm-today .today-content li{
     width: 100%;
     height: 100%;
+    overflow: hidden;
     position: absolute;
     opacity: 0;
+    display: none;
     box-sizing: border-box;  /*放置在设置边框的元素里面*/
-    padding: 10px;
+    /*padding: 25px 0px 30px 0px;*/
+    padding-top: 10px;
 }
 .dm-today .today-content li.new{
     opacity: 1;
+    display: block;
 }
 /*---------背景颜色 bg*/
 .bg-pink {
@@ -118,6 +122,49 @@
 }
 .b-green {
     border: 1px solid rgb(126, 207, 119);
+}
+/*-----------新品/热销商品-----------*/
+.dm-today .today-content li div {
+    width: 25%;
+    height: 285px;
+    line-height: 0px;
+    float: left;
+    box-sizing:border-box;
+    border-right:1px solid yellow;
+}
+.dm-today .today-content li div:last-of-type {
+     border-right:none;
+}
+.today-content li div .prod-pic {
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+}
+.today-content li div .prod-pic img {
+    width:  180px;
+    height: 180px;
+}
+.today-content li div .prod-name {
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    text-align: center;
+    box-sizing:border-box;
+    padding: 20px 30px;
+}
+.today-content li div p {
+    font-size: 16px;
+    color: red;
+    /*text-indent: 30px;*/
+    text-align: center;
+}
+.today-content li div p span {
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
 }
 /*今日热门End*/
 
@@ -138,10 +185,10 @@
     box-sizing: border-box;
     border-bottom: 1px solid #2989f0;
 }
-.dm-pinpaihui ul li {
+.dm-pinpaihui .nav li {
     float: left;         /*品牌汇里的列表li都会左浮动*/
 }
-.dm-pinpaihui ul li a{
+.dm-pinpaihui .nav li a{
     display: block;
     box-sizing: border-box;      /* c3属性  宽高大小以什么为准*/
     width: 200px;
@@ -153,14 +200,14 @@
     border: 1px solid #2989f0;
     position: relative;
 }
-.dm-pinpaihui ul li a.oppo{
+.dm-pinpaihui .nav li:first-of-type a{
     background-color: rgba(255, 36, 210, 1);  /*默认第一个选中*/
 }
-.dm-pinpaihui ul li a span {
+.dm-pinpaihui .nav li a span {
     position: relative;
     z-index: 2;
 }
-.dm-pinpaihui ul li a::before {
+.dm-pinpaihui .nav li a::before {
     position: absolute;
     width: 200px;
     height: 80px;
@@ -174,23 +221,84 @@
     transition: all .4s ease;
     transform: scale(.5); /* css3属性 ------ scale 缩放比例*/
 }
-.dm-pinpaihui ul li:hover a::before{
+.dm-pinpaihui .nav li:hover a::before{
     transform: scale(0.99);
     transition-delay: 0s;
     opacity: 1;
     visibility: visible;
 }
 /*-------------------品牌汇内容pinpai-content   Begin */
-.dm-pinpaihui .pinpai-content {
+.dm-pinpaihui .goods-content {
     height: 350px;
+    box-sizing: border-box;
+    padding: 10px;
     border: 1px solid #70c2fe;
+    background: rgba(112,194,254,0.12);
 }
-.dm-pinpaihui .pinpai-content li{
+.dm-pinpaihui .goods-content li{
     opacity: 0;
+    display: none;
+    overflow: hidden;
 }
-.dm-pinpaihui .pinpai-content .oppo{
+.dm-pinpaihui .goods-content li:first-of-type{
     opacity: 1;
+    display: block;
 }
+/*---------产品内容-------*/
+.dm-pinpaihui .goods-content li div{
+    float: left;
+    width: 289px;
+    height: 328px;
+    background: white;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: none;
+    padding: 45px 10px;
+    margin-right: 10px;
+    /*box-shadow:  1px 1px 10px rgba(0, 0, 0, 0.1);*/
+}
+.dm-pinpaihui .goods-content li div:last-of-type {
+    margin-right: 0px;
+}
+.dm-pinpaihui .goods-content div:hover {
+    box-shadow:  0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+.dm-pinpaihui .goods-content div:nth-child(4n){   /*选中4倍数的元素*/
+    margin-right: 0px;
+}
+/*图片*/
+.dm-pinpaihui .goods-content div .picture{
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+}
+.dm-pinpaihui .goods-content .picture img {
+    width: 160px;
+}
+/*内容,包括标题,价格,简介*/
+.dm-pinpaihui .goods-content .content {
+    display: inline-block;
+    margin-top: 35px;
+}
+.dm-pinpaihui .goods-content .goods-title{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SimSun", "宋体";
+    color: black;
+}
+.dm-pinpaihui .goods-content .goods-title i{
+    color: red;
+}
+.dm-pinpaihui .goods-content .goods-desc{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+
 /* 品牌汇 End  */
 /* ---------------------------------------------广告1 Begi*/
 .dm-advertise ul li {
@@ -272,24 +380,69 @@
     width: 830px;
     height: 100%;
     box-sizing: border-box;
+    padding: 10px;
     background: #fde3ec;
 }
-
+.dm-peijian .content-right  li {
+    width: 250px;
+    height: 285px;
+    line-height: 0px;
+    float: left;
+    background: white;
+    box-sizing:border-box;
+    margin:0px 10px 10px;
+    padding-top: 10px;
+}
+.dm-peijian .content-right li:last-of-type {
+     border-right:none;
+}
+.content-right li .prod-pic {
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+}
+.content-right li .prod-pic img {
+    width:  180px;
+    height: 180px;
+}
+.content-right li .prod-name {
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    text-align: center;
+    box-sizing:border-box;
+    padding: 20px 30px;
+}
+.content-right li p {
+    font-size: 16px;
+    color: red;
+    /*text-indent: 30px;*/
+    text-align: center;
+}
+.content-right li p span {
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
+}
 
  /*精选配件dm-peijian End  */
 
 /*------------------这是分割线---------------------------------------------------*/
 
 /* --------------------------------------- 底部footer Begin */
-.footer-before{
+/*.footer-before{
     width: 1px;
     height: 380px;
     display: inline-block;
-}
+}*/
 .footer{
     width: 100%;
-    position: fixed;
-    bottom: 0px;
-    z-index: -99;
+    margin-top: 20px;
+    /*position: fixed;*/
+    /*bottom: 0px;*/
+    /*z-index: -99;*/
 }
 /*底部 footer End*/

@@ -68,7 +68,7 @@ window.location.href="login.html";
 <!-- 从数据库提取商品信息对应的数据PHP代码 -->
         <?php
             include "../conn/conn.php";       //导入连接数据库php代码
-            $q = "SELECT * FROM product";                   //SQL查询语句 -----在此处改表名
+            $q = "SELECT * FROM product order by prodAddTime DESC";                   //SQL查询语句 -----在此处改表名
             // type 为0 代表是热点话题
             $result = mysql_query($q, $conn);                     //执行sql查询,
        ?>

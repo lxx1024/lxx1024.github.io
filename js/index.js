@@ -141,7 +141,7 @@ $(function(){
 // ------------------------------------------------------------- 品牌汇 Begin
 $(function(){
     var $titles = $('.dm-pinpaihui .classes li a');   // 品牌汇导航DOM元素
-    var $contents = $('.dm-pinpaihui .pinpai-content li');   // 切换品牌汇内容标签
+    var $contents = $('.dm-pinpaihui .goods-content li');   // 切换品牌汇内容标签
     $titles.getOnly($contents);  // 切换内容   调用getOnly方法
     var timerId = 0;   //记录定时器，方便清除定时器
     $titles.mouseenter(function () {

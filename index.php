@@ -91,7 +91,7 @@
 <!-- -------------------------------------导航栏dm-nav Begin-->
 <div class="dm-nav w">
     <ul class="nav">
-        <li><a href="#" class="col-main">首页</a></li>
+        <li><a href="index.php" class="col-main">首页</a></li>
         <li><a href="javascript:;">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">新品发布</a></li>
@@ -101,9 +101,7 @@
     <ul class="nav-content">
         <li> </li>
         <li>
-             <!-- 这是品牌汇下的分类内容 -->
-
-
+             <!-- 这是品牌汇下的分类内容Begin -->
 <?php
         include "conn/conn.php";       //导入连接数据库php代码
         $q1 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
@@ -112,8 +110,7 @@
                  $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
                   $rs2 = mysql_query($q2, $conn);                     //执行sql查询
                   $count2 = mysql_num_rows($rs2);
-                  if ($count2>0) {
-
+                  if ($count2>0 && $row1[0]!=1) {
 ?>
 
              <a href="static/prod-index.php?id=<?php echo $row1[0]; ?>"><?php echo  $row1[1]; ?></a>
@@ -122,8 +119,7 @@
                   }
     }
 ?>
-
-
+            <!-- 这是品牌汇下的分类内容End -->
         </li>
     </ul>
 </div>
@@ -157,8 +153,84 @@
         <li class="bg-green">热 销</li>
     </ul>
     <ul class="today-content fr">
-        <li class="b-pink new">这是新品内容</li>
-        <li class="b-green">这是热销内容</li>
+
+<!--         <li>                      静态格式
+                <div>
+                        <a href="static/goods-details.php" class="prod-pic">
+                                <img src="admin/new1.jpg">
+                        </a>
+                        <a href="static/goods-details.php" class="prod-name">小米</a>
+                        <p>￥129 <span>销量99</span></p>
+                </div>
+        </li>
+ -->
+        <li class="b-pink new">
+                <!-- 这是新品下的商品内容Begin -->
+<?php
+        $q3 = "SELECT * FROM product where prodTypeId>1 order by prodAddTime DESC limit 0,4;";                   //SQL查询语句 -----在此处改表名
+        $rs3= mysql_query($q3, $conn);                     //执行sql查询
+         while ($row3=mysql_fetch_row($rs3)){
+?>
+                <div>
+                        <a href="static/goods-details.php?id=<?php echo $row3[0]; ?>" class="prod-pic">
+<?php
+                 $img=$row3[8];
+                 $imgs=explode(",",$img);
+                 foreach ($imgs as $key => $value) {
+                        if ($key==0 && $value!="") {
+?>
+                                <img src="admin/<?php   echo $value ?>">
+<?php
+                        }else  if($key==0 && $value==""){
+                                echo "暂无图片";
+                        }
+                    }
+?>
+                        </a>
+                        <a href="static/goods-details.php?id=<?php echo $row3[0]; ?>" class="prod-name"><?php echo $row3[1]; ?></a>
+                        <p>￥<?php echo $row3[5]; ?> <span>销量 <?php echo $row3[4]; ?></span></p>
+                </div>
+
+<?php
+    }
+?>
+
+                <!-- 这是新品下的商品内容end -->
+        </li>
+        <li class="b-green">
+
+   <!-- 这是热销下的商品内容Begin -->
+<?php
+        $q4 = "SELECT * FROM product where prodTypeId>1 order by salsNum DESC limit 0,4;";                   //SQL查询语句 -----在此处改表名
+        $rs4= mysql_query($q4, $conn);                     //执行sql查询
+         while ($row4=mysql_fetch_row($rs4)){
+?>
+                <div>
+                        <a href="static/goods-details.php?id=<?php echo $row4[0]; ?>" class="prod-pic">
+<?php
+                 $img1=$row4[8];
+                 $imgs1=explode(",",$img1);
+                 foreach ($imgs1 as $key1 => $value1) {
+                        if ($key1==0 && $value1!="") {
+?>
+                                <img src="admin/<?php   echo $value1 ?>">
+<?php
+                        }else  if($key1==0 && $value1==""){
+                                echo "暂无图片";
+                        }
+                    }
+?>
+                        </a>
+                        <a href="static/goods-details.php?id=<?php echo $row4[0]; ?>" class="prod-name"><?php echo $row4[1]; ?></a>
+                        <p>￥<?php echo $row4[5]; ?>  <span>销量 <?php echo $row4[4]; ?></span></p>
+                </div>
+
+<?php
+    }
+?>
+                <!-- 这是热销下的商品内容end -->
+
+        </li>
     </ul>
 </div>
 <!-- 今日热门dm-today End-->
@@ -166,29 +238,109 @@
 <div class="dm-pinpaihui w">
     <div class="clearfix">
         <h2 class="title fl">品牌汇</h2>
-        <ul class="classes fr">
-            <li><a href="javascript:;" class="oppo"><span>OPPO</span></a></li>
-            <li><a href="javascript:;"><span>小米</span></a></li>
-            <li><a href="javascript:;"><span>iPhone</span></a></li>
-            <li><a href="javascript:;"><span>华为</span></a></li>
-            <li><a href="javascript:;"><span>VIVO</span></a></li>
+        <ul class="classes fr nav">
+        <!-- 品牌汇模块下的导航栏 Begin-->
+<?php
+        $q5 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
+         $rs5= mysql_query($q5, $conn);                     //执行sql查询
+         $num5 = 0;
+            while ($row5=mysql_fetch_row($rs5)){
+                 $q6 = "SELECT * FROM product where prodTypeId='".$row5[0]."';";                   //SQL查询语句 -----在此处改表名
+                  $rs6= mysql_query($q6, $conn);                     //执行sql查询
+                  $count6 = mysql_num_rows($rs6);
+                  if ($count6>0 && $row5[0]!=1) {
+                    $num5++;
+                         if ($num5<=5) {    //设定五个类以内
+
+?>
+            <li><a href="javascript:;"><span><?php echo  $row5[1]; ?></span></a></li>
+
+<?php
+                             }
+                    }
+            }
+?>
+<!-- 品牌汇模块下的导航栏End -->
         </ul>
     </div>
-    <ul class="pinpai-content clearfix">
-        <li class="oppo">OPPO</li>
-        <li>小米</li>
-        <li>iPhone</li>
-        <li>华为</li>
-        <li>ViVO</li>
+    <ul class="goods-content clearfix">
+    <!--      <li>         静态样式
+                <div>
+                        <a href="#" class="picture"><img src="images/oppo-goods1.png" alt=""/></a>
+                        <a href="#" class="content">
+                            <p class="goods-title">R9s 黑色版 <i> ￥2799 </i></p>
+                            <p class="goods-desc">全新配色震撼上市</p>
+                        </a>
+                </div>
+        </li>  -->
+<!-- 品牌汇模块下的内容动态php代码    Begin -->
+<?php
+        $q7 = "SELECT * FROM prod_type;";                   //SQL查询语句 -----在此处改表名
+         $rs7= mysql_query($q7, $conn);                     //执行sql查询
+         $num7 = 0;
+             while ($row7=mysql_fetch_row($rs7)){
+                 $q8 = "SELECT * FROM product where prodTypeId='".$row7[0]."';";                   //SQL查询语句 -----在此处改表名
+                  $rs8= mysql_query($q8, $conn);                     //执行sql查询
+                  $count8 = mysql_num_rows($rs8);
+                  if ($count8>0 && $row7[0]!=1) {
+                    $num7++;
+                         if ($num7<=5) {    //设定五个类以内
+?>
+            <li>       <!--- ----------------------------   每个类别下对应的商品内容Begin     -->
+
+            <?php
+                    $q9 = "SELECT * FROM product where prodTypeId='".$row7[0]."' order by salsNum DESC limit 0,4;";                   //SQL查询语句 -----在此处改表名
+                    $rs9= mysql_query($q9, $conn);                     //执行sql查询
+                     while ($row9=mysql_fetch_row($rs9)){
+            ?>
+
+                            <div>   <!---    一个商品的内容Begin     -->
+                                    <a href="static/goods-details.php?id=<?php echo $row9[0]; ?>" class="picture">    <!--图片显示Begin'-->
+
+                            <?php
+                                             $img2=$row9[8];
+                                             $imgs2=explode(",",$img2);
+                                             foreach ($imgs2 as $key2 => $value2) {
+                                                    if ($key2==0 && $value2!="") {
+                            ?>
+
+                                                            <img src="admin/<?php   echo $value2 ?>">
+
+                            <?php
+                                                    }else  if($key2==0 && $value2==""){
+                                                            echo "暂无图片";
+                                                    }
+                                                }
+                            ?>
+
+                                    </a>   <!--图片显示End'-->
+                                    <a href="static/goods-details.php?id=<?php echo $row9[0]; ?>" class="content">
+                                    <p class="goods-title"><?php echo $row9[1]; ?> <i> ￥<?php echo $row9[5]; ?> </i></p>  <!-- 产品信息-->
+                                    <p class="goods-desc"><?php echo $row9[6]; ?></p>
+                                </a>
+                            </div>  <!---    一个商品的内容End  -->
+
+            <?php
+                }
+            ?>
+
+            </li>      <!--- ----------------------------   每个类别下对应的商品内容end     -->
+<?php
+                             }
+                    }
+            }
+?>
+<!-- 品牌汇模块下的内容End -->
+
     </ul>
 </div>
 <!-- 品牌汇dm-pinpaihui End  -->
 <!--  ---------------------------------------------广告dm-advertise Begin  -->
 <div class="dm-advertise w">
    <ul class="clearfix">
-       <li><a href="#"><img src="images/guanggao1.png" alt=""/></a></li>
-       <li><a href="#"><img src="images/guanggao3.png" alt=""/></a></li>
-       <li><a href="#"><img src="images/guanggao4.png" alt=""/></a></li>
+       <li><a href="javascript:;"><img src="images/guanggao1.png" alt=""/></a></li>
+       <li><a href="javascript:;"><img src="images/guanggao3.png" alt=""/></a></li>
+       <li><a href="javascript:;"><img src="images/guanggao4.png" alt=""/></a></li>
    </ul>
 </div>
 <!-- 广告dm-advertise End  -->
@@ -208,16 +360,61 @@
                 <li></li>
             </ul>
         </div>
-        <div class="content-right fr">
+        <ul class="content-right fr">
+<!--                 <li>         静态样式
+                                <a href="static/goods-details.php" class="prod-pic">
+                                        <img src="images/new1.jpg">
+                                </a>
+                                <a href="static/goods-details.php" class="prod-name">小米</a>
+                                <p>￥129 <span>销量99</span></p>
+                </li> -->
 
-        </div>
+<?php
+        $q10 = "SELECT * FROM product where prodTypeId=1 order by salsNum DESC limit 0,6;";                   //SQL查询语句 -----在此处改表名
+        $rs10= mysql_query($q10, $conn);                     //执行sql查询
+         while ($row10=mysql_fetch_row($rs10)){
+?>
+                <li>
+                        <a href="static/goods-details.php?id=<?php echo $row10[0]; ?>" class="prod-pic">
+<?php
+                 $img10=$row10[8];
+                 $imgs10=explode(",",$img10);
+                 foreach ($imgs10 as $key10 => $value10) {
+                        if ($key10==0 && $value10!="") {
+?>
+                                <img src="admin/<?php   echo $value10 ?>">
+<?php
+                        }else  if($key10==0 && $value10==""){
+                                echo "暂无图片";
+                        }
+                    }
+?>
+                        </a>
+                        <a href="static/goods-details.php?id=<?php echo $row10[0]; ?>" class="prod-name"><?php echo $row10[1]; ?></a>
+                        <p>￥<?php echo $row10[5]; ?>  <span>销量 <?php echo $row10[4]; ?></span></p>
+                </li>
+
+<?php
+    }
+?>
+
+
+
+
+
+
+
+
+
+
+        </ul>
     </div>
 </div>
 <!-- 精选配件dm-peijian End  -->
 </div>
 
 <!--这是分割线-->
-<div class="footer-before"></div>
+<!-- <div class="footer-before">固定滑动效果</div> -->
 <div class="footer">
     <div class="w">
         <!--<a href="https://github.com/lxx1024/lxx1024.github.io">源码下载</a>-->
