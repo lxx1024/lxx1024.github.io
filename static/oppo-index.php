@@ -48,22 +48,18 @@
                   ?>
             </li>
             <li class="spacer"></li>
-            <li class="fore2">
-                <a target="_blank" href="#">我的订单</a>
-            </li>
-            <li class="spacer"></li>
-            <li class="fore3 dropdown">
+            <li class="fore2 dropdown">
                 <a target="_blank" href="#">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
-            <li class="fore5 dropdown">
-                <a href="javascript:;">关注哆咪</a>
+            <li class="fore3 dropdown">
+                <a target="_blank" href="#">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore6 dropdown">
-                <a href="javascript:;">客户服务</a>
+                <a href="javascript:;">联系客服</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
         </ul>
@@ -89,8 +85,8 @@
 <!-- -------------------------------------导航栏dm-nav Begin-->
 <div class="dm-nav w">
     <ul class="nav">
-        <li><a href="#" class="col-main">首页</a></li>
-        <li><a href="static/oppo-index.php">品牌汇</a></li>
+        <li><a href="../index.php" class="col-main">首页</a></li>
+        <li><a href="javascript:;">品牌汇</a></li>
         <li><a href="#">手机配件</a></li>
         <li><a href="#">新品发布</a></li>
         <li><a href="topic.php">手机社区</a></li>
@@ -108,7 +104,7 @@
                  $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
                   $rs2 = mysql_query($q2, $conn);                     //执行sql查询
                   $count2 = mysql_num_rows($rs2);
-                  if ($count2>0) {
+                  if ($count2>0 && $row1[0]!=1) {
 ?>
              <a href="prod-index.php?id=<?php echo $row1[0]; ?>"><?php echo  $row1[1]; ?></a>
 <?php

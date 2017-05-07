@@ -54,22 +54,18 @@
                   ?>
             </li>
             <li class="spacer"></li>
-            <li class="fore2">
-                <a target="_blank" href="#">我的订单</a>
-            </li>
-            <li class="spacer"></li>
-            <li class="fore3 dropdown">
+            <li class="fore2 dropdown">
                 <a target="_blank" href="#">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
-            <li class="fore5 dropdown">
-                <a href="javascript:;">关注哆咪</a>
+            <li class="fore3 dropdown">
+                <a target="_blank" href="#">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore6 dropdown">
-                <a href="javascript:;">客户服务</a>
+                <a href="javascript:;">联系客服</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
         </ul>
@@ -104,7 +100,7 @@
                  $q2 = "SELECT * FROM product where prodTypeId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
                   $rs2 = mysql_query($q2, $conn);                     //执行sql查询
                   $count2 = mysql_num_rows($rs2);
-                  if ($count2>0) {
+                  if ($count2>0 && $row1[0]!=1) {
 
 ?>
 
@@ -144,13 +140,16 @@
                     <div class="title">
                             <label for="title">标题:</label>
                             <input type="text" name="title" maxlength="20">
+                            <span>标题限制在20个字内,必填</span>
                     </div>
                    <div class="descs">
                             <label for="descs">简介:</label>
                             <input type="text" name="descs" maxlength="30">
+                            <span>简介限制在30个字内,可不填</span>
                     </div>
                     <div class="content">
                             <label for="content">内容:</label>
+                            <span>内容不限字数,必填</span>
                             <textarea name="content" id="content" cols="83" rows="10"></textarea>
                     </div>
                     <div class="publish">

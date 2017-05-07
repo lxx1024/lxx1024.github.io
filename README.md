@@ -1,2 +1,2 @@
-# lxx1024.github.io
-IT科技讲座git实践
+﻿# lxx1024.github.io
+基于web的手机销售系统的设计与实现
