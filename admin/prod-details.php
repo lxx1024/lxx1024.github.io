@@ -147,7 +147,7 @@ window.location.href="login.html";
                                         商品属性:
                                 </div>
                                 <div class="content fl">
-                                        <?php
+                                <?php
                                          $attr = "SELECT * FROM attribute where prodId='".$row[0]."';";                   //SQL查询语句 -----在此处改表名
                                           $attrRs = mysql_query($attr, $conn);                     //执行sql查询
                                          while ($attrName=mysql_fetch_row($attrRs)){

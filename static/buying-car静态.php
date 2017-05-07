@@ -125,7 +125,7 @@
 <!------------------------------------------ 购物车内容cart-box Begin-->
 <div class="cart-box w">
     <!-- 购买步骤steps -->
-    <!-- <ul class="steps">
+    <ul class="steps">
         <li class="steps-cart">
             <h5>购物车</h5>
             <div class="bottom-line"></div>
@@ -138,7 +138,7 @@
             <h5>支付</h5>
             <div class="bottom-line"></div>
         </li>
-    </ul> -->
+    </ul>
     <!---------------------------- 购物车列表表单-->
     <form action="#" class="w">
         <div class="cart-list-box">
@@ -150,7 +150,7 @@
                         <span>全选</span>
                     </label>
                 </li>
-                <li class="two">商品名称</li>
+                <li class="two">产品</li>
                 <li class="three">数量</li>
                 <li class="four">单价</li>
                 <li class="five">操作</li>

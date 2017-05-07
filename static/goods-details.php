@@ -110,14 +110,25 @@
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->
+<?php
+        include "../conn/conn.php";
+        $id = intval($_GET['id']);
+        $q1 = "SELECT * FROM product where prodId='".$id."';";                   //SQL查询语句 -----在此处改表名
+        $rs1= mysql_query($q1, $conn);
+        $row1 = mysql_fetch_row($rs1);                      //商品信息记录
+
+        $q2 = "SELECT * FROM prod_type where prodTypeId='".$row1[2]."';";                   //SQL查询语句 -----在此处改表名
+        $rs2= mysql_query($q2, $conn);
+        $row2 = mysql_fetch_row($rs2);                    //商品分类信息记录
+?>
 <!--------------------------------------------面包屑导航wrapper Begin-->
 <div class="wrapper w">
     <ul class="breadcrumb">
         <li><a href="../index.php">首 页 </a></li>
         <li> / </li>
-        <li><a href="#">.......</a></li>
+        <li><a href="prod-index.php?id=<?php echo $row2[0]; ?>"><?php echo $row2[1];?></a></li>
         <li> / </li>
-        <li>商品名称</li>
+        <li><?php echo $row1[1];?></li>
     </ul>
 </div>
 <!-- 面包屑导航 wrapper End-->
@@ -127,39 +138,46 @@
     <div class="buying-preview fl">
         <!-- ------商品大图信息main-img -->
         <ul class="main-img clearfix">
-            <li>
-                <img src="../images/details-R9s-big1.jpg" alt=""/>
-            </li>
-            <li>
+           <!-- <li>     静态样式
                 <img src="../images/details-R9s-big2.jpg" alt=""/>
-            </li>
+            </li> -->
+        <?php
+                 $img1=$row1[8];
+                 if ($img1!="") {
+
+                 $imgs1=explode(",",$img1);
+                 foreach ($imgs1 as $key1 => $value1) {
+        ?>
             <li>
-                <img src="../images/details-R9s-big3.jpg" alt=""/>
+                <img src="../admin/<?php   echo $value1 ?>" alt=""/>
             </li>
-            <li>
-                <img src="../images/details-R9s-big4.jpg" alt=""/>
-            </li>
-            <li>
-                <img src="../images/details-R9s-big5.jpg" alt=""/>
-            </li>
+      <?php
+                    }
+                 }else{
+                    echo "暂无图片";
+                 }
+        ?>
+
         </ul>
         <!----- 商品小图列表spec-items------>
         <ul class="spec-items clearfix">
+<!--      <li>    静态样式
+                 <img src="../images/details-R9s-1.jpg" alt=""/>
+            </li> -->
+         <?php
+                if ($img1!="") {
+                 foreach ($imgs1 as $key1 => $value1) {
+        ?>
             <li>
-                <img src="../images/details-R9s-1.jpg" alt=""/>
+                <img src="../admin/<?php   echo $value1 ?>" alt=""/>
             </li>
-            <li>
-                <img src="../images/details-R9s-2.jpg" alt=""/>
-            </li>
-            <li>
-                <img src="../images/details-R9s-3.jpg" alt=""/>
-            </li>
-            <li>
-                <img src="../images/details-R9s-4.jpg" alt=""/>
-            </li>
-            <li>
-                <img src="../images/details-R9s-5.jpg" alt=""/>
-            </li>
+      <?php
+                    }
+               }else{
+                    echo "暂无图片";
+                 }
+        ?>
+
         </ul>
         <!--商品图片底部信息preview-info -->
         <div class="preview-info">
@@ -176,30 +194,42 @@
     <!---- ----------------- 商品内容信息buying-itemInfo ----------------- -->
     <div class="buying-itemInfo fr clearfix">
         <h2 class="product-title">
-            R9s Plus 金 6G+64GB
+            <?php echo $row1[1]; ?>
         </h2>
         <p class="product-summary">
-            6寸超清大屏，6GB运存+64GB内存，正面指纹识别，4000mAh大电池，充电5分钟通话2小时
+           <!--  6寸超清大屏，6GB运存+64GB内存，正面指纹识别，4000mAh大电池，充电5分钟通话2小时 -->
+            <?php echo $row1[6]; ?>
         </p>
         <p class="product-price">
-            ￥3499.00
-            <span id="inventor">库存: <i>19</i></span>
+            ￥<?php echo $row1[5]; ?>
+            <span id="inventor">库存: <i><?php echo $row1[3]; ?></i></span>
+            <span id="inventor">销量: <i><?php echo $row1[4]; ?></i></span>
         </p>
         <div class="add-cart-form">
                 <!--商品选购属性/颜色,容量,网络product-attribute-->
                 <div class="product-attribute">
-                        <div class="attribute clearfix">
+                        <!--   <div class="attribute clearfix">    静态样式
                                 <p class="fl">颜色</p>
                                 <a href="javascript:;">玫瑰金</a>
+                        </div> -->
+         <?php
+                     $attr = "SELECT * FROM attribute where prodId='".$row1[0]."';";                   //SQL查询语句 -----在此处改表名
+                      $attrRs = mysql_query($attr, $conn);                     //执行sql查询
+                     while ($attrName=mysql_fetch_row($attrRs)){
+                            $attr1 = "SELECT * FROM attrType where attrTypeId='".$attrName[3]."';";                   //SQL查询语句 -----在此处改表名
+                            $attrRs1 = mysql_query($attr1, $conn);                     //执行sql查询
+                            $attrName1=mysql_fetch_row($attrRs1);
+
+             ?>
+                     <div class="attribute clearfix">
+                                <p class="fl"><?php echo $attrName1[1];?></p>
+                                <a href="javascript:;"><?php echo $attrName[2];?></a>
                         </div>
-                        <div class="attribute clearfix">
-                                <p class="fl">网络</p>
-                                <a href="javascript:;">双网通</a>
-                        </div>
-                        <div class="attribute clearfix">
-                                <p class="fl">容量</p>
-                                <a href="javascript:;">32G</a>
-                        </div>
+             <?php
+                      }
+             ?>
+
+
                 </div>
                 <!----------------------- 商品选购服务信息 product-service-->
                 <div class="product-service">
