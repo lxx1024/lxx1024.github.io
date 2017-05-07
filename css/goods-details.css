@@ -144,7 +144,12 @@
     color: #f30;
     font-size: 24px;
     font-weight: 400;
-    margin-right: 8px;
+
+}
+.buying-itemInfo .product-price span {
+    color: #aaa;
+    font-size: 16px;
+    margin-left: 20px;
 }
 /*----表单内部----商品选购属性_颜色,网络,容量------*/
 .add-cart-form {
@@ -244,9 +249,12 @@
     width: 40px;
     text-align: center;
     cursor: pointer;
+    background: #f0f0f0;
 }
 .add-cart-form .buying-actions .btn-minus {
     left: 0px;
+    font-size: 20px;
+    font-weight: 900px;
 }
 .add-cart-form .buying-actions .number {
     width: 140px;
@@ -257,6 +265,7 @@
 }
 .add-cart-form .buying-actions .btn-plus {
     right: 0;
+    font-size: 24px;
 }
 .add-cart-form .buying-actions .button-container {
     width: 360px;
