@@ -17,7 +17,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == ""){
       include_once('prod-edit-upload.php');     //导入处理文件
       if (isset($uploadfile)) {
                $pic=$uploadfile;     //$uploadfile是在uploadfile文件里面定义的 ------是一个存放了多个图片相对路径的字符串(由逗号隔开)
-              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc,prodPic) values('$prodName','$prodTypeId','$inventory','$price','1111111','$pic')";
+              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc,prodPic) values('$prodName','$prodTypeId','$inventory','$price','$prodDesc','$pic')";
                $result=mysql_query($sql,$conn);
                 if ($result) {
                     echo "成功";
@@ -25,7 +25,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == ""){
                     echo "失败";
                }
       }else{
-              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc) values('$prodName','1','$inventory','$price','1111111')";
+              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc) values('$prodName','1','$inventory','$price','$prodDesc')";
                $result=mysql_query($sql,$conn);
                if ($result) {
                  echo "成功";

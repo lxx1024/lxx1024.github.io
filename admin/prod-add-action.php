@@ -16,7 +16,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == "" || $
       include_once('prod-add-upload.php');
       if (isset($uploadfile)) {
                $pic=$uploadfile;     //$uploadfile是在uploadfile文件里面定义的 ------是一个存放了多个图片相对路径的字符串(由逗号隔开)
-              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc,prodPic) values('$prodName','$prodTypeId','$inventory','$price','1111111','$pic')";
+              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc,prodPic) values('$prodName','$prodTypeId','$inventory','$price','$prodDesc','$pic')";
                $result=mysql_query($sql,$conn);
                 if ($result) {
                     echo "成功";
@@ -24,7 +24,7 @@ if($prodName == "" || $price == "" || $prodTypeId == "" || $inventory == "" || $
                     echo "失败";
                }
       }else{
-              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc) values('$prodName','1','$inventory','$price','1111111')";
+              $sql="insert into product (prodName,prodTypeId,inventory,prodPrice,prodDesc) values('$prodName','1','$inventory','$price','$prodDesc')";
                $result=mysql_query($sql,$conn);
                if ($result) {
                  echo "成功";
@@ -50,7 +50,7 @@ echo $newId[0];//新添加的商品的id   ,也就是时间最新的记录
          // echo $attr1."value值";    //黑色,有可能是空值
     }
     // echo $attrName[0]."属性类id";
-     if ($attr1!="") {
+     if ($attr1!=" ") {
         $sql1="insert into attribute (prodId,attrName,attrTypeId) values('$newId[0]','$attr1','$attrName[0]')";
                $result1=mysql_query($sql1,$conn);
                if ($result1) {

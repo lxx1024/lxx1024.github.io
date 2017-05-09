@@ -32,7 +32,7 @@ $content=$_POST['content'];   //商品详情
 
     if ($count2>0) {                      //该商品存在该属性----修改原来记录
           // echo $attrName2[3]."-----原记录的属性类id-----";
-        mysql_query("UPDATE attribute SET attrName='$attr1' WHERE attrTypeId='$attrName2[3]'");
+        mysql_query("UPDATE attribute SET attrName='$attr1' WHERE attrId='$attrName2[0]'");
     }else{                                       //该商品不存在该属性-----添加新记录
       echo $attr1;
       if ($attr1!="") {

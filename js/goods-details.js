@@ -2,7 +2,7 @@
 * @Author: 20161024
 * @Date:   2017-05-07 10:24:49
 * @Last Modified by:   20161024
-* @Last Modified time: 2017-05-07 15:41:01
+* @Last Modified time: 2017-05-09 17:10:49
 */
 
 // ------------------------------------------------------------ 商品图片切换 Begin
@@ -22,9 +22,9 @@ $(function(){
     var $minus = $('.counter-box .btn-minus');   // 数量减号DOM元素
     var $plus = $('.counter-box .btn-plus');   // 数量加号DOM元素
     var $num =  $('.counter-box .number');   //  商品数量
-    var $max =  $('#inventor i');   //  商品库存
-    var max = +$max.text();    //将字符型转为数值类型
-    // console.log(max);
+    var $max =  $('#inventor i')[0];   //  商品库存
+    var max = +$($max).text();    //将字符型转为数值类型
+    console.log(max);
     var num = $num.val();
     // console.log($num.val());   //获取数值
       $minus.click(function () {

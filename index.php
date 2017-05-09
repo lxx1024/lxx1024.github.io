@@ -310,8 +310,7 @@
 
                                     </a>   <!--图片显示End'-->
                                     <a href="static/goods-details.php?id=<?php echo $row9[0]; ?>" class="content">
-                                    <p class="goods-title"><?php echo $row9[1]; ?> <i> ￥<?php echo $row9[5]; ?> </i></p>  <!-- 产品信息-->
-                                    <p class="goods-desc"><?php echo $row9[6]; ?></p>
+                                    <p class="goods-title"><?php echo $row9[1]; ?> <br/><i> ￥<?php echo $row9[5]; ?> </i></p>  <!-- 产品信息-->
                                 </a>
                             </div>  <!---    一个商品的内容End  -->
 

@@ -14,7 +14,7 @@ if (isset($_SESSION["userName"])) {
 
         if ($count>0) {
           // 如果当前用户已经添加过该商品到购物车则更新数据
-                mysql_query("UPDATE cart SET number='$sum' WHERE prodId='$prodId'");
+                mysql_query("UPDATE cart SET number='$sum' WHERE id='".$row[0]."' ");
         }else{
           //否则添加新数据
                 $sql = "insert into cart  (userId,prodId,number)  values('$userId','$prodId','$num')";

@@ -145,7 +145,7 @@
                     <!--------- 购物车列表头部---->
                         <ul class="cart-list-header">
                                 <li class="one">
-                                        <input type="checkbox" name="checkbox1" class="allSelect" id="allSelect">
+                                        <input type="checkbox" name="checkbox1" class="allSelect">
                                         <span>全选</span>
                                 </li>
                                 <li class="two">商品名称</li>
@@ -246,8 +246,7 @@
 
 
                                 <div>
-                                        <input type="submit" name="submit" value="去结算" class="fr btn-order" id="btn">
-                                        <p class="fr amount">总计:  <span class="allPrice">￥99999.00</span> <span class="allNum">(共3件商品)</span> </p>
+                                        <input type="submit" name="submit" value="去结算" class="fr btn-order">
                                 </div>
                         </div>
                 </div>

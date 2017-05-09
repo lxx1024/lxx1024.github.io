@@ -277,25 +277,6 @@ body {
     text-align: center;
     cursor: pointer;
 }
-/*选中商品总金额*/
-.cart-list-content  .amount {
-    margin-right: 140px;
-    font-size: 20px;
-    color: #999;
-    line-height: 48px;
-}
-.cart-list-content  .amount .allPrice{
-    margin:20px;
-    font-size: 22px;
-    color: #f54949;
-    line-height: 48px;
-}
-.cart-list-content  .amount .allNum{
-    margin:0px;
-    font-size: 20px;
-    color: #aaa;
-    line-height: 48px;
-}
 
 /*确认订单*/
 .cart-list-content .btn-order {

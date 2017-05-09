@@ -246,7 +246,7 @@
                 <div class="buying-actions">
                         <div class="counter-box fl">
                                 <a class="btn-minus">－</a>
-                                <input type="text" class="number" value="4"/>
+                                <input type="text" class="number" value="1"/>
                                 <a class="btn-plus">+</a>
                         </div>
                         <div class="button-container fr">
