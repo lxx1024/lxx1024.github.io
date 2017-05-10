@@ -234,7 +234,7 @@
                                                                 <a class="btn-plus">+</a>
                                                         </div>
                                                         <div class="cart-product-price">
-                                                                <span class="normal">￥3499.00</span>
+                                                                ￥<span class="normal"><?php echo $row[5]; ?></span>
                                                         </div>
                                                         <div class="cart-product-delete cart-product-delete-word"><a  href="car-del.php?id=<?php echo $row1[2]; ?>">删除</a></div>
                                             </div>
@@ -247,7 +247,7 @@
 
                                 <div>
                                         <input type="submit" name="submit" value="去结算" class="fr btn-order" id="btn">
-                                        <p class="fr amount">总计:  <span class="allPrice">￥99999.00</span> <span class="allNum">(共3件商品)</span> </p>
+                                        <p class="fr amount">总计:  <span class="allPrice">99999.00</span> <span class="allNum">(共3件商品)</span> </p>
                                 </div>
                         </div>
                 </div>

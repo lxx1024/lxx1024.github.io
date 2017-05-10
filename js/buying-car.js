@@ -2,7 +2,7 @@
 * @Author: 20161024
 * @Date:   2017-05-07 10:24:49
 * @Last Modified by:   20161024
-* @Last Modified time: 2017-05-10 00:50:22
+* @Last Modified time: 2017-05-10 15:44:58
 */
 
 // ------------------------------------------------------------购物车商品操作Begin
@@ -12,9 +12,6 @@ $(function(){
     var $num =  $('.counter-box .number');   //  商品数量
      var $select =  $('.cart-product-choice .select');   //  选择框
     var $max =  $('.cart-product-choice .inventor');   //  商品库存
-    var max = 10;    //将字符型转为数值类型
-    console.log(max);
-    // var num = $num.val();
   for (let i = 0; i < $minus.length; i++) {
     // 点击减号时触发的事件
       $minus[i].index = i;    //存储当前触发对象的索引
@@ -41,7 +38,7 @@ $(function(){
               var  index = this.index;
               var num = $($num[index]).val();
               var cartId =$($select[index]).val();
-               var max = $($max[index]).val();
+               var max = +$($max[index]).val();  //将字符转为数字
                $minus.css("background","#f0f0f0");
                $plus.css("background","#f0f0f0");
                $(this).css("background","#f0f0f0");
@@ -101,6 +98,7 @@ $(function(){
                                 $selects[i].checked=false;
                         }
                 }
+                getPrice();
          })
         //单独点击下面的复选框时,判断是否全部勾选,如果全部勾选,则"全选"复选框要选中
         for (var i = 0; i < $selects.length; i++) {   //给点击对象注册事件
@@ -117,6 +115,7 @@ $(function(){
                              }else{
                                    $allSelect[0].checked=false;
                              }
+                             getPrice();
 
               })
         }
@@ -129,24 +128,40 @@ $(function(){
                           }
                  }
                  if(isNotCheck==1){
-                          console.log("有选中的");
+                          // console.log("有选中的");
                           $(this).css('background','#ff0000');
                 }else{
-                            console.log("全没选中的");
+                          // console.log("全没选中的");
                           $(this).css('background','#cccccc');
-                          $(this).attr('disabled',true);   //设置为不可用后$btn不能再出发其他事件
+                          $(this).attr("type","button");
                 }
-        })
-         $btn.mouseout(function(){
-                  console.log("鼠标移除");
-                  $(this).removeAttr("disabled");//待解决问题
+        }).mouseout(function(){
+                  $(this).attr("type","submit");//待解决问题
+                  // $(this).removeAttr("disabled");//待解决问题----不能用disabled,设置了disabled不能进行其他操作
                   $(this).css('background','#f58e49');
-
         })
+        getPrice();
 })
 // 全选/全不选功能 End
 //  --------------------------------------------------购物车选中商品总金额 Begin
-
-
-
+function getPrice(){
+        var $num =  $('.counter-box .number');   //  商品数量
+        var $price = $('.cart-product-price .normal');   //商品单价
+        var $selects = $('.cart-product-choice .select');
+        var $allPrice = $('.amount .allPrice');
+        var $allNum = $('.amount .allNum');
+        var sumNum = 0;
+        var sumPrice = 0;
+        for (var i = 0; i < $selects.length; i++) {
+                if($selects[i].checked==true){
+                          console.log($num[i]);
+                          console.log($price[i]);
+                          sumNum = sumNum + parseInt($($num[i]).val());
+                          sumPrice = sumPrice + ($($num[i]).val())*($($price[i]).text());
+                          console.log(sumPrice)
+                }
+         }
+         $allPrice.text("￥"+sumPrice);
+         $allNum.text("(共"+sumNum+"件商品)");
+}
 // 购物车选中商品总金额 End
