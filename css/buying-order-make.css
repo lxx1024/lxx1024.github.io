@@ -87,11 +87,12 @@ body {
 }
 /*------------------------------------------------确认订单内容-order-box Begin*/
 .order-form {
-    height: 1000px;
+    /*height: 1000px;*/
     background: white;
     box-sizing:border-box;
     border:1px solid #ccc;
     padding:20px;
+    padding-bottom: 0px;
 }
 /*收货人信息部分Begin*/
 .order-form .box {
@@ -106,6 +107,7 @@ body {
      color: #333;
      line-height: 36px;
 }
+/*添加地址信息按钮*/
 .order-form .box .add-address {
     position: absolute;
     right: 10px;
@@ -116,11 +118,42 @@ body {
     color: #ff24d2;
     cursor: pointer;
 }
+/*添加地址输入信息*/
+.order-form .box  .add {
+    padding-left: 20px;
+    display: none;
+}
+.order-form .box  .add input{
+    width: 150px;
+    height: 24px;
+    font-size: 12px;
+    text-indent: 3px;
+    border: 1px solid red;
+    text-align: center;
+    margin-right: 10px;
+}
+.order-form .box  .add .addr-address {
+    width: 500px;
+}
+.order-form .box  .add .add-btn {
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    background: #ff7600;
+    cursor: pointer;
+}
+/*地址信息*/
 .order-form .box .address {
     position: relative;
     padding: 10px 20px 0px;
+    height: 26px;
     line-height: 24px;
     font-size: 12px;
+    overflow: hidden;
 }
 .order-form .box .addr-name {
     display: inline-block;
@@ -136,6 +169,7 @@ body {
     text-align: left;
     text-indent: 10px;
 }
+/*地址操作  编辑/修改*/
 .order-form .box .address div {
     position: absolute;
     right: 42px;
@@ -158,6 +192,7 @@ body {
 .order-form .box .product:last-of-type {
     border-bottom: none;
 }
+/*商品图片 标题 属性*/
 .box .product .product-img img {
     width: 120px;
     height: 120px;
@@ -172,6 +207,7 @@ body {
 .box .product .product-info p span {
     margin-right: 10px;
 }
+/*商品单价及数量*/
 .box .product .product-price span{
     font-size: 16px;
     line-height: 50px;
@@ -179,6 +215,45 @@ body {
 .box .product .product-price span:first-of-type {
     margin-right: 120px;
 }
+.box .product .product-price .price {
+   color: #e4393c;
+   font-weight: bold;
+}
+/*订单总额信息*/
+.order-form .get-all {
+    text-align: right;
+     height: 50px;
+     font-size: 17px;
+}
+.order-form .get-all .all-price {
+    color: #e4393c;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 30px;
+}
+.order-form .get-all .all-num {
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 5px;
+}
+/*确认订单提交按钮*/
+.order-form .submit {
+    width: 135px;
+    height: 36px;
+    line-height: 36px;
+    margin: 25px 20px 50px;
+    background-color: #e00;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: arial,"Microsoft YaHei";
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /*确认订单内容End*/
 
 
