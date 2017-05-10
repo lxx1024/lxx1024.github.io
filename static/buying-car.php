@@ -140,7 +140,8 @@
         </li>
     </ul> -->
     <!---------------------------- 购物车列表表单-->
-        <form action="buying-order.php" method="get" class="w">
+        <form action="buying-order-make.php" method="get" class="w">
+        <!-- <form action="make-order.php" method="get" class="w"> -->
                 <div class="cart-list-box">
                     <!--------- 购物车列表头部---->
                         <ul class="cart-list-header">
@@ -247,7 +248,7 @@
 
                                 <div>
                                         <input type="submit" name="submit" value="去结算" class="fr btn-order" id="btn">
-                                        <p class="fr amount">总计:  <span class="allPrice">99999.00</span> <span class="allNum">(共3件商品)</span> </p>
+                                        <p class="fr amount">总计:  <span class="allPrice">0</span> <span class="allNum">(共3件商品)</span> </p>
                                 </div>
                         </div>
                 </div>

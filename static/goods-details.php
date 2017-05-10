@@ -105,8 +105,10 @@
         </li>
     </ul>
     <div class="cart fr">
-        <a href="buying-car.php"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
-        购物车  <span class="arrow-right"> > </span></a>
+        <a href="buying-car.php">
+                <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
+                 购物车  <span class="arrow-right"> > </span>
+        </a>
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->

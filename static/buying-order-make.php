@@ -2,10 +2,10 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>哆咪-购物车</title>
+    <title>哆咪-确认信息</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/buying-car.css"/>
+    <link rel="stylesheet" href="../css/buying-order-make.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -102,162 +102,138 @@
     }
 ?>
 
-
         </li>
     </ul>
         <div class="cart fr">
-            <a href="buying-order.php">
-                <i class="fa fa-bell" aria-hidden="true"></i>
-                我的订单</a>
+            <a href="buying-car.php">
+                <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
+                 购物车  <span class="arrow-right"> > </span>
+           </a>
         </div>
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->
 <!--------------------------------------------面包屑导航wrapper Begin-->
-<div class="wrapper w">
+<!-- <div class="wrapper w">
     <ul class="breadcrumb">
         <li><a href="../index.php">首 页 </a></li>
         <li> / </li>
-        <li>购物车</li>
+        <li>确认订单</li>
     </ul>
-</div>
+</div> -->
 <!-- 面包屑导航 wrapper End-->
-<!------------------------------------------ 购物车内容cart-box Begin-->
-<div class="cart-box w">
-    <!-- 购买步骤steps -->
-    <!-- <ul class="steps">
-        <li class="steps-cart">
-            <h5>购物车</h5>
-            <div class="bottom-line"></div>
-        </li>
-        <li class="steps-order">
-            <h5>填写订单</h5>
-            <div class="bottom-line"></div>
-        </li>
-        <li class="steps-pay">
-            <h5>支付</h5>
-            <div class="bottom-line"></div>
-        </li>
-    </ul> -->
-    <!---------------------------- 购物车列表表单-->
-        <form action="buying-order.php" method="get" class="w">
-                <div class="cart-list-box">
-                    <!--------- 购物车列表头部---->
-                        <ul class="cart-list-header">
-                                <li class="one">
-                                        <input type="checkbox" name="checkbox1" class="allSelect">
-                                        <span>全选</span>
-                                </li>
-                                <li class="two">商品名称</li>
-                                <li class="three">数量</li>
-                                <li class="four">单价</li>
-                                <li class="five">操作</li>
-                        </ul>
-                        <!--------- 购物车商品列表---->
-                        <div class="cart-list-content">
-                           <!-- 商品购买信息   静态样式-->
-              <!--            <div class="cart-product cart-product-l">
-                                        <div class="cart-product-choice fl">
-                                                <input type="checkbox" name="checkbox1" class="select">
-                                                <a class="cart-product-image" href="" target="_blank">
-                                                        <img src="../images/cart-goods1.png">
-                                                </a>
-                                        </div>
-                                        <div class="cart-product-info fr">
-                                                <div class="cart-product-description">
-                                                        <h3 class="heading"><a href="" target="_blank">R9s Plus 玫瑰金 6G+64GB</a></h3>
-                                                        <p>玫瑰金|全网通|64G</p>
-                                                </div>
-                                                <div class="counter-box">
-                                                        <a class="btn-minus">-</a>
-                                                        <input type="text" name="number" class="number" value="5"/>
-                                                        <a class="btn-plus">+</a>
-                                                </div>
-                                                <div class="cart-product-price">
-                                                        <span class="normal">￥3499.00</span>
-                                                </div>
-                                                <div class="cart-product-delete cart-product-delete-word">删除</div>
-                                        </div>
-                                </div> -->
-                            <!-- 商品购物车信息-->
+<!------------------------------------------ 确认订单内容 Begin-->
+<div class="w order-top">填写并核对订单信息</div>
+<form action="buying-order.php" method="get" class="order-form w">
+          <!--------- 订单收货地址选择  -->
+            <div class="box">
+                    <h5>收货人信息</h5>
+                    <a class="add-address">新增收货地址</a>
+                    <input type="hidden" class="address" name="address" value="1">
+                    <div class="address">
+                            <span class="addr-name">收货人姓名</span>
+                            <span class="addr-address">收货人地址</span>
+                            <div>
+                                     <a class="addr-edit">编辑</a>
+                                     <a class="addr-del">删除</a>
+                            </div>
+                    </div>
+                     <div class="address">
+                            <span class="addr-name">收货人姓名</span>
+                            <span class="addr-address">收货人地址</span>
+                            <div>
+                                     <a class="addr-edit">编辑</a>
+                                     <a class="addr-del">删除</a>
+                            </div>
+                     </div>
+            </div>
+            <!-- -------------------------------------------订单商品信息 Begin -->
+             <div class="box">
+                    <h5>送货清单</h5>
 <?php
-        $userId = $_SESSION['userId'];
-        $q1= "SELECT * FROM cart where userId = '".$userId ."' order by cartAddTime DESC;";                   //SQL查询语句 -----在此处改表名
-        $rs1= mysql_query($q1,$conn);                     //执行sql查询
-         while ($row1=mysql_fetch_row($rs1)){
-            // echo $row1[0]."购物车id";
-            // echo $row1[1];
+      $checks = $_REQUEST['checkbox'];
+      foreach ($checks as $key => $value) {
+              // echo $key."索引";    //这个可以得到被选中的又多少商品
+              // echo $value."复选框值";    //该用户下选中的购物车id的商品
+
+             $result2=mysql_query("select * from cart where id='".$value."';");  //购物车表
+             $row2 = mysql_fetch_row($result2);
+             // echo $row2[2];   //购物车id对应的商品id
+
+             $result3=mysql_query("select * from product where prodId='".$row2[2]."';");   //商品信息表
+             $row3 = mysql_fetch_row($result3);
+             // echo $row3[1];   //商品名
+
 ?>
-                                <div class="cart-product cart-product-l">
-                                            <div class="cart-product-choice fl">
-                                                        <input type="checkbox" name="checkbox[]" class="select" value="<?php echo $row1[0]; ?>">
-                                            <?php
-                                                        $result=mysql_query("select * from product where prodId='".$row1[2]."';");  //从数据库调取登录名为...的数据
-                                                        $row = mysql_fetch_row($result);
-                                            ?>
-                                                        <input type="hidden" value="<?php echo $row[3]; ?>" class="inventor">
-                                                        <a href="goods-details.php?id=<?php echo $row1[2]; ?>" class="cart-product-image" href="" target="_blank">
-        <?php
-                 $q2= "SELECT * FROM product where prodId = '".$row1[2]."';";                   //SQL查询语句 -----在此处改表名
-                $rs2= mysql_query($q2,$conn);                     //执行sql查询
-                 $row2 = mysql_fetch_row($rs2);                   //商品信息  $row1[2]和$row2[0]---商品id
-                 $img=$row2[8];
+                    <!--  通过隐藏表单元素传递购物车id对应的订单商品 -->
+                    <input type="hidden" name="checkbox[]" value="<?php echo $value; ?>">
+                    <div class="product clearfix">
+                            <a class="product-img fl" href="" target="_blank">
+
+         <?php
+                 $img=$row3[8];
                  $imgs=explode(",",$img);
                  foreach ($imgs as $key => $value) {
                         if ($key==0 && $value!="") {
        ?>
-                                <img src="../admin/<?php   echo $value ?>">
+
+                                <img src="../admin/<?php   echo $value ?>">      <!--商品图片-->
+
        <?php
                         }else  if($key==0 && $value==""){
                                 echo "暂无图片";
                         }
                     }
         ?>
-                                                        </a>
-                                            </div>
-                                            <div class="cart-product-info fr">
-                                                        <div class="cart-product-description">
-                                                                <h3 class="heading"><a href="goods-details.php?id=<?php echo $row1[2]; ?>" target="_blank"><?php echo $row2[1]; ?></a></h3>
-                                                                <p>
-         <?php
-                     $attr = "SELECT * FROM attribute where prodId='".$row1[2]."';";                   //SQL查询语句 -----在此处改表名
+                            </a>
+                            <div class="product-info fl">
+                                    <h3 class="title"><a href="" target="_blank"><?php echo $row3[1]; ?></a></h3>
+                                    <p>
+            <?php
+                     $attr = "SELECT * FROM attribute where prodId='".$row2[2]."';";                   //SQL查询语句 -----在此处改表名
                       $attrRs = mysql_query($attr, $conn);                     //执行sql查询
                      while ($attrName=mysql_fetch_row($attrRs)){
                            echo"<span>".$attrName[2]."</span>";     //循环输出属性名称
                     }
          ?>
-                                                                 </p>
-                                                        </div>
-                                                        <div class="counter-box">
-                                                                <a class="btn-minus">-</a>
-                                                                <input type="text"  name="number" class="number" value="<?php echo $row1[3]; ?>"/>
-                                                                <a class="btn-plus">+</a>
-                                                        </div>
-                                                        <div class="cart-product-price">
-                                                                <span class="normal">￥3499.00</span>
-                                                        </div>
-                                                        <div class="cart-product-delete cart-product-delete-word"><a  href="car-del.php?id=<?php echo $row1[2]; ?>">删除</a></div>
-                                            </div>
-                                </div>
+                                    </p>
+
+                           </div>
+                            <div class="product-price fr">
+                                     <span class="price">￥<?php echo $row3[5]; ?></span>
+                                     <span class="num">x <?php echo $row2[3]; ?></span>
+                            </div>
+                  </div>
 <?php
-
-        }
+    }
 ?>
+                 <!--  <div class="product clearfix">     订单商品的静态样式
+                            <a class="product-img fl" href="" target="_blank">
+                                    <img src="../images/cart-goods1.png">
+                            </a>
+                            <div class="product-info fl">
+                                    <h3 class="title"><a href="" target="_blank">R9s Plus 玫瑰金 6G+64GB</a></h3>
+                                    <p>玫瑰金|全网通|64G</p>
 
+                           </div>
+                            <div class="product-price fr">
+                                     <span class="price">￥3499.00</span>
+                                     <span class="num">x 1</span>
+                            </div>
+                  </div> -->
+            </div>
+            <!-- 订单商品信息End -->
 
-                                <div>
-                                        <input type="submit" name="submit" value="去结算" class="fr btn-order">
-                                </div>
-                        </div>
-                </div>
-        </form>
+            <!-- 订单总信息 -->
+            <div class="all">
+                        应付总额: ￥9888.00
+            </div>
 
-
-</div>
-<!--购物车内容cart-box End-->
+            <input type="submit" name="submit" value="确认订单">
+</form>
+<!--购物车内容order-form End-->
 <script src="../js/jquery.min.js"></script>
 <script src="../js/base.js"></script>
 <script src="../js/index.js"></script>
-<script src="../js/buying-car.js"></script>
 </body>
 </html>
