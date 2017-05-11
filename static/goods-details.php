@@ -105,7 +105,7 @@
         </li>
     </ul>
     <div class="cart fr">
-        <a href="buying-car.php">
+        <a href="javascript:;">
                 <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
                  购物车  <span class="arrow-right"> > </span>
         </a>
@@ -311,5 +311,6 @@
 <script src="../js/base.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/goods-details.js"></script>
+<script src="../js/go-to-car.js"></script>
 </body>
 </html>

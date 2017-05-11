@@ -217,3 +217,13 @@ $(function () {
     }
 })
 // 配件下的轮播图
+// ---------------点击购物车 Begin
+$(function(){
+      // 点击添加到购物车
+      var $cartAdd = $('.dm-header .cart a');
+      $cartAdd.click(function(){
+                window.location.href="static/go-to-car.php";
+      })
+})
+
+//点击购物车End

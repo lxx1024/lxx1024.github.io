@@ -129,29 +129,51 @@
             <div class="box">
                     <h5>收货人信息</h5>
                     <a class="add-address">新增收货地址</a>
-                    <input type="hidden" class="address" name="address" value="1">
+                    <input type="hidden" id="addrId" name="address" value="1"> <!-- 获取选定的收货地址并传递地址id -->
                     <div class="add">   <!-- 添加地址 -->
                                <input type="text" name="add-addr" class="addr-name" placeholder="收货人姓名" maxlength="20">
                                <input type="text" name="add-addr" class="addr-address" placeholder="收货地址" maxlength="200">
                                <input type="text" name="add-addr" class="addr-phone" placeholder="联系电话" maxlength="11">
                                 <a class="add-btn">添加</a>
                      </div>
-                    <div class="address">  <!-- 地址信息 -->
-                            <span class="addr-name">收货人姓名</span>
-                            <span class="addr-address">收货人地址</span>
+<?php
+             $userId = $_SESSION['userId'];
+             $result1=mysql_query("select * from address where userId='".$userId."' order by addTime DESC;");  //收货地址表
+             while ($row1=mysql_fetch_row($result1)){
+                     // echo $row1[0];   //编号
+                     // echo $row1[1];   //地址
+                     // echo $row1[2];   //用户id
+                     // echo $row1[3];   //收货人姓名
+                     // echo $row1[4];   //手机号
+?>
+
+                    <div class="address">
+                            <i><?php echo $row1[0]; ?></i>
+                            <span class="addr-name"><?php echo $row1[3]; ?></span>
+                            <span class="addr-address"><?php  echo $row1[1]; ?></span>
+                            <span class="addr-phone"><?php  echo $row1[4]; ?></span>
                             <div>
-                                     <a class="addr-edit">编辑</a>
-                                     <a class="addr-del">删除</a>
+                                     <a href="javascript:;" class="addr-edit">编辑</a>
+                                     <a href="buying-address-del.php?id=<?php echo $row1[0]; ?>"class="addr-del">删除</a>
                             </div>
                     </div>
-                     <div class="address">   <!-- 地址信息 -->
+                     <div class="edit">   <!-- 添加地址 -->
+                                   <input type="text" name="add-addr" class="edit-name" placeholder="收货人姓名" maxlength="20">
+                                   <input type="text" name="add-addr" class="addr-address" placeholder="收货地址" maxlength="200">
+                                   <input type="text" name="add-addr" class="addr-phone" placeholder="联系电话" maxlength="11">
+                                    <a class="add-btn">修改</a>
+                        </div>
+<?php
+        }
+?>
+<!--                      <div class="address">    地址信息 静态样式
                             <span class="addr-name">收货人姓名</span>
                             <span class="addr-address">收货人地址</span>
                             <div>
                                      <a class="addr-edit">编辑</a>
                                      <a class="addr-del">删除</a>
                             </div>
-                     </div>
+                     </div> -->
             </div>
             <!-- -------------------------------------------订单商品信息 Begin -->
              <div class="box">
@@ -172,7 +194,7 @@
 
 ?>
                     <!--  通过隐藏表单元素传递购物车id对应的订单商品 -->
-                    <input type="hidden" name="checkbox[]" value="<?php echo $value; ?>">
+                    <input type="hidden" name="cartId[]" value="<?php echo $value; ?>">
                     <div class="product clearfix">
                             <a class="product-img fl" href="" target="_blank">
 

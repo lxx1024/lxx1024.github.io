@@ -11,7 +11,7 @@
 
 <?php
     // $value =  $_POST['checkbox1'];  //如果没选中,则无法接收该值,会报错
-    $numbers =  $_REQUEST['checkbox'];
+    $numbers =  $_REQUEST['cartId'];
      foreach ($numbers as $key => $value) {
           echo $key."购物车id号".$value."-------";
 

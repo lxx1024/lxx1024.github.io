@@ -79,7 +79,7 @@
     </div>
     <div class="cart fr">
         <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
-        <a href="static/buying-car.php">我的购物车  <span class="arrow-right"> > </span></a>
+        <a href="javascript:;">我的购物车  <span class="arrow-right"> > </span></a>
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->

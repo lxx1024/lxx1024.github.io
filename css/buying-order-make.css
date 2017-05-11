@@ -146,6 +146,36 @@ body {
     background: #ff7600;
     cursor: pointer;
 }
+/*修改地址输入信息*/
+.order-form .box  .edit {
+    padding-left: 20px;
+    margin-top: 10px;
+    display: none;
+
+}
+.order-form .box  .edit input{
+    width: 150px;
+    height: 24px;
+    font-size: 12px;
+    text-indent: 3px;
+    border: 1px solid #75c473;
+    text-align: center;
+    margin-right: 10px;
+}
+.order-form .box  .edit .addr-address {
+    width: 500px;
+}
+.order-form .box  .edit .add-btn {
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    background: #75c473;
+    cursor: pointer;
+}
 /*地址信息*/
 .order-form .box .address {
     position: relative;
@@ -160,6 +190,9 @@ body {
     width: 150px;
     text-align: center;
     border: 1px solid #ccc;
+}
+.order-form .box .address i {
+    display: none;
 }
 .order-form .box .addr-name:hover {
      border: 1px solid red;

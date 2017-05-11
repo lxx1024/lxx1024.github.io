@@ -3,7 +3,7 @@
      $id = $_SESSION['userId'];     //当前用户id----userId
       $addrName = $_GET['addrName'];   //收货人姓名---userName
       $addrAddress = $_GET['addrAddress'];   //收货地址---addressName
-      $addrPhone = $_GET['addrPhone'];   //联系电话 ---phone
+      $addrPhone = $_GET['addrPhone'];   //联系电话 ---phone  字符型
       echo $addrName;
       echo $addrAddress;
       echo $addrPhone;
@@ -17,5 +17,11 @@
       }else{
         echo "shibai";
       }
-
+?>
+<script>
+      alert("添加成功");
+      history.go(-1);
+</script>
+<?php
+    mysql_close($conn);
 ?>

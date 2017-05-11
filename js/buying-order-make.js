@@ -2,7 +2,7 @@
 * @Author: 20161024
 * @Date:   2017-05-07 10:24:49
 * @Last Modified by:   20161024
-* @Last Modified time: 2017-05-10 23:45:48
+* @Last Modified time: 2017-05-11 11:37:32
 */
 
 //  --------------------------------------------------商品总金额 Begin
@@ -25,7 +25,7 @@ $(function(){
       }
 })
 // 商品总金额 End
-//  点击"新增收货地址" Begin
+//  ---------------------------------------------------点击"新增收货地址" Begin
 $(function(){
         var $addAddr = $('.box .add-address');   //"新增收货地址按钮"
         var $add = $('.box .add');  //新增地址输入块
@@ -39,7 +39,13 @@ $(function(){
         console.log($addrPhone);
         console.log($addrAddress);
         $addAddr.click(function(){
-              $add.css("display","block");
+              if($addAddr.text()=="新增收货地址"){
+                     $add.css("display","block");
+                     $addAddr.text("取消新增地址");
+              }else{
+                    $add.css("display","none");
+                     $addAddr.text("新增收货地址");
+              }
         })
         $addBtn.click(function(){
               var addrName=$addrName.val();
@@ -61,15 +67,77 @@ $(function(){
 
 
         })
-
-
         // 验证手机号
         function isPhone(phone) {
                var pattern = /^1[3|4|5|7|8]\d{9}$/;
                return pattern.test(phone);
         }
-
-
-
 })
 // 点击"新增收货地址" End
+// ---------------------------------点击"收货人姓名"选择收货地址  Begin
+$(function(){
+      var $addrName=$('.box .address .addr-name');
+      var $addrId = $('.box .address i');
+      var $id = $('#addrId');
+      $($addrName[0]).css('border','1px solid red');  //默认选中第一个地址
+      for (var i = 0; i < $addrName.length; i++) {
+            var addrName = $addrName[i];
+            addrName.index = i;
+            $(addrName).click(function(){
+                    var index = this.index;
+                    var addrId = $($addrId[index]).text();   //获得当前选中的id
+                    console.log(addrId);
+                    $id.val(addrId);   //赋值给隐藏的input值,以便传值
+                    $addrName.css('border','1px solid #ccc');
+                     $(this).css('border','1px solid red');
+            })
+      }
+})
+// 点击"收货人姓名"选择收货地址  End
+//  ---------------------------------------------------点击"编辑收货地址" Begin
+$(function(){
+        var $editAddr = $('.box .address .addr-edit');   //"编辑"按钮
+        var $edit = $('.box .edit');  //编辑地址输入块
+        var $editBtn = $('.box .edit .add-btn');  //"修改"按钮
+        var $editName = $('.box .edit .edit-name');   //收货人姓名
+        var $editAddress = $('.box .edit .addr-address');   //收货地址
+        var $editPhone = $('.box .edit .addr-phone');   //收货电话
+        for (var i = 0; i < $editAddr.length; i++) {
+                $editAddr[i].index = i;
+                 $($editAddr[i]).click(function(){    //编辑按钮--显示修改文本框
+                        var index = this.index;
+                        if($(this).text()=="编辑"){
+                               $($edit[index]).css("display","block");
+                               $(this).text("取消");
+                        }else{
+                              $($edit[index]).css("display","none");
+                               $(this).text("编辑");
+                        }
+                  })
+                 $editBtn[i].index = i;
+                  $editBtn[i].click(function(){     //修改按钮--提交数据
+                        var editName=$editName.val();
+                        var editAddress=$editAddress.val();
+                        var editPhone=$editPhone.val();
+                        if(editName && editAddress && editPhone){
+                              console.log("不为空");   // 然后再判断用户输入的内容是否符合要求
+                              console.log(isPhone(editPhone));   //输入正确的会返归true
+                              if(isPhone(editPhone)==false){
+                                    alert("手机输入格式不对");
+                              }else{
+                                   // 这里是输入正确信息后进行的操作
+                                   // 将上面的值传到指定php处理文件,将数据上传到数据库
+                                   window.location.href="buying-address-add.php?addrName="+addrName+"&addrAddress="+addrAddress+"&addrPhone="+addrPhone;
+                              }
+                        }else{
+                              alert("请填完整收货人信息!");
+                        }
+                 })
+        }
+        // 验证手机号
+        function isPhone(phone) {
+               var pattern = /^1[3|4|5|7|8]\d{9}$/;
+               return pattern.test(phone);
+        }
+})
+// 点击"编辑收货地址" End
