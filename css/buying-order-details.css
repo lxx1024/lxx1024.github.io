@@ -1,0 +1,217 @@
+/*购物车样式*/
+body {
+    background: #f2f2f2;
+}
+.dm-header {
+    background: white;
+}
+.dm-header .goods-nav {
+    font-size: 22px;
+    font-weight: bold;
+}
+.dm-header .goods-nav li{
+    float: left;
+    height: 100px;
+    line-height: 120px;
+    margin:0px 25px;
+}
+
+.dm-header .nav-content li{
+  /*  width: 50%;
+    height: 40px;*/
+    line-height: 40px;
+    text-align: left;
+    position: absolute;
+    top: 125px;
+    left: 520px;
+    opacity: 0;
+    z-index: 999;
+    border: 1px solid #f5a7ec;
+    background: rgba(250,230,36,0.1);   /*改变导航栏透明度*/
+}
+
+.dm-header .nav-content li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin:0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.dm-header .nav-content li a:hover {
+    color: #ff24d2;
+}
+
+
+.dm-header .cart {
+    margin-top: 37px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    background: none;
+}
+.dm-header .cart a {
+    color: #75c473;
+}
+.dm-header .cart .fa {
+    color: #6db27c;
+    font-size: 22px;
+    left: 25px;
+    top: 60%;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+    /*padding-left: 120px;*/
+}
+.wrapper .breadcrumb li{
+    float: left;
+    margin: 0px 5px;
+}
+.wrapper .breadcrumb a {
+    color: inherit;
+}
+/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
+
+/*------------------------------------------------确认订单内容-order-box Begin*/
+.order-form {
+    /*height: 1000px;*/
+    background: white;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    padding:20px 30px;
+    padding-bottom: 0px;
+}
+/*收货人信息部分Begin*/
+.order-form .box {
+    padding-bottom:20px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 20px;
+}
+.order-form .box .left {
+    width: 50%;
+    border-right: 1px solid #ccc;
+}
+.order-form .box h5 {
+     font-size: 18px;
+     font-weight: bold;
+     color: #333;
+     line-height: 36px;
+}
+/*地址信息*/
+.order-form .box .address {
+    padding: 5px 10px 0px;
+    line-height: 36px;
+    font-size: 14px;
+    text-align: left;
+}
+.order-form .box .address i {
+    display: inline-block;
+    width: 80px;
+    vertical-align: top;
+}
+.order-form .box .address span {
+    width: 460px;
+    text-align: left;
+}
+.order-form .box .addr-name {
+    display: inline-block;
+    text-align: center;
+}
+.order-form .box .addr-address {
+    display: inline-block;
+}
+/*订单商品内容Begin*/
+.order-form .box .product {
+    padding:20px;
+    margin:20px 20px 0px;
+    border-bottom: 1px dashed #ff7600;
+}
+.order-form .box .product:last-of-type {
+    border-bottom: none;
+}
+/*商品图片 标题 属性*/
+.box .product .product-img img {
+    width: 120px;
+    height: 120px;
+}
+.box .product .product-info h3 {
+    font-size: 17px;
+    line-height: 50px;
+}
+.box .product .product-info h3 a {
+    color: #333;
+}
+.box .product .product-info p span {
+    margin-right: 10px;
+}
+/*商品单价及数量*/
+.box .product .product-price span{
+    font-size: 16px;
+    line-height: 50px;
+}
+.box .product .product-price span:first-of-type {
+    margin-right: 120px;
+}
+.box .product .product-price .price {
+   color: #e4393c;
+   font-weight: bold;
+}
+/*订单总额信息*/
+.order-form .get-all {
+    text-align: right;
+     height: 50px;
+     font-size: 17px;
+}
+.order-form .get-all .all-price {
+    color: #e4393c;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 30px;
+}
+.order-form .get-all .all-num {
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 5px;
+}
+/*确认订单提交按钮*/
+.order-form .submit {
+    width: 135px;
+    height: 36px;
+    line-height: 36px;
+    margin: 25px 20px 50px;
+    background-color: #e00;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: arial,"Microsoft YaHei";
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*确认订单内容End*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

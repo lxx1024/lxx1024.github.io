@@ -237,7 +237,7 @@
                                                         <div class="cart-product-price">
                                                                 ￥<span class="normal"><?php echo $row[5]; ?></span>
                                                         </div>
-                                                        <div class="cart-product-delete cart-product-delete-word"><a  href="car-del.php?id=<?php echo $row1[2]; ?>">删除</a></div>
+                                                        <div class="cart-product-delete cart-product-delete-word"><a  href="buying-car-del.php?id=<?php echo $row1[2]; ?>">删除</a></div>
                                             </div>
                                 </div>
 <?php

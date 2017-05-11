@@ -5,12 +5,12 @@
     <title>哆咪-确认信息</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/buying-order-make.css"/>
+    <link rel="stylesheet" href="../css/buying-order-details.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
 <?php
-    session_start();     //登录系统开启一个session内容
+      session_start();     //登录系统开启一个session内容
 ?>
 <!-- ------------------------------------通栏dm-shortcut  Begin -->
 <div class="dm-shortcut">
@@ -113,74 +113,69 @@
     </div>
 </div>
 <!-- logo\搜索栏\购物车  End -->
-<!--------------------------------------------面包屑导航wrapper Begin-->
-<!-- <div class="wrapper w">
-    <ul class="breadcrumb">
-        <li><a href="../index.php">首 页 </a></li>
-        <li> / </li>
-        <li>确认订单</li>
-    </ul>
-</div> -->
-<!-- 面包屑导航 wrapper End-->
-<!------------------------------------------ 确认订单内容 Begin-->
-<div class="w order-top">填写并核对订单信息</div>
-<form action="buying-order-details.php" method="get" class="order-form w">
-          <!--------- 订单收货地址选择  -->
-            <div class="box">
-                    <h5>收货人信息</h5>
-                    <a class="add-address">新增收货地址</a>
-                    <input type="hidden" id="addrId" name="address" value="1"> <!-- 获取选定的收货地址并传递地址id -->
-                    <div class="add">   <!-- 添加地址 -->
-                               <input type="text" class="addr-name" placeholder="收货人姓名" maxlength="20">
-                               <input type="text" class="addr-address" placeholder="收货地址" maxlength="200">
-                               <input type="text" class="addr-phone" placeholder="联系电话" maxlength="11">
-                                <a class="add-btn" onclick="return confirm('确定添加收货地址?');">添加</a>
-                     </div>
-<?php
-             $userId = $_SESSION['userId'];
-             $result1=mysql_query("select * from address where userId='".$userId."' order by addTime DESC;");  //收货地址表
-             while ($row1=mysql_fetch_row($result1)){
-                     // echo $row1[0];   //编号
-                     // echo $row1[1];   //地址
-                     // echo $row1[2];   //用户id
-                     // echo $row1[3];   //收货人姓名
-                     // echo $row1[4];   //手机号
+
+<?php     //添加订单记录Begin
+     include '../conn/conn.php';
+      $id=$_SESSION['userId'];
+      $addrId=$_REQUEST['address'];
+      $cartId = $_REQUEST['cartId'];
+
+      // 追加一个新的订单记录 order表 --- 添加用户id、地址id即可
+       $sql1 = "insert into order (userId,addressId)  values('id','$addrId');";
+       echo $id;  //4
+       echo $addrId;  //1
+      if(mysql_query($sql1,$conn)){
+          echo "成功";
+      }else{
+        echo "shibai";
+      }
+
+      // foreach ($cartId as $key1 => $value1) {
+          // echo $value;   //购物车订单对应的商品内容 -- prodId 及数量
+          // 添加到订单表
+      // }      //添加订单记录End
 ?>
 
-                    <div class="address">
-                            <i><?php echo $row1[0]; ?></i>   <!--  输出地址id号,设置隐藏 -->
-                            <span class="addr-name"><?php echo $row1[3]; ?></span>
-                            <span class="addr-address"><?php  echo $row1[1]; ?></span>
-                            <span class="addr-phone"><?php  echo $row1[4]; ?></span>
-                            <div>
-                                     <a href="javascript:;" class="addr-edit">编辑</a>
-                                     <a href="buying-address-del.php?id=<?php echo $row1[0]; ?>"class="addr-del" onclick="return confirm('确定删除该收货地址?');">删除</a>
-                            </div>
+<!--------------------------------------------面包屑导航wrapper Begin-->
+<div class="wrapper w">
+    <ul class="breadcrumb">
+        <li><a href="../index.php">我的哆咪 </a></li>
+        <li> / </li>
+        <li><a href="buying-order.php">我的订单</a></li>
+        <li> / </li>
+        <li>订单编号: 2</li>
+    </ul>
+</div>
+<!-- 面包屑导航 wrapper End-->
+<!------------------------------------------ 确认订单内容 Begin-->
+<div class="order-form w">
+          <!--------- 订单收货地址选择  -->
+            <div class="box clearfix">
+                    <div class="left fl">
+                          <h5>收货人信息</h5>
+      <?php
+                   $userId = $_SESSION['userId'];
+                   $result1=mysql_query("select * from address where userId='".$userId."' order by addTime DESC;");  //收货地址表
+                   $row1=mysql_fetch_row($result1);
+      ?>
+
+                          <div class="address">
+                                  <i>收货人 ：</i><span class="addr-name"><?php echo $row1[3]; ?></span>
+                                  <i>地 址 ：</i><span class="addr-address"><?php  echo $row1[1]; ?></span>
+                                  <i>手机号码 ：</i><span class="addr-phone"><?php  echo $row1[4]; ?></span>
+                          </div>
                     </div>
-                     <div class="edit">   <!-- 修改地址 -->
-                                   <input type="text" class="edit-name" placeholder="收货人姓名" maxlength="20" value="<?php echo $row1[3]; ?>">
-                                   <input type="text" class="addr-address" placeholder="收货地址" maxlength="200" value="<?php echo $row1[1]; ?>">
-                                   <input type="text" class="addr-phone" placeholder="联系电话" maxlength="11" value="<?php echo $row1[4]; ?>">
-                                    <a class="add-btn" onclick="return confirm('确定修改该收货地址?');">修改</a>
-                        </div>
-<?php
-        }
-?>
-<!--                      <div class="address">    地址信息 静态样式
-                            <span class="addr-name">收货人姓名</span>
-                            <span class="addr-address">收货人地址</span>
-                            <div>
-                                     <a class="addr-edit">编辑</a>
-                                     <a class="addr-del">删除</a>
-                            </div>
-                     </div> -->
+                    <div class="right fr">
+
+
+                    </div>
             </div>
             <!-- -------------------------------------------订单商品信息 Begin -->
              <div class="box">
                     <h5>送货清单</h5>
 <?php
-      $checks = $_REQUEST['checkbox'];
-      foreach ($checks as $key => $value) {
+      // $cartId = $_REQUEST['cartId'];   上面已经获取过一次
+      foreach ($cartId as $key => $value) {
               // echo $key."索引";    //这个可以得到被选中的又多少商品
               // echo $value."复选框值";    //该用户下选中的购物车id的商品
 
@@ -256,14 +251,12 @@
             <div class="get-all">
                       共<span class="all-num"></span>件商品 ,  应付总额:
                       <span class="all-price"></span>
-                        <!-- <p>收货人详细信息---暂略</p> -->
             </div>
-            <input type="submit" name="submit" value="确认订单" class="submit fr">
-</form>
+</div>
 <!--购物车内容order-form End-->
 <script src="../js/jquery.min.js"></script>
 <script src="../js/base.js"></script>
 <script src="../js/index.js"></script>
-<script src="../js/buying-order-make.js"></script>
+
 </body>
 </html>
