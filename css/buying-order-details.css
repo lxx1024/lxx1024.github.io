@@ -23,7 +23,7 @@ body {
     text-align: left;
     position: absolute;
     top: 125px;
-    left: 520px;
+    left: 700px;
     opacity: 0;
     z-index: 999;
     border: 1px solid #f5a7ec;
@@ -79,9 +79,8 @@ body {
 }
 /*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
 
-/*------------------------------------------------确认订单内容-order-box Begin*/
+/*------------------------------------------------订单详情内容-order-box Begin*/
 .order-form {
-    /*height: 1000px;*/
     background: white;
     box-sizing:border-box;
     border:1px solid #ccc;
@@ -128,6 +127,42 @@ body {
 .order-form .box .addr-address {
     display: inline-block;
 }
+/*收货人信息End*/
+/*订单状态及确认收货操作 Begin*/
+.order-form .box .right {
+    width: 49%;
+    box-sizing:border-box;
+    padding-left: 20px;
+    text-align: center;
+}
+.order-form .box .right h5 {
+    text-align: left;
+}
+.order-form .box .right p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e4393c;
+    margin-top: 15px;
+}
+.order-form .box .right a {
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    border:1px solid red;
+    margin-top: 30px;
+}
+.order-form .box .right a:hover {
+    color: white;
+    background: #e4393c;
+}
+
+
+
+/*订单状态及确认收货操作End*/
 /*订单商品内容Begin*/
 .order-form .box .product {
     padding:20px;
@@ -175,7 +210,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     font-family: Verdana;
-    margin: 0px 30px;
+    margin: 0px 20px;
 }
 .order-form .get-all .all-num {
     color: #999;
@@ -184,34 +219,5 @@ body {
     font-family: Verdana;
     margin: 0px 5px;
 }
-/*确认订单提交按钮*/
-.order-form .submit {
-    width: 135px;
-    height: 36px;
-    line-height: 36px;
-    margin: 25px 20px 50px;
-    background-color: #e00;
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    font-family: arial,"Microsoft YaHei";
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-/*确认订单内容End*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*订单详情内容End

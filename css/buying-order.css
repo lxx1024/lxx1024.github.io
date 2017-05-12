@@ -1,0 +1,274 @@
+/*购物车样式*/
+body {
+    background: #f0f0f0;
+}
+.dm-header {
+    background: white;
+}
+.dm-header .goods-nav {
+    font-size: 22px;
+    font-weight: bold;
+}
+.dm-header .goods-nav li{
+    float: left;
+    height: 100px;
+    line-height: 120px;
+    margin:0px 25px;
+}
+
+.dm-header .nav-content li{
+    line-height: 40px;
+    text-align: left;
+    position: absolute;
+    top: 125px;
+    left: 700px;
+    opacity: 0;
+    z-index: 999;
+    border: 1px solid #f5a7ec;
+    background: rgba(250,230,36,0.1);   /*改变导航栏透明度*/
+}
+
+.dm-header .nav-content li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin:0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.dm-header .nav-content li a:hover {
+    color: #ff24d2;
+}
+
+.dm-header .cart {
+    margin-top: 37px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    background: none;
+}
+.dm-header .cart a {
+    color: #75c473;
+}
+.dm-header .cart .fa {
+    color: #6db27c;
+    font-size: 22px;
+    left: 25px;
+    top: 60%;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+    /*padding-left: 120px;*/
+}
+.wrapper .breadcrumb li{
+    float: left;
+    margin: 0px 5px;
+}
+.wrapper .breadcrumb a {
+    color: inherit;
+}
+/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
+
+/*------------------------------------------------订单详情内容-order-box Begin*/
+.order-form {
+    background: white;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    padding:20px 30px;
+    padding-bottom: 0px;
+}
+/*订单导航nav Begin*/
+.order-form .nav {
+    padding-bottom:20px;
+    border-bottom: 1px solid red;
+}
+.order-form .nav li {
+    float: left;
+    margin:0px 20px;
+}
+.order-form .nav li.current{
+    color: red;
+    font-weight: bold;
+}
+.order-form .nav li:first-of-type{
+    position: relative;
+}
+.order-form .nav li:first-of-type span{
+   display: inline-block;
+    width: 20px;
+    height: 15px;
+    border-right: 2px solid #ccc;
+    position: absolute;
+    top: 2px;
+    left: 57px;
+}
+/*订单导航 End*/
+/*订单导航对应的订单 Begin*/
+.order-form .order-box {
+    width: 1150px;
+}
+.order-form .order-box li{
+    width: 1150px;
+    overflow: hidden;
+    /*position: absolute;  因为这个属性所以不能撑起ul的高度 */
+    opacity: 0;
+    display: none;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.order-form .order-box li.current {
+    opacity: 1;
+    display: block;
+}
+/*订单导航对应的订单 End*/
+
+/*订单商品内容Begin*/
+.order-form .order-box li .orders {
+    border:1px solid #f2f2f2;
+    margin-bottom: 20px;
+}
+/*订单信息-时间,订单号*/
+.order-box li .message {
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    background: #f5f5f5;
+    padding-left: 15px;
+}
+.order-box li .message span {
+    margin: 0px 50px 0px 10px;
+}
+.order-box li .message span.order-id {
+    color: #333;
+}
+/*订单内容Begin*/
+.order-box li .product {
+    width: 607px;
+    border-right: 1px solid #f0f0f0;
+    padding:10px;
+}
+.order-box li .product .prod-details{
+    border-bottom: 1px dashed #f0f0f0;
+}
+.order-box .product .prod-details:last-of-type {
+    border-bottom: none;
+}
+
+/*商品图片 标题 属性*/
+.order-box .product .product-img img {
+    width: 90px;
+    height: 90px;
+}
+.order-box .product .product-info h3 {
+    font-size: 14px;
+    line-height: 48px;
+}
+.order-box .product .product-info h3 a {
+    color: #333;
+}
+.order-box .product .product-info p {
+    font-size: 12px;
+}
+.order-box .product .product-info p span {
+    margin-right: 10px;
+}
+/*商品单价及数量*/
+.order-box .product .product-price span{
+    font-size: 14px;
+    line-height: 50px;
+    padding-right: 10px;
+}
+.order-box .product .product-price .price {
+   color: #e4393c;
+   font-weight: bold;
+   margin-right: 40px;
+}
+/*订单内容End*/
+/*收货人信息,订单总额,订单状态  other  Begin*/
+.order-box .orders .other {
+    width: 130px;
+    line-height: 25px;
+    color: #999;
+    text-align: center;
+    box-sizing:border-box;
+    padding:10px;
+    border-right: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+.order-box .orders .other:last-of-type{
+    border-right:none;
+}
+.order-box .orders .other .addr-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+.order-box .orders .other .addr {
+    color: #666;
+}
+.order-box .orders .other .price {
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.order-box .orders .other .state {
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e4393c;
+}
+.order-box .orders .other .make {
+    display: inline-block;
+    width: 90px;
+    height: 27px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e4393c;
+    margin: 20px 0px 10px;
+    border: 1px solid #e4393c;
+}
+.order-box .orders .other .make:hover{
+    color: white;
+    background: #e4393c;
+}
+.order-box .orders .other .cancel {
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.order-box .orders .other .cancel:hover{
+    color: #e4393c;
+}
+/*收货人信息,订单总额,订单状态End*/
+
+
+/*订单总额信息*/
+.order-form .get-all {
+    text-align: right;
+     height: 50px;
+     font-size: 14px;
+}
+.order-form .get-all .all-price {
+    color: #e4393c;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 20px;
+}
+.order-form .get-all .all-num {
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 5px;
+}
+
+/*订单详情内容End

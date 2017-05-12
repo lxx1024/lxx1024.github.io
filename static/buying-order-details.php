@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>哆咪-确认信息</title>
+    <title>哆咪-订单详情</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
     <link rel="stylesheet" href="../css/buying-order-details.css"/>
@@ -122,13 +122,13 @@
         <li> / </li>
         <li><a href="buying-order.php">我的订单</a></li>
         <li> / </li>
-        <li>订单编号: 2</li>
+        <li>订单编号: <?php echo $_REQUEST['id'] ; ?></li>
     </ul>
 </div>
 <!-- 面包屑导航 wrapper End-->
-<!------------------------------------------ 确认订单内容 Begin-->
+<!------------------------------------------ 订单详情内容 Begin-->
 <div class="order-form w">
-          <!--------- 订单收货地址选择  -->
+          <!--------- 收货信息Begin  -->
             <div class="box clearfix">
                     <div class="left fl">
                           <h5>收货人信息</h5>
@@ -138,6 +138,7 @@
                    $result1=mysql_query("select * from orders where orderId='".$orderId."';");  //订单表
                    $row1=mysql_fetch_row($result1);
                    // echo $row1[2];   //地址id
+                   // echo $row1[3];
 
                    $result2=mysql_query("select * from address where addressId='".$row1[2]."';");  //收货地址表
                    $row2=mysql_fetch_row($result2);
@@ -149,33 +150,50 @@
                                   <i>手机号码 ：</i><span class="addr-phone"><?php  echo $row2[4]; ?></span>
                           </div>
                     </div>
-                    <div class="right fr">
-                      此处写订单状态及确认收货操作
+                    <!-- 收货信息End -->
+                    <!-- 订单状态及确认收货操作Begin -->
+      <?php
+                   $result3=mysql_query("select * from order_state where stateId='".$row1[3]."';");  //订单状态表
+                   $row3=mysql_fetch_row($result3);
 
+      ?>
+                    <div class="right fr">
+                            <h5>订单状态:</h5>
+                            <p><?php echo $row3[1]; ?></p>
+       <?php
+                   if ($row3[0]<5) {
+      ?>
+                            <a href="buying-state-edit.php?id=<?php echo $orderId; ?>" onclick="return confirm('确定确认收货?');">确认收货</a>
+       <?php
+              }
+       ?>
                     </div>
+                    <!-- 订单状态及确认收货操作End -->
             </div>
             <!-- -------------------------------------------订单商品信息 Begin -->
              <div class="box">
                     <h5>送货清单</h5>
 <?php
-
-              //根据$orderId获取订单详情的商品
-             $result2=mysql_query("select * from cart where id='".$value."';");  //购物车表
-             $row2 = mysql_fetch_row($result2);
-             // echo $row2[2];   //购物车id对应的商品id
-
-             $result3=mysql_query("select * from product where prodId='".$row2[2]."';");   //商品信息表
-             $row3 = mysql_fetch_row($result3);
-             // echo $row3[1];   //商品名
-
+              $allPrice=0;
+              $allNum=0;
+              //根据$orderId获取订单详情表的商品
+             $result3=mysql_query("select * from order_detail where orderId='".$orderId."';");  //订单详情表
+             while($row3 = mysql_fetch_row($result3)){
+                   // echo $row3[2];   //订单详情对应的商品id
+                   // echo $row3[3];  //订单对应商品的商品数量
+                    $result4=mysql_query("select * from product where prodId='".$row3[2]."';");   //商品信息表
+                    $row4 = mysql_fetch_row($result4);
+                     // echo $row4[1];   //商品名
+                     // echo $row4[5];   //商品单价
+                     $allNum=$allNum+$row3[3];
+                     $allPrice = $allPrice +$row3[3]*$row4[5];
 ?>
-                    <!--  通过隐藏表单元素传递购物车id对应的订单商品 -->
-                    <input type="hidden" name="cartId[]" value="<?php echo $value; ?>">
+                    <!-- 订单商品详情 Begin -->
                     <div class="product clearfix">
-                            <a class="product-img fl" href="" target="_blank">
+                            <a class="product-img fl" href="goods-details.php?id=<?php echo $row3[2]; ?>" target="_blank">
 
          <?php
-                 $img=$row3[8];
+                 $img=$row4[8];
                  $imgs=explode(",",$img);
                  foreach ($imgs as $key => $value) {
                         if ($key==0 && $value!="") {
@@ -191,10 +209,10 @@
         ?>
                             </a>
                             <div class="product-info fl">
-                                    <h3 class="title"><a href="" target="_blank"><?php echo $row3[1]; ?></a></h3>
+                                    <h3 class="title"><a href="goods-details.php?id=<?php echo $row3[2]; ?>" target="_blank"><?php echo $row4[1]; ?></a></h3>
                                     <p>
             <?php
-                     $attr = "SELECT * FROM attribute where prodId='".$row2[2]."';";                   //SQL查询语句 -----在此处改表名
+                     $attr = "SELECT * FROM attribute where prodId='".$row4[0]."';";                   //SQL查询语句 -----在此处改表名
                       $attrRs = mysql_query($attr, $conn);                     //执行sql查询
                      while ($attrName=mysql_fetch_row($attrRs)){
                            echo"<span>".$attrName[2]."</span>";     //循环输出属性名称
@@ -204,11 +222,13 @@
 
                            </div>
                             <div class="product-price fr">
-                                     <span class="price">￥<i><?php echo $row3[5]; ?></i> </span>
-                                     <span class="num">x <i> <?php echo $row2[3]; ?></i></span>
+                                     <span class="price">￥<i><?php echo $row4[5]; ?></i> </span>
+                                     <span class="num">x <i> <?php echo $row3[3]; ?></i></span>
                             </div>
                   </div>
-
+<?php
+  }
+?>
                  <!--  <div class="product clearfix">     订单商品的静态样式
                             <a class="product-img fl" href="" target="_blank">
                                     <img src="../images/cart-goods1.png">
@@ -224,13 +244,14 @@
                             </div>
                   </div> -->
             </div>
-            <!-- 订单商品信息End -->
-
-            <!-- 订单总信息 -->
+            <!-- 订单商品详情End -->
+            <!-- 订单总信息Begin -->
             <div class="get-all">
-                      共<span class="all-num"></span>件商品 ,  应付总额:
-                      <span class="all-price"></span>
+                      共<span class="all-num"><?php   echo $allNum; ?></span>件商品 ,
+                       订单总额:
+                      <span class="all-price">￥ <?php  echo $allPrice; ?></span>
             </div>
+            <!-- 订单总信息End -->
 </div>
 <!--购物车内容order-form End-->
 <script src="../js/jquery.min.js"></script>

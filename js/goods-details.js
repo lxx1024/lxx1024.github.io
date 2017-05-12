@@ -2,7 +2,7 @@
 * @Author: 20161024
 * @Date:   2017-05-07 10:24:49
 * @Last Modified by:   20161024
-* @Last Modified time: 2017-05-11 10:54:26
+* @Last Modified time: 2017-05-12 17:23:56
 */
 
 // ------------------------------------------------------------ 商品图片切换 Begin
@@ -49,13 +49,20 @@ $(function(){
       })
       // 点击添加到购物车
       var $cartAdd = $('.button-container .button-light');
-      var $href = $cartAdd.attr("href");
+      // var $href = $cartAdd.attr("href");
       $cartAdd.click(function(){
                 var str = window.location.search;// ?id=32   url跟问号后面的内容--传值
                 var id = str.split("=")[1];   //32
                 window.location.href="buying-car-add.php?id="+id+"&num="+num;
       })
-
+      // 点击立即购买
+       var $orderAdd = $('.button-container .button-primary');
+      // var $href1 = $orderAdd.attr("href");
+      $orderAdd.click(function(){
+                var str = window.location.search;// ?id=32   url跟问号后面的内容--传值
+                var id = str.split("=")[1];   //32
+                console.log(id);
+                window.location.href="buying-car-add1.php?id="+id+"&num="+num;
+      })
 })
-
 // 商品数量

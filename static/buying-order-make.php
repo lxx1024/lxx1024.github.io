@@ -129,7 +129,12 @@
             <div class="box">
                     <h5>收货人信息</h5>
                     <a class="add-address">新增收货地址</a>
-                    <input type="hidden" id="addrId" name="address" value="1"> <!-- 获取选定的收货地址并传递地址id -->
+<?php
+             $userId0 = $_SESSION['userId'];
+             $result0=mysql_query("select * from address where userId='".$userId0."' order by addTime DESC;");  //收货地址表
+             $row0=mysql_fetch_row($result0);
+?>
+                    <input type="hidden" id="addrId" name="address" value="<?php echo $row0[0]; ?>"> <!-- 默认获取当前用户的最新一个地址并传递地址id -->
                     <div class="add">   <!-- 添加地址 -->
                                <input type="text" class="addr-name" placeholder="收货人姓名" maxlength="20">
                                <input type="text" class="addr-address" placeholder="收货地址" maxlength="200">
@@ -196,7 +201,7 @@
                     <!--  通过隐藏表单元素传递购物车id对应的订单商品 -->
                     <input type="hidden" name="cartId[]" value="<?php echo $value; ?>">
                     <div class="product clearfix">
-                            <a class="product-img fl" href="" target="_blank">
+                            <a class="product-img fl" href="goods-details.php?id=<?php echo $row2[2]; ?>" target="_blank">
 
          <?php
                  $img=$row3[8];
@@ -215,7 +220,7 @@
         ?>
                             </a>
                             <div class="product-info fl">
-                                    <h3 class="title"><a href="" target="_blank"><?php echo $row3[1]; ?></a></h3>
+                                    <h3 class="title"><a href="goods-details.php?id=<?php echo $row2[2]; ?>" target="_blank"><?php echo $row3[1]; ?></a></h3>
                                     <p>
             <?php
                      $attr = "SELECT * FROM attribute where prodId='".$row2[2]."';";                   //SQL查询语句 -----在此处改表名

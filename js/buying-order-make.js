@@ -2,7 +2,7 @@
 * @Author: 20161024
 * @Date:   2017-05-07 10:24:49
 * @Last Modified by:   20161024
-* @Last Modified time: 2017-05-11 22:22:00
+* @Last Modified time: 2017-05-12 16:35:10
 */
 
 //  --------------------------------------------------商品总金额 Begin
@@ -79,6 +79,7 @@ $(function(){
       var $addrName=$('.box .address .addr-name');
       var $addrId = $('.box .address i');
       var $id = $('#addrId');
+      $id.val($($addrId[0]).text());
       $($addrName[0]).css('border','1px solid red');  //默认选中第一个地址
       for (var i = 0; i < $addrName.length; i++) {
             var addrName = $addrName[i];

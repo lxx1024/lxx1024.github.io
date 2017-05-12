@@ -252,7 +252,7 @@
                                 <a class="btn-plus">+</a>
                         </div>
                         <div class="button-container fr">
-                                <a href="buying-order.php" class="button-primary fr">立即购买</a>
+                                <a href="javascript:;" class="button-primary fr">立即购买</a>
                                 <a href="javascript:;" class="button-light fr">加入购物车</a>
                         </div>
                 </div>
