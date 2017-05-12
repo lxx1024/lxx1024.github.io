@@ -114,27 +114,6 @@
 </div>
 <!-- logo\搜索栏\购物车  End -->
 
-<?php     //添加订单记录Begin
-     include '../conn/conn.php';
-      $id=$_SESSION['userId'];
-      $addrId=$_REQUEST['address'];
-      $cartId = $_REQUEST['cartId'];
-
-      // 追加一个新的订单记录 order表 --- 添加用户id、地址id即可
-       $sql1 = "insert into order (userId,addressId)  values('id','$addrId');";
-       echo $id;  //4
-       echo $addrId;  //1
-      if(mysql_query($sql1,$conn)){
-          echo "成功";
-      }else{
-        echo "shibai";
-      }
-
-      // foreach ($cartId as $key1 => $value1) {
-          // echo $value;   //购物车订单对应的商品内容 -- prodId 及数量
-          // 添加到订单表
-      // }      //添加订单记录End
-?>
 
 <!--------------------------------------------面包屑导航wrapper Begin-->
 <div class="wrapper w">
@@ -154,19 +133,24 @@
                     <div class="left fl">
                           <h5>收货人信息</h5>
       <?php
-                   $userId = $_SESSION['userId'];
-                   $result1=mysql_query("select * from address where userId='".$userId."' order by addTime DESC;");  //收货地址表
+                   $userId = $_SESSION['userId'];    //当前用户id
+                   $orderId = $_REQUEST['id'];   //传递的id-----订单id
+                   $result1=mysql_query("select * from orders where orderId='".$orderId."';");  //订单表
                    $row1=mysql_fetch_row($result1);
+                   // echo $row1[2];   //地址id
+
+                   $result2=mysql_query("select * from address where addressId='".$row1[2]."';");  //收货地址表
+                   $row2=mysql_fetch_row($result2);
       ?>
 
                           <div class="address">
-                                  <i>收货人 ：</i><span class="addr-name"><?php echo $row1[3]; ?></span>
-                                  <i>地 址 ：</i><span class="addr-address"><?php  echo $row1[1]; ?></span>
-                                  <i>手机号码 ：</i><span class="addr-phone"><?php  echo $row1[4]; ?></span>
+                                  <i>收货人 ：</i><span class="addr-name"><?php echo $row2[3]; ?></span>
+                                  <i>地 址 ：</i><span class="addr-address"><?php  echo $row2[1]; ?></span>
+                                  <i>手机号码 ：</i><span class="addr-phone"><?php  echo $row2[4]; ?></span>
                           </div>
                     </div>
                     <div class="right fr">
-
+                      此处写订单状态及确认收货操作
 
                     </div>
             </div>
@@ -174,11 +158,8 @@
              <div class="box">
                     <h5>送货清单</h5>
 <?php
-      // $cartId = $_REQUEST['cartId'];   上面已经获取过一次
-      foreach ($cartId as $key => $value) {
-              // echo $key."索引";    //这个可以得到被选中的又多少商品
-              // echo $value."复选框值";    //该用户下选中的购物车id的商品
 
+              //根据$orderId获取订单详情的商品
              $result2=mysql_query("select * from cart where id='".$value."';");  //购物车表
              $row2 = mysql_fetch_row($result2);
              // echo $row2[2];   //购物车id对应的商品id
@@ -227,9 +208,7 @@
                                      <span class="num">x <i> <?php echo $row2[3]; ?></i></span>
                             </div>
                   </div>
-<?php
-    }
-?>
+
                  <!--  <div class="product clearfix">     订单商品的静态样式
                             <a class="product-img fl" href="" target="_blank">
                                     <img src="../images/cart-goods1.png">

@@ -124,7 +124,7 @@
 <!-- 面包屑导航 wrapper End-->
 <!------------------------------------------ 确认订单内容 Begin-->
 <div class="w order-top">填写并核对订单信息</div>
-<form action="buying-order-details.php" method="get" class="order-form w">
+<form action="buying-order-add.php" method="get" class="order-form w">
           <!--------- 订单收货地址选择  -->
             <div class="box">
                     <h5>收货人信息</h5>

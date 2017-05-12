@@ -124,21 +124,6 @@
 <!-- 面包屑导航 wrapper End-->
 <!------------------------------------------ 购物车内容cart-box Begin-->
 <div class="cart-box w">
-    <!-- 购买步骤steps -->
-    <!-- <ul class="steps">
-        <li class="steps-cart">
-            <h5>购物车</h5>
-            <div class="bottom-line"></div>
-        </li>
-        <li class="steps-order">
-            <h5>填写订单</h5>
-            <div class="bottom-line"></div>
-        </li>
-        <li class="steps-pay">
-            <h5>支付</h5>
-            <div class="bottom-line"></div>
-        </li>
-    </ul> -->
     <!---------------------------- 购物车列表表单-->
         <form action="buying-order-make.php" method="get" class="w">
         <!-- <form action="make-order.php" method="get" class="w"> -->
