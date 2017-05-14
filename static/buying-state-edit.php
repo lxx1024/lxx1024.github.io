@@ -8,7 +8,7 @@ if (isset($_SESSION["userName"])) {
  ?>
 <script>
       alert("确认收货成功,本次交易已完成!");
-      // history.go(-1);
+      history.go(-1);
 </script>
 
 <?php

@@ -204,9 +204,15 @@
                                              }
                                         ?>
                                     </div>
-                                    <div class="other fl">
-                                            <span class="addr-name">张三</span><br/>
-                                            <span class="addr">  广州市天河区中山大道西 18819462390</span>
+                                    <div class="other fl clearfix">
+                                    <?php
+                                             // echo $row1[2]."地址id";
+                                              $result4=mysql_query("select * from address where addressId='".$row1[2]."';");  //地址信息表
+                                              $row4= mysql_fetch_row($result4);
+
+                                    ?>
+                                            <span class="addr-name"><?php echo $row4[3]; ?></span><br/>
+                                            <span class="addr">  <?php echo $row4[1]; ?> <?php echo $row4[4]; ?></span>
                                     </div>
                                     <div class="other fl">
                                             订单总额 <br/>
