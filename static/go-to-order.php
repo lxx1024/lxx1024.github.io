@@ -5,7 +5,7 @@ if (isset($_SESSION["userName"])) {
 
  ?>
 <script>
-      window.location.href="buying-car.php";
+      window.location.href="buying-order.php";
 </script>
 
 <?php

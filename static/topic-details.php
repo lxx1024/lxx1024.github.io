@@ -47,12 +47,12 @@
             </li>
             <li class="spacer"></li>
             <li class="fore2 dropdown">
-                <a target="_blank" href="#">我的哆咪</a>
+                <a href="javascript:;">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dropdown">
-                <a target="_blank" href="#">我的订单</a>
+                <a href="javascript:;">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
@@ -107,7 +107,7 @@
         </li>
     </ul>
          <div class="cart fr">
-        <a href="buying-car.php"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
+        <a href="javascript:;"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
         购物车  <span class="arrow-right"> > </span></a>
     </div>
     </div>
@@ -333,5 +333,7 @@
 <script src="../js/base.js"></script>
 <script src="../js/topic.js"></script>
 <script src="../js/index.js"></script>
+<script src="../js/go-to-car.js"></script>
+<script src="../js/go-to-order.js"></script>
 </body>
 </html>

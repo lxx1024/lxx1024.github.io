@@ -24,7 +24,7 @@ if (isset($_SESSION["userName"])) {
      }else{
 ?>
 <script>
-    alert ("您当前还没有登录,登录后才可以添加到购物车!");
+    alert ("您当前还没有登录,登录后才可以进行操作哦!");
     history.go(-1);
 </script>
 <?php

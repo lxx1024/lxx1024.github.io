@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
-    <link rel="stylesheet" href="css/admin.css"/>
+    <link rel="stylesheet" href="css/order.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -55,11 +55,11 @@ window.location.href="login.html";
 <!---------------------------------------侧边栏left-nav Begin-->
 <div class="left-nav fl">
     <ul>
-        <li class="admin"><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
+        <li><a href="admin.php">管理员信息管理<i class="fa fa-diamond" aria-hidden="true"></i></a></li>
         <li><a href="user.php">会员信息管理<i class="fa fa-users" aria-hidden="true"></i></a></li>
         <li><a href="product-type.php">商品分类管理<i class="fa fa-sitemap" aria-hidden="true"></i></a></li>
         <li><a href="product.php">商品信息管理<i class="fa fa-cubes" aria-hidden="true"></i></a></li>
-        <li><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+        <li class="order"><a href="order.php">商品订单管理<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
         <li><a href="topic.php">留言信息管理<i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
         <li><a href="#">报表统计分析 <i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
     </ul>
@@ -69,48 +69,71 @@ window.location.href="login.html";
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------管理员信息管理主体部分 Begin-->
 <div class="main-content fr">
-    <div class="current-admin">
-        <p>您当前的账号信息:</p>
-        <form action="admin-current-edit.php" method="post">
-            <label for="admin-name"> 用户名: </label><input type="text" value="<?php
-        echo "${_SESSION["adminname"]}";
-        ?>" maxlength="20" name="admin-name" id="admin-name"/>
-            <label for="admin-psd"> 密码: </label><input type="text" maxlength="20" value="<?php
-        echo "${_SESSION["adminpsd"]}";?>" name="admin-psd" id="admin-psd"/>
-            <input type="submit" name="submit" value="保存" onclick="return confirm('确定修改当前登录账号信息');"/>
-        </form>
-    </div>
-    <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
-    <div class="admin-add-form">
-        <div class="admin-add"><a href="admin-add.php">添加管理员</a></div>
-    </div>
     <div class="admins">
         <form action="#" method="post">
             <table>
                 <tr>
-                    <th>序号</th>
+                    <th>订单ID</th>
                     <th>用户名</th>
-                    <th>密码</th>
-                    <th>操作</th>
+                    <th>商品数量</th>
+                    <th>订单总额</th>
+                    <th>订单状态</th>
+                    <th>订单详情</th>
                 </tr>
 
                 <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
-                    mysql_data_seek($result, 0);  // 循环取出记录
-                    while ($row=mysql_fetch_row($result)){
+                        $result1=mysql_query("select * from orders;");  //订单表
+                        while ($row1=mysql_fetch_row($result1)){
                 ?>
                 <tr>
                     <td>
-                        <?php echo "$row[0]" ?>
+                        <?php echo $row1[0]; ?>
                     </td>
                     <td>
-                        <?php echo "$row[1]" ?>
+                    <?php
+                            $result2=mysql_query("select * from user where userId=$row1[1];");  //用户信息表
+                            $row2=mysql_fetch_row($result2);
+                            echo $row2[1];
+                    ?>
                     </td>
                     <td>
-                        <?php echo "$row[2]" ?>
+                    <?php
+                            $result3=mysql_query("select * from order_detail where orderId=$row1[0];");  //订单信息表
+                            $num3=0;
+                            $price3=0;
+                            while ($row3=mysql_fetch_row($result3)){
+                                $num3 = $num3 + $row3[3];
+
+                                $result4=mysql_query("select * from product where prodId=$row3[2];");  //商品信息表
+                                $row4=mysql_fetch_row($result4);
+                                $price3 = $price3 + $row3[3] * $row4[5];
+                            }
+                            echo '共 <span>'.$num3.'</span> 件商品';
+                    ?>
+                    </td>
+                    <td class="price">
+                        ￥<?php echo $price3; ?>
+                    </td>
+                     <?php
+                            $result5=mysql_query("select * from order_state where stateId=$row1[3];");  //订单状态信息表
+                            $row5=mysql_fetch_row($result5);
+
+                    ?>
+
+                    <td class="<?php
+                             if ($row1[3]>=5 && $row1[3]<=6) {
+                                echo 'get';
+                             }else if ($row1[3]==7) {
+                                echo 'cancel';
+                              }
+                        ?>">
+                          <?php echo $row5[1]; ?>
                     </td>
                     <td>
-                        <a href="admin-modify.php?id=<?php echo "$row[0]" ?>" class="admin-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 编辑</a>
-                        <a href="admin-del.php?id=<?php echo "$row[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del"><i class="fa fa-times" aria-hidden="true"></i> 删除</a>
+                        <a href="order-details.php?id=<?php echo "$row1[0]" ?>" class="admin-edit">
+                                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                查看详情
+                        </a>
                     </td>
                 </tr>
                 <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束

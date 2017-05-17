@@ -227,3 +227,13 @@ $(function(){
 })
 
 //点击购物车End
+//---------------点击我的订单 Begin
+$(function(){
+      // 点击我的订单
+      var $cartAdd = $('.dm-shortcut .fore3 a');
+      $cartAdd.click(function(){
+                window.location.href="static/go-to-order.php";
+      })
+})
+
+//点击我的订单End

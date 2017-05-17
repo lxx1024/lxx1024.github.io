@@ -49,12 +49,12 @@
             </li>
             <li class="spacer"></li>
             <li class="fore2 dropdown">
-                <a target="_blank" href="#">我的哆咪</a>
+                <a href="javascript:;">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dropdown">
-                <a target="_blank" href="#">我的订单</a>
+                <a href="javascript:;">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>

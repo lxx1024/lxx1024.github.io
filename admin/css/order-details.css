@@ -1,0 +1,176 @@
+.main-content {
+    height: auto;
+    padding-bottom: 0px;
+}
+.left-nav .order a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .order a .fa {
+    color:yellow;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
+
+/*------------------------------------------------订单详情内容-order-box Begin*/
+.order-form {
+    background: white;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    padding:20px 30px;
+    padding-bottom: 0px;
+    color: #666;
+}
+.order-form .order-id {
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    background: #ccc;
+    padding-left: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.order-form .order-id .order-time {
+    margin-left: 50px;
+    font-weight: normal;
+}
+/*收货人信息部分Begin*/
+.order-form .box {
+    padding-bottom:20px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 20px;
+}
+.order-form .box .left {
+    width: 50%;
+    border-right: 1px solid #ccc;
+}
+.order-form .box h5 {
+     font-size: 18px;
+     font-weight: bold;
+     color: #333;
+     line-height: 36px;
+}
+/*地址信息*/
+.order-form .box .address {
+    padding: 5px 10px 0px;
+    line-height: 36px;
+    font-size: 14px;
+    text-align: left;
+}
+.order-form .box .address i {
+    display: inline-block;
+    width: 80px;
+    vertical-align: top;
+}
+.order-form .box .address span {
+    width: 380px;
+    text-align: left;
+}
+.order-form .box .addr-name {
+    display: inline-block;
+    text-align: center;
+}
+.order-form .box .addr-address {
+    display: inline-block;
+}
+/*收货人信息End*/
+/*订单状态及确认收货操作 Begin*/
+.order-form .box .right {
+    width: 49%;
+    box-sizing:border-box;
+    padding-left: 20px;
+    text-align: center;
+}
+.order-form .box .right h5 {
+    text-align: left;
+}
+.order-form .box .right p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e4393c;
+    margin-top: 15px;
+}
+.order-form .box .right a {
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    border:1px solid red;
+    margin-top: 30px;
+}
+.order-form .box .right a:hover {
+    color: white;
+    background: #e4393c;
+}
+
+
+
+/*订单状态及确认收货操作End*/
+/*订单商品内容Begin*/
+.order-form .box .product {
+    padding:20px;
+    margin:20px 20px 0px;
+    border-bottom: 1px dashed #ff7600;
+}
+.order-form .box .product:last-of-type {
+    border-bottom: none;
+}
+/*商品图片 标题 属性*/
+.box .product .product-img img {
+    width: 120px;
+    height: 120px;
+}
+.box .product .product-info h3 {
+    font-size: 17px;
+    line-height: 50px;
+}
+.box .product .product-info h3 a {
+    color: #333;
+}
+.box .product .product-info p span {
+    margin-right: 10px;
+}
+/*商品单价及数量*/
+.box .product .product-price span{
+    font-size: 16px;
+    line-height: 50px;
+}
+.box .product .product-price span:first-of-type {
+    margin-right: 120px;
+}
+.box .product .product-price .price {
+   color: #e4393c;
+   font-weight: bold;
+}
+/*订单总额信息*/
+.order-form .get-all {
+    text-align: right;
+     height: 50px;
+     font-size: 17px;
+}
+.order-form .get-all .all-price {
+    color: #e4393c;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 20px;
+}
+.order-form .get-all .all-num {
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    margin: 0px 5px;
+}
+
+/*订单详情内容End

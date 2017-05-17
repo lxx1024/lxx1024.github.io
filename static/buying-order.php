@@ -47,12 +47,12 @@
             </li>
             <li class="spacer"></li>
             <li class="fore2 dropdown">
-                <a target="_blank" href="#">我的哆咪</a>
+                <a href="javascript:;">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dropdown">
-                <a target="_blank" href="#">我的订单</a>
+                <a href="javascript:;">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
@@ -218,15 +218,33 @@
                                             订单总额 <br/>
                                             <span class="price">￥<?php echo $allPrice; ?></span>
                                     </div>
+                                    <?php
+                                               $result5=mysql_query("select * from order_state where stateId='".$row1[3]."';");  //订单状态表
+                                               $row5=mysql_fetch_row($result5);
+                                    ?>
                                     <div class="other fl">
                                             订单状态<br/>
-                                            <span class="state">待发货</span><br/>
-                                            <a href="#">订单详情</a>
+                                            <span class="state"><?php echo $row5[1]; ?></span><br/>
+                                            <a href="buying-order-details.php?id=<?php echo $row1[0]; ?>">订单详情</a>
                                     </div>
                                     <div class="other fl">
                                             订单操作<br/>
-                                            <a href="buying-order-cancel.php" class="make">确认收货</a><br/>
-                                            <a href="buying-order-cancel.php" class="cancel">取消订单</a>
+                                <?php
+                                    if ($row1[3]<5) {
+                                ?>
+                                            <a href="buying-state-edit.php?id=<?php echo $row1[0]; ?>" onclick="return confirm('确定确认收货?');" class="make">确认收货</a><br/>
+                                            <a href="buying-state-cancel.php?id=<?php echo $row1[0]; ?>" onclick="return confirm('确定取消订单?');" class="cancel">取消订单</a>
+                                <?php
+                                    }else if($row1[3]==7){
+                                ?>
+                                            <a href="javascript:;" class="cancel">已取消订单</a>
+                                <?php
+                                    }else{
+                                ?>
+                                            <a href="javascript:;" class="cancel">已确认收货</a>
+                                <?php
+                                    }
+                                ?>
                                     </div>
                             </div>
 
@@ -246,5 +264,7 @@
 <script src="../js/base.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/buying-order.js"></script>
+<script src="../js/go-to-car.js"></script>
+<script src="../js/go-to-order.js"></script>
 </body>
 </html>
