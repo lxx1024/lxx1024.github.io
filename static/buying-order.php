@@ -118,7 +118,7 @@
 <!--------------------------------------------面包屑导航wrapper Begin-->
 <div class="wrapper w">
     <ul class="breadcrumb">
-        <li><a href="../index.php">我的哆咪 </a></li>
+        <li><a href="user.php">我的哆咪 </a></li>
         <li> / </li>
         <li><a href="buying-order.php">我的订单</a></li>
     </ul>
@@ -266,5 +266,6 @@
 <script src="../js/buying-order.js"></script>
 <script src="../js/go-to-car.js"></script>
 <script src="../js/go-to-order.js"></script>
+<script src="../js/go-to-user.js"></script>
 </body>
 </html>

@@ -237,3 +237,13 @@ $(function(){
 })
 
 //点击我的订单End
+//---------------点击我的哆咪 Begin
+$(function(){
+      // 点击我的订单
+      var $cartAdd = $('.dm-shortcut .fore2 a');
+      $cartAdd.click(function(){
+                window.location.href="static/go-to-user.php";
+      })
+})
+
+//点击我的哆咪End

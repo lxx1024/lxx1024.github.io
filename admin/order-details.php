@@ -79,7 +79,6 @@ window.location.href="login.html";
    <!--------- 收货信息Begin  -->
             <div class="box clearfix">
                    <?php
-                               $userId = $_SESSION['userId'];    //当前用户id
                                $orderId = $_REQUEST['id'];   //传递的id-----订单id
                                $result1=mysql_query("select * from orders where orderId='".$orderId."';");  //订单表
                                $row1=mysql_fetch_row($result1);

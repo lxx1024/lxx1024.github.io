@@ -272,5 +272,6 @@
 <script src="../js/buying-order-make.js"></script>
 <script src="../js/go-to-car.js"></script>
 <script src="../js/go-to-order.js"></script>
+<script src="../js/go-to-user.js"></script>
 </body>
 </html>

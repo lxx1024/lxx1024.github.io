@@ -1,6 +1,6 @@
 /*购物车样式*/
 body {
-    background: #f0f0f0;
+    background: #f2f2f2;
 }
 .dm-header {
     background: white;
@@ -17,6 +17,8 @@ body {
 }
 
 .dm-header .nav-content li{
+  /*  width: 50%;
+    height: 40px;*/
     line-height: 40px;
     text-align: left;
     position: absolute;
@@ -40,7 +42,6 @@ body {
 .dm-header .nav-content li a:hover {
     color: #ff24d2;
 }
-
 .dm-header .cart {
     margin-top: 37px;
     border: none;
@@ -50,10 +51,10 @@ body {
     background: none;
 }
 .dm-header .cart a {
-    color: #75c473;
+    color: #ff24d2;
 }
 .dm-header .cart .fa {
-    color: #6db27c;
+    color: #ff24d2;
     font-size: 22px;
     left: 25px;
     top: 60%;
@@ -65,7 +66,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #777777;
-    /*padding-left: 120px;*/
+    padding-left: 60px;
 }
 .wrapper .breadcrumb li{
     float: left;
@@ -76,85 +77,222 @@ body {
 }
 /*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
 
-/*------------------------------------------------订单详情内容-order-box Begin*/
-.order-form {
+/*------------------------------------------------个人中心内容cart-box Begin*/
+.user {
+    height: 80px;
     background: white;
     box-sizing:border-box;
-    border:1px solid #ccc;
-    padding:20px 30px;
-    margin-bottom: 50px;
+    padding: 20px;
 }
-/*订单导航nav Begin*/
-.order-form .nav {
-    padding-bottom:20px;
-    border-bottom: 1px solid red;
+.user h5 {
+    line-height: 36px;
+    color: #333;
+    font-family: "楷体";
+    font-size: 20px;
 }
-.order-form .nav li {
-    float: left;
-    margin:0px 20px;
+.user p {
+    line-height: 36px;
+    margin-left: 20px;
+    font-size: 18px;
 }
-.order-form .nav li.current{
+.user a {
+    display: inline-block;
+    line-height: 36px;
+    margin-left: 30px;
     color: red;
-    font-weight: bold;
 }
-.order-form .nav li:first-of-type{
-    position: relative;
-}
-.order-form .nav li:first-of-type span{
-   display: inline-block;
-    width: 20px;
-    height: 15px;
-    border-right: 2px solid #ccc;
-    position: absolute;
-    top: 2px;
-    left: 57px;
-}
-/*订单导航 End*/
-/*订单导航对应的订单 Begin*/
-.order-form .order-box {
-    width: 1150px;
-}
-.order-form .order-box li{
-    width: 1150px;
-    overflow: hidden;
-    /*position: absolute;  因为这个属性所以不能撑起ul的高度 */
-    opacity: 0;
+.user form {
+    float: left;
+    line-height: 30px;
+    margin-left: 50px;
+    margin-top: 4px;
     display: none;
-    box-sizing: border-box;
-    padding-top: 10px;
 }
-.order-form .order-box li.current {
-    opacity: 1;
-    display: block;
+.user form input {
+    height: 25px;
+    text-indent: 10px;
+    border: 1px solid red;
+    margin-right: 10px;
 }
-/*订单导航对应的订单 End*/
+.user form .submit {
+    width: 50px;
+    height: 25px;
+    text-indent: 0px;
+    background: #ff8a00;
+    border: 1px solid red;
+    margin-right: 10px;
+    cursor: pointer;
+}
+/*收货人信息部分Begin*/
+.order-form {
+    background: white;
+    margin-top: 20px;
+    box-sizing:border-box;
+    padding:20px;
+}
+.order-form .box {
+    position: relative;
+    margin-bottom: 20px;
+}
+.order-form .box h5 {
+     font-size: 18px;
+     font-weight: bold;
+     color: #333;
+     line-height: 36px;
+}
+/*添加地址信息按钮*/
+.order-form .box .add-address {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: blue;
+}
+.order-form .box .add-address:hover{
+    color: #ff24d2;
+    cursor: pointer;
+}
+/*添加地址输入信息*/
+.order-form .box  .add {
+    padding-left: 20px;
+    display: none;
+}
+.order-form .box  .add input{
+    width: 150px;
+    height: 24px;
+    font-size: 12px;
+    text-indent: 3px;
+    border: 1px solid red;
+    text-align: center;
+    margin-right: 10px;
+}
+.order-form .box  .add .addr-address {
+    width: 500px;
+}
+.order-form .box  .add .add-btn {
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    background: #ff7600;
+    cursor: pointer;
+}
+/*修改地址输入信息*/
+.order-form .box  .edit {
+    padding-left: 20px;
+    margin-top: 10px;
+    display: none;
+
+}
+.order-form .box  .edit input{
+    width: 150px;
+    height: 24px;
+    font-size: 12px;
+    text-indent: 3px;
+    border: 1px solid #75c473;
+    text-align: center;
+    margin-right: 10px;
+}
+.order-form .box  .edit .addr-address {
+    width: 500px;
+}
+.order-form .box  .edit .add-btn {
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    background: #75c473;
+    cursor: pointer;
+}
+/*地址信息*/
+.order-form .box .address {
+    position: relative;
+    padding: 10px 20px 0px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    overflow: hidden;
+}
+.order-form .box .addr-name {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.order-form .box .address i {
+    display: none;
+}
+.order-form .box .addr-name:hover {
+     border: 1px solid red;
+}
+.order-form .box .addr-address {
+    display: inline-block;
+    text-align: left;
+    text-indent: 10px;
+}
+/*地址操作  编辑/修改*/
+.order-form .box .address div {
+    position: absolute;
+    right: 42px;
+    top: 12px;
+}
+.order-form .box .address div a {
+    color:blue;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.order-form .box .address div a:hover {
+    color: #ff24d2;
+}
 
 /*订单商品内容Begin*/
-.order-form .order-box li .orders {
+.order-box {
+    background: white;
+    margin-top: 20px;
+    box-sizing:border-box;
+    padding:20px;
+}
+/*我的订单头部*/
+.order-box .order-top {
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+.order-box .order-top a {
+    color: red;
+}
+.order-box .orders {
     border:1px solid #f2f2f2;
     margin-bottom: 20px;
 }
 /*订单信息-时间,订单号*/
-.order-box li .message {
+.order-box .message {
     height: 30px;
     line-height: 30px;
     color: #999;
     background: #f5f5f5;
     padding-left: 15px;
 }
-.order-box li .message span {
+.order-box .message span {
     margin: 0px 50px 0px 10px;
 }
-.order-box li .message span.order-id {
+.order-box .message span.order-id {
     color: #333;
 }
 /*订单内容Begin*/
-.order-box li .product {
+.order-box .product {
     width: 607px;
     border-right: 1px solid #f0f0f0;
     padding:10px;
 }
-.order-box li .product .prod-details{
+.order-box  .product .prod-details{
     padding-bottom: 10px;
     padding-top: 10px;
     border-bottom: 1px solid #f0f0f0;
@@ -249,22 +387,20 @@ body {
     color: #e4393c;
 }
 /*收货人信息,订单总额,订单状态End*/
-
-
 /*订单总额信息*/
-.order-form .get-all {
+.order-box .get-all {
     text-align: right;
      height: 50px;
      font-size: 14px;
 }
-.order-form .get-all .all-price {
+.order-box .get-all .all-price {
     color: #e4393c;
     font-size: 20px;
     font-weight: bold;
     font-family: Verdana;
     margin: 0px 20px;
 }
-.order-form .get-all .all-num {
+.order-box .get-all .all-num {
     color: #999;
     font-size: 16px;
     font-weight: bold;
@@ -273,3 +409,20 @@ body {
 }
 
 /*订单详情内容End
+/*个人中心内容cart End*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
