@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
-    <link rel="stylesheet" href="css/user.css"/>
+    <link rel="stylesheet" href="css/user-detail.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -69,48 +69,18 @@ window.location.href="login.html";
 <!--后台通用头部和侧边栏 End-->
 <!---------------------------------------管理员信息管理主体部分 Begin-->
 <div class="main-content fr">
-    <div class="admins">
-        <form action="#" method="post">
-            <table>
-                <tr>
-                    <th>序号</th>
-                    <th>用户名</th>
-                    <th>查看详情</th>
-                    <th>操作</th>
-                </tr>
+        <div class="wrapper w">
+                  <a href="user.php">
+                              <i class="fa fa-reply-all" aria-hidden="true"></i>
+                              返回会员信息管理列表
+                  </a>
+        </div>
+        <div class="user">
 
-                <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
-                    $q1 = "SELECT * FROM user";                   //SQL查询语句 -----在此处改表名
-                    $result1 = mysql_query($q1, $conn);
-                    while ($row1=mysql_fetch_row($result1)){
-                ?>
-                <tr>
-                    <td>
-                        <?php echo "$row1[0]" ?>
-                    </td>
-                    <td>
-                        <?php echo "$row1[1]" ?>
-                    </td>
-                    <td>
-                          <a href="user-detail.php?id=<?php echo "$row1[0]" ?>" class="admin-edit">
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                        查看详情
-                            </a>
-                    </td>
-                    <td>
-                            <a href="admin-del.php?id=<?php echo "$row1[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
-                                <i class="fa fa-times" aria-hidden="true"></i> 删除
-                            </a>
-                    </td>
-                </tr>
-                <?php   //-------------------------------- 循环显示数据库admin表的内容 PHP代码结束
-                    }
+                <form action="#" method="post">
 
-                ?>
-
-            </table>
-        </form>
-    </div>
+                </form>
+        </div>
 </div>
 <!--管理员信息管理主体部分 End-->
 

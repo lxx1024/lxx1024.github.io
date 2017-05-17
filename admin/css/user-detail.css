@@ -1,0 +1,30 @@
+.main-content {
+    height: auto;
+    padding-bottom: 0px;
+}
+.left-nav .admin a{
+    color: yellow;
+    font-weight: bold;
+}
+.left-nav .admin a .fa {
+    color:yellow;
+}
+/*---------------------------会员信息管理主体部分 Begin*/
+.wrapper {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*会员信息 Begin*/
+.main-content .user {
+    width: 80%;
+    min-height: 450px;  /*最小高度*/
+    padding: 20px;
+    background: #f9f9f9;
+    position: relative;
+}
+
+
+
+/*会员信息管理主体部分  End*/
