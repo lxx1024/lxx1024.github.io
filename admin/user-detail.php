@@ -75,14 +75,62 @@ window.location.href="login.html";
                               返回会员信息管理列表
                   </a>
         </div>
+          <?php
+                    $id = $_GET['id'];
+                    $q1 = "SELECT * FROM user where userId=$id";
+                    $result1 = mysql_query($q1, $conn);
+                    $row1=mysql_fetch_row($result1);
+          ?>
         <div class="user">
-
-                <form action="#" method="post">
-
+                <div class="user-name">
+                        当前用户: <span> <?php echo $row1[1]; ?></span>
+                </div>
+                  <div class="phone">
+                        手 机 号 : <span> <?php echo $row1[3]; ?></span>
+                  </div>
+                <div class="modify">修改密码</div>
+                <form action="user-edit.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                        <input class="psw" type="password" name="psw" placeholder="请输入新密码">
+                        <input class="btn" type="submit" value="修改密码">
                 </form>
+                <div class="address">
+                        <div class="title">收货地址</div>
+                      <?php
+                                $q2 = "SELECT * FROM address where userId=$id";
+                                $result2 = mysql_query($q2, $conn);
+                                $count = mysql_num_rows($result2);
+                                if ($count==0) {
+                                    echo "<span class='no-address'>暂无收货地址!</span>";
+                                }else{
+                                     while ($row2=mysql_fetch_row($result2)) {
+                      ?>
+                        <div class="detail">
+                                <span>ID : <?php echo $row2[0]; ?></span>
+                                <span><?php echo $row2[3]; ?></span>
+                                <span><?php echo $row2[1]; ?></span>
+                                <span><?php echo $row2[4]; ?></span>
+                        </div>
+                        <?php
+                            } }
+                        ?>
+                </div>
         </div>
 </div>
-<!--管理员信息管理主体部分 End-->
-
+<!--会员信息管理主体部分 End-->
+<script src="../js/jquery.min.js"></script>
+<script>
+        var $modify = $('.user .modify');
+        var $form = $('.user form');
+        $modify.click(function(){
+                if($(this).text()=="修改密码"){
+                    $(this).text("取消修改");
+                    $form.css("display","block");
+                }else{
+                    $(this).text("修改密码");
+                    $form.css("display","none");
+                }
+        })
+</script>
 </body>
 </html>

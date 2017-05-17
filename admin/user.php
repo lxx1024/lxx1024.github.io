@@ -98,7 +98,7 @@ window.location.href="login.html";
                             </a>
                     </td>
                     <td>
-                            <a href="admin-del.php?id=<?php echo "$row1[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
+                            <a href="user-del.php?id=<?php echo "$row1[0]" ?>" onclick="return confirm('确定删除该用户吗?');"  class="admin-del">
                                 <i class="fa fa-times" aria-hidden="true"></i> 删除
                             </a>
                     </td>

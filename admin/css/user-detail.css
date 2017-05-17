@@ -23,8 +23,76 @@
     padding: 20px;
     background: #f9f9f9;
     position: relative;
+    color: #333;
 }
+/*用户姓名及手机号*/
+.user .user-name {
+    font-size: 20px;
+}
+.user .user-name span {
+    font-family: "楷体";
+    font-size: 20px;
+    margin-left: 20px;
+}
+.user .phone {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.user .phone span {
+    font-family: "楷体";
+    font-size: 20px;
+    margin-left: 20px;
+}
+/*修改密码*/
+.user .modify {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    background: #ffad00;
+    margin: 20px 0px;
+    text-align: center;
+    border-radius: 3px;
+}
+.user form {
+    display: none;
+    margin-bottom: 20px;
+}
+.user form .psw{
+    width: 200px;
+    height: 30px;
+    border: 1px solid red;
+    text-indent: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.user form .btn{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #aaa;
+    text-indent: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    background: #ffc500;
+}
+/*收货地址*/
+.user .address {
+    border: 1px solid #ccc;
+    padding:10px 20px;
 
-
-
+}
+.user .address .title {
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.user .address .no-address {
+    font-size: 20px;
+    line-height: 50px;
+}
+.user .address .detail span {
+    font-size: 16px;
+    line-height: 38px;
+    margin: 0px 10px;
+}
 /*会员信息管理主体部分  End*/
