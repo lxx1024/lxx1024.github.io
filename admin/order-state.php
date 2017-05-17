@@ -5,6 +5,7 @@
     <title>管理员信息管理</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/order.css"/>
+    <link rel="stylesheet" href="css/order-state.css">
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -93,6 +94,12 @@ window.location.href="login.html";
             ?>
 
     </ul>
+    <div class="wrapper w">
+          <a href="order.php">
+                      <i class="fa fa-reply-all" aria-hidden="true"></i>
+                      返回商品订单管理
+          </a>
+    </div>
     <div class="admins">
         <form action="#" method="post">
             <table>
@@ -106,7 +113,8 @@ window.location.href="login.html";
                 </tr>
 
                 <?php     //----------------------------- 循环显示数据库admin表的内容 PHP代码开始
-                        $result1=mysql_query("select * from orders order by orderTime DESC;");  //订单表
+                        $stateId=$_GET['id'];
+                        $result1=mysql_query("select * from orders where stateId=$stateId order by orderTime DESC;");  //订单表
                         while ($row1=mysql_fetch_row($result1)){
                 ?>
                 <tr>

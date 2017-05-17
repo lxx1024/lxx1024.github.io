@@ -16,7 +16,6 @@
     font-size: 18px;
     font-weight: bold;
 }
-/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
 
 /*------------------------------------------------订单详情内容-order-box Begin*/
 .order-form {
@@ -97,23 +96,23 @@
     color: #e4393c;
     margin-top: 15px;
 }
-.order-form .box .right a {
-    display: inline-block;
-    width: 120px;
+.order-form .box .right .states {
+    width: 130px;
     height: 36px;
-    line-height: 36px;
     font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+.order-form .box .right .submit {
+    width: 70px;
+    height: 36px;
+    margin-top: 20px;
+    border-radius: 2px;
+    background: #ff8a00;
+    font-size: 15px;
     font-weight: bold;
-    color: red;
-    border:1px solid red;
-    margin-top: 30px;
-}
-.order-form .box .right a:hover {
     color: white;
-    background: #e4393c;
 }
-
-
 
 /*订单状态及确认收货操作End*/
 /*订单商品内容Begin*/

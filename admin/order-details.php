@@ -95,7 +95,6 @@ window.location.href="login.html";
                     </div>
                     <div class="left fl">
                           <h5>收货人信息</h5>
-
                           <div class="address">
                                   <i>收货人 ：</i><span class="addr-name"><?php echo $row2[3]; ?></span>
                                   <i>地 址 ：</i><span class="addr-address"><?php  echo $row2[1]; ?></span>
@@ -104,21 +103,34 @@ window.location.href="login.html";
                     </div>
                     <!-- 收货信息End -->
                     <!-- 订单状态及确认收货操作Begin -->
-                  <?php
-                               $result3=mysql_query("select * from order_state where stateId='".$row1[3]."';");  //订单状态表
-                               $row3=mysql_fetch_row($result3);
+                      <?php
+                                   $result3=mysql_query("select * from order_state where stateId='".$row1[3]."';");  //订单状态表
+                                   $row3=mysql_fetch_row($result3);
 
-                  ?>
+                      ?>
                     <div class="right fr">
                             <h5>订单状态:</h5>
                             <p><?php echo $row3[1]; ?></p>
-                           <?php
-                                       if ($row3[0]<5) {
-                           ?>
-                            <a href="buying-state-edit.php?id=<?php echo $orderId; ?>" onclick="return confirm('确定确认收货?');">确认收货</a>
-                           <?php
-                                  }
-                           ?>
+                           <form action="order-state-edit.php?">
+                                <input type="hidden" value="<?php echo $row1[0]; ?>" name="orderId">
+                                <select name="states" class="states">
+                                      <?php
+                                           $state=mysql_query("select * from order_state;");  //订单状态表
+                                           while ( $stateRs=mysql_fetch_row($state)) {
+                                                if ($stateRs[1]==$row1[3]) {
+
+                                                }
+
+                                      ?>
+                                     <option value="<?php echo $stateRs[0]; ?>" <?php  if ($stateRs[0]==$row1[3]) { ?> selected="selected" <?php } ?>>
+                                            <?php echo $stateRs[1]; ?>   <!--选项的值-->
+                                     </option>
+                                      <?php
+                                            }
+                                      ?>
+                                </select>
+                                <input type="submit" value="修改状态" class="submit">
+                           </form>
                     </div>
                     <!-- 订单状态及确认收货操作End -->
             </div>

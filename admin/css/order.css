@@ -10,6 +10,24 @@
     color:yellow;
 }
 /*--------------------------商品订单管理主体部分 Begin*/
+/*------------------------订单状态分类显示 */
+.main-content .order-type {
+     width: 80%;
+    margin-bottom: 20px;
+}
+.main-content .order-type li{
+     float: left;
+     line-height: 30px;
+     color: yellow;
+     margin-right: 10px;
+}
+.main-content .order-type li:last-of-type {
+    display: none;
+}
+.main-content .order-type li a {
+    color: inherit;
+    font-size: 20px;
+}
 /*------------------商品订单列表*/
 .main-content .admins {
     width: 80%;
