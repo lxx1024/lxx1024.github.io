@@ -72,9 +72,9 @@
         </div>
         <ul class="goods-nav fl">
             <li><a href="../index.php">首页</a></li>
-            <li><a href="oppo-index.php">品牌汇</a></li>
-            <li><a href="#">手机配件</a></li>
-            <li><a href="#">以旧换新</a></li>
+            <li><a href="javascript:;">品牌汇</a></li>
+            <li><a href="prod-index.php?id=1">手机配件</a></li>
+            <li><a href="prod-new.php">以旧换新</a></li>
             <li><a href="topic.php">手机社区</a></li>
         </ul>
           </ul>

@@ -88,8 +88,8 @@
     <ul class="nav">
         <li><a href="index.php" class="col-main">首页</a></li>
         <li><a href="javascript:;">品牌汇</a></li>
-        <li><a href="#">手机配件</a></li>
-        <li><a href="#">新品发布</a></li>
+        <li><a href="static/prod-index.php?id=1">手机配件</a></li>
+        <li><a href="static/prod-new.php">新品发布</a></li>
         <li><a href="static/topic.php">手机社区</a></li>
         <li><a href="#">哆咪文化</a></li>
     </ul>
@@ -148,7 +148,6 @@
         <li class="bg-green">热 销</li>
     </ul>
     <ul class="today-content fr">
-
 <!--         <li>                      静态格式
                 <div>
                         <a href="static/goods-details.php" class="prod-pic">
@@ -189,11 +188,9 @@
 <?php
     }
 ?>
-
                 <!-- 这是新品下的商品内容end -->
         </li>
         <li class="b-green">
-
    <!-- 这是热销下的商品内容Begin -->
 <?php
         $q4 = "SELECT * FROM product where prodTypeId>1 order by salsNum DESC limit 0,4;";                   //SQL查询语句 -----在此处改表名

@@ -1,0 +1,267 @@
+body{
+    background-color: #ddf3eb;
+}
+/* ----------------------------------  导航栏 Begin*/
+.dm-nav .nav-content li{
+    line-height: 60px;
+    padding-left: 200px;
+}
+.dm-nav .nav-content li a {
+    height: 60px;
+    line-height: 60px;
+}
+/* 导航栏 End */
+/* ----------------------------------- oppo-logo Begin*/
+.oppo-logo {
+    font-size: 24px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #ff24d2;
+}
+.oppo-logo i{
+    color: #009a72;
+    font-size: 26px;
+}
+/* oppo-logo End*/
+/* ------------------------------------oppo-main-content Begin*/
+.oppo-main-content {
+    height: 738px;
+    overflow: hidden;
+}
+.oppo-main-content a{
+    overflow: hidden;
+}
+.oppo-main-content .oppo-main-left a{
+    display: block;
+    height: 365px;
+    width: 770px;
+    position: relative;
+    margin-bottom: 8px;
+    background: white;
+}
+.oppo-main-content .oppo-main-left img{
+    height: 330px;   /*控制图片大小*/
+}
+.oppo-main-content .oppo-left-top .photo{
+    position: absolute;
+    z-index: 1;
+    left: 50px;
+    top: 20px;
+}
+.oppo-main-content .oppo-left-top .content{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 50px;
+    width: 300px;
+}
+.oppo-main-content .oppo-left-bottom .photo{
+    position: absolute;
+    z-index: 1;
+    right: 50px;
+    top: 20px;
+}
+.oppo-main-content .oppo-left-bottom .content{
+    position: absolute;
+    z-index: 2;
+    left: 80px;
+    top: 50px;
+    width: 350px;
+}
+/* -------- oppo-main-right */
+.oppo-main-content .oppo-main-right a{
+    display: block;
+    width: 396px;
+    height: 738px;
+    position: relative;
+    background: white;
+}
+.oppo-main-content .oppo-main-right img{
+    height: 350px;
+}
+.oppo-main-content .oppo-main-right .photo{
+    position: absolute;
+    z-index: 1;
+    right: 40px;
+    bottom: 40px;
+}
+.oppo-main-content .oppo-main-right .content {
+    position: absolute;
+    z-index: 2;
+    left: 70px;
+    top: 50px;
+    width: 300px;
+}
+.oppo-main-content img {
+    transition: all 1.2s ease;   /* css3属性--- 动画变化的速度等属性*/
+}
+.oppo-main-content a:hover img.photo {
+    transform: scale(1.05);      /* css3属性---鼠标悬停时放大 */
+    transition-delay: 0s;
+}
+/*主体商品内容*/
+.oppo-main-content .content h5 {
+    font-size: 24px;
+    color: #333;
+    line-height: 50px;
+}
+.oppo-main-content .content .attitude {
+    font-size: 16px;
+    color: #666;
+    line-height: 30px;
+}
+.oppo-main-content .content .price {
+    font-size: 20px;
+    color: red;
+    line-height: 50px;
+}
+/* oppo-main-content End*/
+/* -----------------------------------------------------------------------oppo-goods Begin */
+/*-----------产品系列标题--------------*/
+.oppo-goods .oppo-goods-title {
+    height: 100px;
+    line-height: 100px;
+    font-size: 26px;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.oppo-goods .oppo-goods-title .left {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.oppo-goods .oppo-goods-title .right {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+.oppo-goods .goods-content {
+    /*overflow: hidden;*/
+}
+/*---------产品内容-------*/
+.oppo-goods .goods-content li{
+    float: left;
+    width: 295px;
+    height: 350px;
+    background: white;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: none;
+    padding: 45px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /*box-shadow:  1px 1px 10px rgba(0, 0, 0, 0.1);*/
+
+}
+.oppo-goods .goods-content li:hover {
+    box-shadow:  0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+.oppo-goods .goods-content li:nth-child(4n){   /*选中4倍数的元素*/
+    margin-right: 0px;
+}
+/*图片*/
+.oppo-goods .goods-content li .picture{
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+}
+.oppo-goods .goods-content .picture img {
+    width: 160px;
+}
+/*内容,包括标题,价格,简介*/
+.oppo-goods .goods-content .content {
+    display: inline-block;
+    margin-top: 35px;
+}
+.oppo-goods .goods-content .goods-title{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SimSun", "宋体";
+    color: black;
+}
+.oppo-goods .goods-content .goods-title i{
+    color: red;
+}
+.oppo-goods .goods-content .goods-desc{
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+/* oppo-goodsEnd*/
+/*--------------------------------------------------------------------oppo-features Begin */
+.oppo-features {
+    margin-bottom: 50px;
+}
+.oppo-features .oppo-features-title {
+    height: 100px;
+    line-height: 100px;
+    font-size: 26px;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.oppo-features .oppo-features-title .left {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.oppo-features .oppo-features-title .right {
+    width: 500px;
+    border-bottom: solid #009a72 1px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+/* oppo-features End */
+
+/*底部Begin---------------------------------------------------------------------------------底部Begin*/
+.footer {
+    background: linear-gradient(to bottom,#ddf3eb, #83a7ea);
+}
+.footer .footer-logo {
+    color: #8a8a8a;
+}
+/*-------------底部分享链接---------*/
+.footer .footer-share a{
+    background: #8a8a8a;
+}
+
+.footer .footer-share a .fa {
+    color: #ffe8ea;
+}
+.footer .footer-share .line {
+    background: #666;
+}
+.footer .footer-share a:last-of-type {
+    color: #ffe8ea;
+}
+.footer .footer-share a:hover {
+    background: #009a72;
+}
+/*--------------底部相关网站链接 ---------*/
+.footer .footer-siteLinks a {
+    color: #000;
+}
+.footer .footer-siteLinks a:hover {
+    color: #009a72;
+}
+/*-------底部版权--------*/
+.footer .footer-copyright {
+    color: #000;
+}
+.footer .footer-copyright a {
+    color: inherit;
+}
+/*底部End----------------------------------------------------------------------------------底部End*/
