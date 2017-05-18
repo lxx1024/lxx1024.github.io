@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="keywords" content="哆咪手机,oppo,新品,哆咪"/>
     <meta name="description" content="哆咪手机商城,oppo新品,充电两分钟,通话两小时!"/>
-    <title>哆咪-OPPO</title>
+    <title>哆咪-手机配件</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
     <link rel="stylesheet" href="../css/prod-index.css"/>
@@ -88,8 +88,8 @@
 <div class="dm-nav w">
     <ul class="nav">
         <li><a href="../index.php">首页</a></li>
-        <li><a href="javascript:;" class="col-main">品牌汇</a></li>
-        <li><a href="prod-other.php?id=1">手机配件</a></li>
+        <li><a href="javascript:;">品牌汇</a></li>
+        <li><a href="prod-other.php?id=1"  class="col-main">手机配件</a></li>
         <li><a href="prod-new.php">新品发布</a></li>
         <li><a href="topic.php">手机社区</a></li>
         <li><a href="duomi.php">哆咪文化</a></li>

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="keywords" content="哆咪手机,oppo,新品,哆咪"/>
     <meta name="description" content="哆咪手机商城,oppo新品,充电两分钟,通话两小时!"/>
-    <title>哆咪-OPPO</title>
+    <title>哆咪-商品搜索</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/prod-new.css"/>
+    <link rel="stylesheet" href="../css/prod-search.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
@@ -66,6 +66,13 @@
     </div>
 </div>
 <!-- 通栏 End -->
+<?php
+    if ($_GET['search']!="") {
+         $search=$_GET['search'];
+    }else{
+        $search="";
+    }
+?>
 
 <!-- -------------------------------------logo\搜索栏\购物车 dm-header  Begin -->
 <div class="dm-header w">
@@ -73,8 +80,8 @@
         <a href="../index.php"><h1>哆咪手机商城</h1></a>
     </div>
     <!-- 商品搜索部分Begin -->
-    <form class="search fl" action="static/prod-search.php">
-        <input type="text" class="search-txt" name="search" placeholder="请输入搜索关键字"/>
+    <form class="search fl">
+        <input type="text" class="search-txt" name="search" value="<?php echo $search; ?>" placeholder="请输入搜索关键字"/>
         <input type="button" class="search-btn" value="搜 索"/>
     </form>
     <!-- 商品搜索部分End -->
@@ -90,7 +97,7 @@
         <li><a href="../index.php">首页</a></li>
         <li><a href="javascript:;">品牌汇</a></li>
         <li><a href="prod-other.php?id=1">手机配件</a></li>
-        <li><a href="prod-new.php" class="col-main">新品发布</a></li>
+        <li><a href="prod-new.php">新品发布</a></li>
         <li><a href="topic.php">手机社区</a></li>
         <li><a href="duomi.php">哆咪文化</a></li>
     </ul>
@@ -119,128 +126,18 @@
 </div>
 <!-- 导航栏 End-->
 <!-- -------------------------------------------------------------------------通用头部 分界线 -->
-
-<div class="oppo-logo w">
-    <a href="../index.php">首页</a> / <i>新品发布</i>
-</div>
-<!---------------------------主要产品oppo-main-content Begin -->
-<div class="oppo-main-content w clearfix">
-    <div class="oppo-main-left fl">
-    <!-- 第一个主要产品 Begin -->
-        <?php
-                $q2 = "SELECT * FROM product order by prodAddTime DESC limit 0,1;";                   //SQL查询语句 -----在此处改表名
-                $rs2= mysql_query($q2, $conn);                     //执行sql查询
-                $row2=mysql_fetch_row($rs2);    //获取该分类下销量第一的商品
-         ?>
-        <a href="goods-details.php?id=<?php echo $row2[0];?>" class="oppo-left-top">
-        <?php
-                 $img=$row2[8];
-                 $imgs=explode(",",$img);
-                 foreach ($imgs as $key => $value) {
-                        if ($key==0 && $value!="") {
-        ?>
-            <img src="../admin/<?php   echo $value ?>" alt="" class="photo"/>
-        <?php
-                        }else  if($key==0 && $value==""){
-                                echo "暂无图片";
-                        }
-                 }
-        ?>
-            <div class="content">
-                    <h5><?php echo $row2[1]; ?></h5>
-             <?php
-                         $attr = "SELECT * FROM attribute where prodId='".$row2[0]."';";
-                          $attrRs = mysql_query($attr, $conn);
-                         while ($attrName=mysql_fetch_row($attrRs)){
-                               echo"<p class='attitude'>".$attrName[2]."</p>";     //循环输出属性名称
-                        }
-             ?>
-                    <p class="price">￥<?php echo $row2[5]; ?></p>
-            </div>
-        </a>
-        <!-- 第二个主要产品内容Begin -->
-     <?php
-                $q3 = "SELECT * FROM product order by prodAddTime DESC limit 1,1;";                   //SQL查询语句 -----在此处改表名
-                $rs3= mysql_query($q3, $conn);                     //执行sql查询
-                $row3=mysql_fetch_row($rs3);    //获取该分类下销量第一的商品
-     ?>
-        <a href="goods-details.php?id=<?php echo $row3[0];?>" class="oppo-left-bottom">
-        <?php
-                 $img=$row3[8];
-                 $imgs=explode(",",$img);
-                 foreach ($imgs as $key => $value) {
-                        if ($key==0 && $value!="") {
-        ?>
-            <img src="../admin/<?php   echo $value ?>" alt="" class="photo"/>
-        <?php
-                        }else  if($key==0 && $value==""){
-                                echo "暂无图片";
-                        }
-                 }
-        ?>
-            <div class="content">
-                    <h5><?php echo $row3[1]; ?></h5>
-             <?php
-                         $attr = "SELECT * FROM attribute where prodId='".$row3[0]."';";
-                          $attrRs = mysql_query($attr, $conn);
-                         while ($attrName=mysql_fetch_row($attrRs)){
-                               echo"<p class='attitude'>".$attrName[2]."</p>";     //循环输出属性名称
-                        }
-             ?>
-                    <p class="price">￥<?php echo $row3[5]; ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="oppo-main-right fr">
-    <!-- 第三个主要产品Begin -->
-    <?php
-                $q4 = "SELECT * FROM product order by prodAddTime DESC limit 2,1;";                   //SQL查询语句 -----在此处改表名
-                $rs4= mysql_query($q4, $conn);                     //执行sql查询
-                $row4=mysql_fetch_row($rs4);    //获取该分类下销量第一的商品
-    ?>
-        <a href="goods-details.php?id=<?php echo $row4[0];?>">
-            <?php
-                 $img=$row4[8];
-                 $imgs=explode(",",$img);
-                 foreach ($imgs as $key => $value) {
-                        if ($key==0 && $value!="") {
-           ?>
-            <img src="../admin/<?php   echo $value ?>" alt="" class="photo"/>
-            <?php
-                            }else  if($key==0 && $value==""){
-                                    echo "暂无图片";
-                            }
-                     }
-            ?>
-             <div class="content">
-                    <h5><?php echo $row4[1]; ?></h5>
-             <?php
-                         $attr = "SELECT * FROM attribute where prodId='".$row4[0]."';";
-                          $attrRs = mysql_query($attr, $conn);
-                         while ($attrName=mysql_fetch_row($attrRs)){
-                               echo"<p class='attitude'>".$attrName[2]."</p>";     //循环输出属性名称
-                        }
-             ?>
-                    <p class="price">￥<?php echo $row4[5]; ?></p>
-            </div>
-        </a>
-    </div>
-</div>
-<!--主要产品oppo-main-content End -->
-<!-- ------------------------------------------------------产品系列oppo-goods Begin -->
+<?php
+        $q7 = "SELECT * FROM product where prodName like '%$search%' or prodDesc like '%$search%' or prodContent like '%$search%';";                   //SQL查询语句 -----在此处改表名
+        $rs7= mysql_query($q7, $conn);                     //执行sql查询
+        $count7=mysql_num_rows($rs7);
+        if ($count7==0) {
+                echo "<div class='tips w'>对不起,没有找到您想要的商品!</div>";
+        }else{
+?>
 <div class="oppo-goods w clearfix">
-    <div class="oppo-goods-title">新品系列 <i class="left"></i> <i class="right"></i></div>
+    <div class="oppo-goods-title">搜索结果 <i class="left"></i> <i class="right"></i></div>
     <ul class="goods-content">
-<!--         <li>    商品静态样式
-            <a href="#" class="picture"><img src="../images/oppo-goods2.jpg" alt=""/></a>
-            <a href="#" class="content">
-                <p class="goods-title">R9s 黑色版 <i> ￥2799 </i></p>
-                <p class="goods-desc">全新配色震撼上市</p>
-            </a>
-        </li> -->
             <?php
-                $q7 = "SELECT * FROM product order by prodAddTime DESC limit 0,12;";                   //SQL查询语句 -----在此处改表名
-                $rs7= mysql_query($q7, $conn);                     //执行sql查询
                 while ($row7=mysql_fetch_row($rs7)) {
 
           ?>
@@ -266,7 +163,7 @@
                 </a>
         </li>
         <?php
-                }
+                } }
         ?>
     </ul>
 </div>

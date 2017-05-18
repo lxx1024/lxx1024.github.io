@@ -20,7 +20,21 @@ $(function(){
     });
 });
 // 导航栏 End
+// -------------------------------------------------------------搜索栏 Begin
+$(function(){
+    var $txt = $('.dm-header .search .search-txt');
+    var $btn = $('.dm-header .search .search-btn');
+    $btn.click(function(){
+        console.log($txt.val());
+        if($txt.val()==""){
+            alert("请输入搜索关键字!");
+        }else{
+            window.location.href="static/prod-search.php?search="+$txt.val();
+        }
+    })
+})
 
+// 搜索栏End
 // ------------------------------------------------------------ 导航栏 Begin
 $(function(){
     var $navs = $('.goods-nav li a');   // 导航DOM元素

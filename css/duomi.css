@@ -1,0 +1,133 @@
+/*手机社区样式*/
+body {
+  background-color:#cdf6a8;
+}
+.dm-header .goods-nav {
+    font-size: 22px;
+    font-weight: bold;
+}
+.dm-header .goods-nav li{
+    float: left;
+    height: 100px;
+    line-height: 155px;
+    margin:0px 25px;
+
+}
+/*-----------------------------导航栏效果Begin-----------------*/
+.dm-header .nav-content li{
+  /*  width: 50%;
+    height: 40px;*/
+    line-height: 40px;
+    text-align: left;
+    position: absolute;
+    top: 140px;
+    left: 520px;
+    opacity: 0;
+    z-index: 999;
+    border: 1px solid #f5a7ec;
+    background: rgba(250,230,36,0.1);   /*改变导航栏透明度*/
+}
+
+.dm-header .nav-content li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin:0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.dm-header .nav-content li a:hover {
+    color: #3fcab8;
+}
+/*-----------------------------导航栏效果End-----------------*/
+
+.dm-header .cart {
+    margin-top: 55px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    background: none;
+}
+.dm-header .cart a {
+    color: #ff24d2;
+}
+.dm-header .cart .fa {
+    color: #ff24d2;
+    font-size: 30px;
+    left: 25px;
+    top: 40%;
+}
+/* ----------------------------------------- 面包屑导航wrapper Begin*/
+.wrapper {
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+    padding-left: 100px;
+}
+.wrapper .breadcrumb li{
+    float: left;
+    margin: 0px 5px;
+}
+.wrapper .breadcrumb a {
+    color: inherit;
+}
+
+/*面包屑导航 wrapper End*/   /*-----------以上是和商品详情页重复----------*/
+/* -----------------------------------------------哆咪文化duomi   Begin*/
+.duomi {
+    text-align: center;
+}
+.duomi h1 {
+    font-size: 30px;
+    line-height: 50px;
+    font-family: "楷体";
+}
+.duomi p {
+    font-size: 20px;
+    line-height: 36px;
+}
+/*哆咪文化duomi End
+/*底部Begin---------------------------------------------------------------------------------底部Begin*/
+.footer {
+     margin-top: 50px;
+      background: linear-gradient(to bottom,#cdf6a8, #a4e16c);
+}
+.footer .footer-logo {
+    color: #8a8a8a;
+}
+/*-------------底部分享链接---------*/
+.footer .footer-share a{
+    background: #8a8a8a;
+}
+
+.footer .footer-share a .fa {
+    color: #ffe8ea;
+}
+.footer .footer-share .line {
+    background: #666;
+}
+.footer .footer-share a:last-of-type {
+    color: #ffe8ea;
+}
+.footer .footer-share a:hover {
+    background: #009a72;
+}
+/*--------------底部相关网站链接 ---------*/
+.footer .footer-siteLinks a {
+    color: #000;
+}
+.footer .footer-siteLinks a:hover {
+    color: #009a72;
+}
+/*-------底部版权--------*/
+.footer .footer-copyright {
+    color: #000;
+}
+.footer .footer-copyright a {
+    color: inherit;
+}
+/*底部End----------------------------------------------------------------------------------底部End*/

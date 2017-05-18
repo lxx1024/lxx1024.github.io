@@ -5,20 +5,12 @@
     <title>哆咪-手机社区</title>
     <link rel="shortcut icon" href="../www.ico.dm.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/base.css"/>
-    <link rel="stylesheet" href="../css/topic-publish.css"/>
+    <link rel="stylesheet" href="../css/duomi.css"/>
     <link rel="stylesheet" href="../Font-Awesome-master/css/font-awesome.min.css">
 </head>
 <body>
 <?php
     session_start();     //登录系统开启一个session内容
-    if(! isset($_SESSION["userName"])){     //判断是否存在session对象
-  ?>
-  <script>
-      alert ("您还没登录!登录后可发表话题");
-      window.location.href="topic.php";
-  </script>
-  <?php
-   }
 ?>
 <!-- ------------------------------------通栏dm-shortcut  Begin -->
 <div class="dm-shortcut">
@@ -55,12 +47,12 @@
             </li>
             <li class="spacer"></li>
             <li class="fore2 dropdown">
-                <a href="#">我的哆咪</a>
+                <a href="javascript:;">我的哆咪</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dropdown">
-                <a href="buying-order.php">我的订单</a>
+                <a href="javascript:;">我的订单</a>
                 <i class="icon-arrow"><s>◇</s></i>
             </li>
             <li class="spacer"></li>
@@ -83,9 +75,8 @@
             <li><a href="javascript:;">品牌汇</a></li>
             <li><a href="prod-other.php?id=1">手机配件</a></li>
             <li><a href="prod-new.php">新品发布</a></li>
-            <li><a href="topic.php" class="col-main">手机社区</a></li>
+            <li><a href="topic.php">手机社区</a></li>
         </ul>
-          </ul>
          <ul class="nav-content">
             <li> </li>
             <li>
@@ -115,7 +106,7 @@
         </li>
     </ul>
          <div class="cart fr">
-        <a href="buying-car.php"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
+        <a href="javascript:;"><i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
         购物车  <span class="arrow-right"> > </span></a>
     </div>
     </div>
@@ -126,122 +117,31 @@
     <ul class="breadcrumb">
         <li><a href="../index.php">首 页 </a></li>
         <li> / </li>
-        <li><a href="topic.php">手机社区</a></li>
-        <li> / </li>
-        <li>发布帖子</li>
+        <li>哆咪文化</li>
     </ul>
 </div>
 <!-- 面包屑导航 wrapper End-->
-<!-----------------------------------------------------------------------------手机社区topic Begin-->
-<div class="topic w clearfix">
-    <!-- --------------------------------左边话题内容topic-left Begin -->
-    <div class="topic-left fl">
-              <form action="topic-publish1.php" method="post">
-                    <div class="title">
-                            <label for="title">标题:</label>
-                            <input type="text" name="title" maxlength="20">
-                            <span>标题限制在20个字内,必填</span>
-                    </div>
-                   <div class="descs">
-                            <label for="descs">简介:</label>
-                            <input type="text" name="descs" maxlength="30">
-                            <span>简介限制在30个字内,可不填</span>
-                    </div>
-                    <div class="content">
-                            <label for="content">内容:</label>
-                            <span>内容不限字数,必填</span>
-                            <textarea name="content" id="content" cols="83" rows="10"></textarea>
-                    </div>
-                    <div class="publish">
-                            <input type="submit" name="submit" value="立即发布">
-                    </div>
-              </form>
-    </div>
-    <!-- 左边话题内容topic-left End -->
-    <!----------------------------------- 右边发表话题及个人信息展示部分 topic-right Begin-->
-    <div class="topic-right fr">
-             <!-- 发布话题 -->
-            <div class="publish">
-                    <a href="#">
-                        <span>
-                             <i class="fa fa-file-text" aria-hidden="true"></i>
-                        </span>
-                        <b>发布帖子</b>
-                    </a>
-            </div>
-            <!-- 签到 -->
-         <div class="sign">
-                    <a href="#">
-                        <span>
-                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                        </span>
-                        <b class="signW">签到</b>
-                        <i class="number">签到 <b> 9999 </b> 人</i>
-                    </a>
-            </div>
-             <!-- 个人话题 -->
-         <!-- 判断会员是否登录 php代码 -->
-     <?php
-                if( isset($_SESSION["userName"])){     //判断是否存在session对象
-    ?>
-      <?php
-              include "../conn/conn.php";       //导入连接数据库php代码
-              $id = $_SESSION["userId"];
-              $q = "SELECT * FROM topic where userId='".$id."' order by publicTime DESC limit 0,8;";                   //SQL查询语句 -----在此处改表名
-              // type 为0 代表是热点话题
-               $result = mysql_query($q, $conn);                     //执行sql查询,
-               $num = mysql_num_rows($result);
-       ?>
-        <div class="person">
-                    <a href="topic-person.php?id=<?php echo "$id"?>">
-                        <span>
-                             <i class="fa fa-user" aria-hidden="true"></i>
-                        </span>
-                        <b class="signW">
-                              <?php
-                                      echo "${_SESSION["userName"]}";
-                             ?>
-                    </b>
-                        <i class="number">已发布 <b>  <?php  echo "$num" ?>  </b> 条帖子</i>
-                    </a>
-                    <ul class="topics">
-                    <?php
-                            while ($row=mysql_fetch_row($result)){
-                    ?>
-                            <li>
-                                <a href="topic-details.php?id=<?php   echo $row[0] ?>">
-                                        <h5>  <?php   echo $row[3] ?></h5>
-                                        <p> <?php   echo $row[4] ?></p>
-                                </a>
-                            </li>
-                  <?php
-                      }
-                      mysql_close($conn);    //关闭数据库
-                 ?>
-                    </ul>
-            </div>
-
-                <?php
-                     }else{
-                 ?>
-                <div class="person">
-                    <a href="login-topic.html">
-                        <span>
-                             <i class="fa fa-user" aria-hidden="true"></i>
-                        </span>
-                        <b class="signW">个人中心</b>
-                        <i class="login-go">请登录会员</i>
-                    </a>
-                    </div>
-
-             <?php
-                  }
-              ?>
-    </div>
-    <!-- 右边发表话题及个人信息展示部分 topic-right  End -->
+<div class="duomi w">
+      <h1>哆咪文化——激励自己</h1>
+      <p>我们最深的恐惧并非是我们力不能及。</br>
+            我们最深的恐惧是我们的力量无可限量。</br>
+            令我们恐惧的是我们的光芒，</br>
+            而不是我们的黑暗。</br>
+            我们都会扪心自问</br>
+            我是谁，怎样才能灿烂夺目，才华横溢？</br>
+            其实，你要问，你怎么能不是谁？你就是神之子。</br>
+            你的碌碌无为无益于世界。</br>
+            退缩并非明智之举，</br>
+            以为这样就不会让人们不安。</br>
+            我们注定要光彩照人,就像孩子一样。</br>
+            我们生来就是为了展现我们心中上帝的荣耀。</br>
+            它并非只是少数人拥有；而是藏在每个人的心中。</br>
+            当我们让自己的光芒闪耀，</br>
+            我们就在无意中默许他人去做同样的事。</br>
+            当我们从自己的恐惧中解放，</br>
+            我们就自然而然地解放他人！</p>
 </div>
-<!--手机社区topic End-->
-
+<!--哆咪文化duomi End-->
 <!---------------------------------------------------------------------------------------------底部通用 分界线 -->
 <div class="footer">
     <div class="w">
@@ -280,5 +180,8 @@
 <script src="../js/base.js"></script>
 <script src="../js/topic.js"></script>
 <script src="../js/index.js"></script>
+<script src="../js/go-to-car.js"></script>
+<script src="../js/go-to-order.js"></script>
+<script src="../js/go-to-user.js"></script>
 </body>
 </html>

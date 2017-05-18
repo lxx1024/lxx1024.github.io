@@ -73,10 +73,12 @@
     <div class="logo fl">
         <a href="index.php"><h1>哆咪手机商城</h1></a>
     </div>
-    <div class="search fl">
-        <input type="text" class="search-txt" placeholder="请输入搜索关键字"/>
+    <!-- 商品搜索部分Begin -->
+    <form class="search fl" action="static/prod-search.php">
+        <input type="text" class="search-txt" name="search" placeholder="请输入搜索关键字"/>
         <input type="button" class="search-btn" value="搜 索"/>
-    </div>
+    </form>
+    <!-- 商品搜索部分End -->
     <div class="cart fr">
         <i class="fa fa-shopping-cart icon-4x" aria-hidden="true"></i>
         <a href="javascript:;">我的购物车  <span class="arrow-right"> > </span></a>
@@ -88,10 +90,10 @@
     <ul class="nav">
         <li><a href="index.php" class="col-main">首页</a></li>
         <li><a href="javascript:;">品牌汇</a></li>
-        <li><a href="static/prod-index.php?id=1">手机配件</a></li>
+        <li><a href="static/prod-other.php?id=1">手机配件</a></li>
         <li><a href="static/prod-new.php">新品发布</a></li>
         <li><a href="static/topic.php">手机社区</a></li>
-        <li><a href="#">哆咪文化</a></li>
+        <li><a href="static/duomi.php">哆咪文化</a></li>
     </ul>
     <ul class="nav-content">
         <li> </li>
