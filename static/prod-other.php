@@ -73,7 +73,7 @@
         <a href="../index.php"><h1>哆咪手机商城</h1></a>
     </div>
     <!-- 商品搜索部分Begin -->
-    <form class="search fl" action="static/prod-search.php">
+    <form class="search fl" action="prod-search.php">
         <input type="text" class="search-txt" name="search" placeholder="请输入搜索关键字"/>
         <input type="button" class="search-btn" value="搜 索"/>
     </form>

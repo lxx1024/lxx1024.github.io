@@ -123,7 +123,7 @@ body {
     box-sizing: border-box;
     padding-top: 10px;
 }
-.order-form .order-box li.current {
+.order-form .order-box li.all {
     opacity: 1;
     display: block;
 }

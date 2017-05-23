@@ -59,31 +59,33 @@ window.location.href="login.html";
     </ul>
 </div>
 <!-- 侧边栏left-nav End-->
-
+    <?php
+            include 'conn/conn.php';
+            $id1 = $_SESSION["adminid"];
+            $q1 = "SELECT * FROM admin where adminId = $id1";
+            $result1 = mysql_query($q1, $conn);
+            $row1 = mysql_fetch_row($result1);
+    ?>
 <!--后台通用头部和侧边栏 End-->
 <!----------------------------------------主要内容主体 Begin-->
 <div class="main-content fr">
-    <h3>管理员权限说明 - - 您当前的身份是<span>超级管理员</span>!</h3>
-    <div class="super-admin fl">
-        <h5>超级管理员权限:</h5>
-        <p>管理员信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>会员信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>商品分类管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>商品信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>商品订单管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>留言信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>报表统计分析<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-    </div>
-    <div class="general-admin fr">
-        <h5>普通管理员权限:</h5>
-        <p>管理员信息管理<i class="fa fa-times-circle-o" aria-hidden="true"></i></p>
-        <p>会员信息管理<i class="fa fa-times-circle-o" aria-hidden="true"></i></p>
-        <p>商品分类管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>商品信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>商品订单管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>留言信息管理<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-        <p>报表统计分析<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
-    </div>
+        <div class="index">
+                <img src="images/domi.png" height="100" width="300" alt="">
+
+                <?php
+                        if ($row1[3]==0) {
+                ?>
+                <h3>您当前的身份是:<span>超级管理员</span>!<br/>
+                欢迎登录哆咪手机商城后台管理系统</h3>
+               <?php
+                        }else{
+                ?>
+               <h3>您当前的身份是:<span>普通管理员</span>!<br/>
+                欢迎登录哆咪手机商城后台管理系统</h3>
+                <?php
+                        }
+                ?>
+        </div>
 </div>
 <!--主要内容主体 End-->
 </body>

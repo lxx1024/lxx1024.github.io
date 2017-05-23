@@ -231,7 +231,7 @@
                            <!-- 订单里的商品详情Begin -->
                             <div class="prod-details clearfix">
 
-                                     <a class="product-img fl" href="" target="_blank">
+                                     <a class="product-img fl" href="goods-details.php?id=<?php echo $row2[2];?>" target="_blank">
                                     <?php
                                              $img=$row3[8];
                                              $imgs=explode(",",$img);

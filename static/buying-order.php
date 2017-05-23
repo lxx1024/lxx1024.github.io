@@ -132,7 +132,7 @@
             </ul>
             <ul class="order-box clearfix">
             <!-- 全部订单内容 Begin -->
-                    <li class="current">
+                    <li class="current all">
                             <!-- 订单内容Begin -->
                             <?php
                                      $userId=$_SESSION['userId'];
@@ -165,7 +165,7 @@
                                            <!-- 订单里的商品详情Begin -->
                                             <div class="prod-details clearfix">
 
-                                                     <a class="product-img fl" href="" target="_blank">
+                                                     <a class="product-img fl" href="goods-details.php?id=<?php echo $row2[2];?>" target="_blank">
                                                     <?php
                                                              $img=$row3[8];
                                                              $imgs=explode(",",$img);
@@ -255,7 +255,127 @@
                     </li>
             <!-- 全部订单内容 End -->
             <!-- 待收货订单内容Begin -->
-                    <li>待收货内容</li>
+                     <li class="current">
+                            <!-- 订单内容Begin -->
+                            <?php
+                                     $userId=$_SESSION['userId'];
+                                     $result1=mysql_query("select * from orders where userId=$userId and stateId < 5;");  //订单表
+                                     while($row1 = mysql_fetch_row($result1)){
+                                            // echo $row1[0]."订单";
+                                            // echo $row1[1]."用户";
+                                            // echo $row1[2]."地址";
+                                            // echo $row1[3]."状态";
+                                            // echo $row1[4]."时间";
+                            ?>
+                            <div class="orders clearfix">
+                                    <div class="message">
+                                            <span><?php  echo $row1[4]; ?></span>
+                                            订单编号:<span class="order-id"><?php  echo $row1[0]; ?></span>
+                                    </div>
+                                    <div class="product fl">
+                                    <?php
+                                            $result2=mysql_query("select * from order_detail where orderId='".$row1[0]."';");  //订单详情表
+                                            $allPrice = 0;
+                                            while($row2 = mysql_fetch_row($result2)){
+                                                // echo $row2[1]; //订单id  ----- $row1[0]
+                                                // echo $row2[2]; //商品id
+                                                // echo $row2[3]; //商品数量
+                                                $result3=mysql_query("select * from product where prodId='".$row2[2]."';");  //商品信息表
+                                                $row3= mysql_fetch_row($result3);
+                                                // echo $row3[1];  //商品名称
+                                                $allPrice = $allPrice + $row2[3]*$row3[5];   //订单总额
+                                    ?>
+                                           <!-- 订单里的商品详情Begin -->
+                                            <div class="prod-details clearfix">
+
+                                                     <a class="product-img fl" href="goods-details.php?id=<?php echo $row2[2];?>" target="_blank">
+                                                    <?php
+                                                             $img=$row3[8];
+                                                             $imgs=explode(",",$img);
+                                                             foreach ($imgs as $key => $value) {
+                                                                    if ($key==0 && $value!="") {
+                                                   ?>
+
+                                                                            <img src="../admin/<?php   echo $value ?>">      <!--商品图片-->
+
+                                                   <?php
+                                                                    }else  if($key==0 && $value==""){
+                                                                            echo "暂无图片";
+                                                                    }
+                                                                }
+                                                    ?>
+                                                    </a>
+                                                    <div class="product-info fl">
+                                                            <h3 class="title"><a href="" target="_blank"><?php echo $row3[1]; ?></a></h3>
+                                                            <p>
+                                                            <?php
+                                                                     $attr = "SELECT * FROM attribute where prodId='".$row3[0]."';";                   //SQL查询语句 -----在此处改表名
+                                                                      $attrRs = mysql_query($attr, $conn);                     //执行sql查询
+                                                                     while ($attrName=mysql_fetch_row($attrRs)){
+                                                                           echo"<span>".$attrName[2]."</span>";     //循环输出属性名称
+                                                                    }
+                                                          ?>
+                                                          </p>
+                                                   </div>
+                                                    <div class="product-price fr">
+                                                             <span class="price">￥<?php echo $row3[5]; ?></span>
+                                                             <span class="num">x <?php echo $row2[3]; ?></span>
+                                                    </div>
+                                            </div>
+                                            <!-- 订单里的商品详情End -->
+                                        <?php
+                                             }
+                                        ?>
+                                    </div>
+                                    <div class="other fl clearfix">
+                                    <?php
+                                             // echo $row1[2]."地址id";
+                                              $result4=mysql_query("select * from address where addressId='".$row1[2]."';");  //地址信息表
+                                              $row4= mysql_fetch_row($result4);
+
+                                    ?>
+                                            <span class="addr-name"><?php echo $row4[3]; ?></span><br/>
+                                            <span class="addr">  <?php echo $row4[1]; ?> <?php echo $row4[4]; ?></span>
+                                    </div>
+                                    <div class="other fl">
+                                            订单总额 <br/>
+                                            <span class="price">￥<?php echo $allPrice; ?></span>
+                                    </div>
+                                    <?php
+                                               $result5=mysql_query("select * from order_state where stateId='".$row1[3]."';");  //订单状态表
+                                               $row5=mysql_fetch_row($result5);
+                                    ?>
+                                    <div class="other fl">
+                                            订单状态<br/>
+                                            <span class="state"><?php echo $row5[1]; ?></span><br/>
+                                            <a href="buying-order-details.php?id=<?php echo $row1[0]; ?>">订单详情</a>
+                                    </div>
+                                    <div class="other fl">
+                                            订单操作<br/>
+                                <?php
+                                    if ($row1[3]<5) {
+                                ?>
+                                            <a href="buying-state-edit.php?id=<?php echo $row1[0]; ?>" onclick="return confirm('确定确认收货?');" class="make">确认收货</a><br/>
+                                            <a href="buying-state-cancel.php?id=<?php echo $row1[0]; ?>" onclick="return confirm('确定取消订单?');" class="cancel">取消订单</a>
+                                <?php
+                                    }else if($row1[3]==7){
+                                ?>
+                                            <a href="javascript:;" class="cancel">已取消订单</a>
+                                <?php
+                                    }else{
+                                ?>
+                                            <a href="javascript:;" class="cancel">已确认收货</a>
+                                <?php
+                                    }
+                                ?>
+                                    </div>
+                            </div>
+
+                            <!-- 订单内容End -->
+                            <?php
+                                }
+                            ?>
+                    </li>
             </ul>
             <!-- 待收货订单内容End -->
 </div>

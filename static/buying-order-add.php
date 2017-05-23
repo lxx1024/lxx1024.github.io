@@ -27,6 +27,7 @@
               echo $row2[1]."用户id";
               echo $row2[2]."商品id";
               echo $row2[3]."商品数量";
+
               // 添加该订单下的所有商品及对应的数量到订单表(商品订单id,商品id,商品数量)
                $sql1 = "insert into order_detail (orderId,prodId,orderNum)  values('$row1[0]','$row2[2]','$row2[3]');";
               if(mysql_query($sql1,$conn)){
@@ -37,6 +38,11 @@
               //删除原来购物车该商品的记录 (根据购物车id)
               mysql_query("DELETE FROM cart WHERE id='$value';");
 
+              // 更新商品信息的销售数量
+               $result3=mysql_query("select * from product where prodId=$row2[2];");
+               $row3=mysql_fetch_row($result3);
+               $num =  $row3[4] + $row2[3];
+              mysql_query("UPDATE product SET salsNum='$num' WHERE prodId='$row2[2]'");
       }
 ?>
 <script>

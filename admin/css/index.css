@@ -4,41 +4,24 @@
     line-height: 50px;
 }
 /*主要内容主体 End*/
+.main-content .index {
+    width: 95%;
+    height: 550px;
+    background: white;
+    text-align: center;
+}
+.main-content .index img {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    width: 600px;
+    height: 200px;
+}
 .main-content h3 {
     font-size: 26px;
+    font-family: "楷体";
+    color: #666;
 }
 .main-content h3 span {
-    color: #eaea00;
+    color: #006cea;
     font-weight: bold;
-}
-.main-content .super-admin,.main-content .general-admin {
-    width: 50%;
-
-}
-.main-content .super-admin h5,.main-content .general-admin h5{
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 60px;
-}
-.main-content .super-admin h5 {
-    color: #eaea00;
-
-}
-.main-content .general-admin h5 {
-    color: #befffa;
-}
-.main-content .super-admin p,.main-content .general-admin p{
-    width: 200px;
-    font-size: 22px;
-    text-indent: 2px;
-    position: relative;
-}
-.main-content .fa {
-    position: absolute;
-    right: 0px;
-    top: 15px;
-    color: #11ec11;
-}
-.main-content .fa-times-circle-o {
-    color: red;
 }

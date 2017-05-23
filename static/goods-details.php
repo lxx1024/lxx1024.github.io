@@ -238,7 +238,7 @@
                     <p class="fl">服务</p>
                     <ul class="service-list fl">
                         <li><a href="javascript:;"><i>厂</i>厂家服务</a></li>
-                        <li><a href="#"><i>承</i>哆咪承诺</a></li>
+                        <li><a href="javascript:;"><i>承</i>哆咪承诺</a></li>
                         <br/>
                         <li><a href="javascript:;"><i>正</i>正品行货</a></li>
                         <li><a href="javascript:;"><i>保</i>全国联保</a></li>

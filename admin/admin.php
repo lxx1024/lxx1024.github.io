@@ -80,6 +80,13 @@ window.location.href="login.html";
             <input type="submit" name="submit" value="保存" onclick="return confirm('确定修改当前登录账号信息');"/>
         </form>
     </div>
+    <?php
+            $id1 = $_SESSION["adminid"];
+            $q1 = "SELECT * FROM admin where adminId = $id1";
+            $result1 = mysql_query($q1, $conn);
+            $row1 = mysql_fetch_row($result1);
+            if ($row1[3]==0) {
+    ?>
     <!-- 以下是超级管理员拥有的权限---管理员信息管理 -->
     <div class="admin-add-form">
         <div class="admin-add"><a href="admin-add.php">添加管理员</a></div>
@@ -120,7 +127,9 @@ window.location.href="login.html";
                     }
 
                 ?>
-
+        <?php
+                }
+        ?>
             </table>
         </form>
     </div>
