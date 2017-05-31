@@ -45,6 +45,22 @@
         </form>
     </div>
 </div>
+<script src="../js/jquery.min.js"></script>
+<script>
+            var $phone = $('.user-phone');
+            var $btn = $('.register-submit');
+            $btn.click(function(){
+                 var phone = $phone.val();
+                 if(isPhone(phone)==false){
+                        alert("手机输入格式不对");
+                        return;
+                 }
+            })
+            function isPhone(phone) {
+               var pattern = /^1[3|4|5|7|8]\d{9}$/;
+               return pattern.test(phone);
+            }
+</script>
 <!---------------------------底部---------------------->
 <div class="footer">
     <div class="w">
